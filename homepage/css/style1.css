@@ -1,0 +1,94 @@
+.nav-link {
+    color: black;
+}
+
+#judul {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+    font-size: 35pt;
+}
+
+li {
+    font-family: 'Roboto', sans-serif;
+    list-style-type: none;
+    font-size: 12pt;
+}
+
+ul {
+    font-family: 'Roboto', sans-serif;
+    padding-left: 0;
+}
+
+#list {
+    font-family: 'Roboto', sans-serif;
+    float: left;
+    display: block;
+    padding: 12px;
+}
+
+i {
+    font-size: 15pt;
+}
+
+#footlog {
+    font-family: 'Roboto', sans-serif;
+    float: left;
+    display: block;
+    padding: 20px;
+}
+
+a {
+    font-family: 'Roboto', sans-serif;
+    font-size: 11.7pt;
+    font-weight: 500;
+}
+
+.box {
+    font-family: 'Roboto', sans-serif;
+    width: 950px;
+    height: 70px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+.box > i {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16pt;
+    color: rgb(182, 182, 182);
+}
+
+.box > input {
+    font-family: 'Roboto', sans-serif;
+    flex: 1;
+    height: 60px;
+    border: none;
+    outline: none;
+    font-size: 13pt;
+    padding-left: 10px;
+}
+
+#nav {
+    font-family: 'Roboto', sans-serif;
+    border-radius: 5px;
+}
+
+#nav:hover {
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+}
+
+#alphabet > li {
+    font-family: 'Roboto', sans-serif;
+    float: left;
+    padding: 2.75px;
+}
+
+.box1 {
+    font-family: 'Roboto', sans-serif;
+    background-color: rgb(226, 226, 226);
+    border-radius: 10px;
+}
+
