@@ -19,7 +19,7 @@
     <div class="container">
         <div class="row mt-5">
             <div class="col-2">
-                <img src="image/drugs1.png" width="95">
+                <img src="img/drugs1.png" width="95">
             </div>
             <div class="col-2">
                 <h5><b>SUPPORT</b></h5>
