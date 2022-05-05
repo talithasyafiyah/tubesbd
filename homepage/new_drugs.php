@@ -5,7 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="bootstrap-5.1.3/dist/css/bootstrap.css">
-    <title>ya</title>
+    
+    <title>Drugs Approval</title>
+    <link rel="icon" href="img/drugs1.png" type="image/png">
+    <script src="https://kit.fontawesome.com/769f430edb.js" crossorigin="anonymous"></script>
     <style>
         a{
             text-decoration: none;
@@ -14,8 +17,11 @@
     </style>
 </head>
 <body>
+<?php
+include 'layout/header.php';
+?>
     <div class="container">
-        <div class="row align-items-start">
+        <div class="row">
           <div class="col-md-8 py-5">
             <div class="input-group mb-3">
                 <input type="text" class="form-control" placeholder="Search News"  aria-describedby="button-addon2">
@@ -23,6 +29,7 @@
             </div>
             <br>
             
+        
             <main id="container" class="container">
 
 	
@@ -691,6 +698,10 @@
                 </dl>
             </div>
             
+            
+        </div>
+
+        <div class="col-md-4">
             <div class="alert alert-secondary" role="alert">
                 <h4>Subscribe to our newsletters</h4>
               <div class="form-check">
@@ -727,5 +738,10 @@
             </div>
         </div>
     </div>
+<?php
+include 'layout/footer.php';
+?>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 </body>
 </html>

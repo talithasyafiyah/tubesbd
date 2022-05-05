@@ -1,7 +1,7 @@
    <!-- navbar -->
     <div class="container-fluid" style="background-image: url('image/nav.jpg');">
     <nav class="navbar navbar-expand-lg ms-5 me-5">
-            <a class="navbar-brand" href="#"><img src="image/Drugs_002.png" width="380"></a>
+            <a class="navbar-brand" href="#"><img src="img/Drugs_002.png" width="380"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
