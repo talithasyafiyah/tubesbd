@@ -7,7 +7,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav ms-auto">
-                <a class="nav-link px-2" href="./drugsaz" id="nav">Drugs A-Z</a>
+                <a class="nav-link px-2" href="./drugsaz.php" id="nav">Drugs A-Z</a>
                 <a class="nav-link ms-3 me-1 px-1" href="./imprint.php" id="nav">Pill Identifier</a>
                 <a class="nav-link ms-3 me-1 px-1" href="#" id="nav">Interactions Checker</a>
                 <a class="nav-link ms-3 me-1 px-1" href="./new_drugs.php" id="nav">New Drugs</a>

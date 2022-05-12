@@ -74,14 +74,14 @@
                             </a>
                         </li>
 
-                        <li class="sidebar-title">Other</li>
+                        <!-- <li class="sidebar-title">Other</li>
 
-                        <li class="sidebar-item <?php if($page == "Report") {echo 'active';}?> ">
+                        <li class="sidebar-item ">
                             <a href="https://zuramai.github.io/mazer/docs" class='sidebar-link'>
                                 <i class="fa-solid fa-print"></i>
                                 <span>Report</span>
                             </a>
-                        </li>
+                        </li> -->
 
                     </ul>
                 </div>

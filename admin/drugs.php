@@ -45,7 +45,7 @@ require_once './layout/navbar.php';
                 <div class="page-title">
                     <div class="row">
                         <div class="col-12 col-md-6 order-md-1 order-last">
-                            <h3>Drugs</h3>
+                            <h3>Drugs</h3> <a type="button" class="btn btn-outline-primary btn-sm mb-3"  href="insertDrugs.php"><i class="fa fa-plus-circle orange_color"></i> Add <?php echo $page; ?> </a>
                         </div>
                         <div class="col-12 col-md-6 order-md-2 order-first">
                             <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">

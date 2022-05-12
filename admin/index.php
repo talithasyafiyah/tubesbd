@@ -63,7 +63,7 @@ require_once 'layout/navbar.php';
                                                     $users = mysqli_query($koneksi,"SELECT * FROM user");
                                                     $users_count = mysqli_num_rows($users);
                                                     ?>
-                                                    <h6 class="font-extrabold mb-0"><?php echo $users_count; ?></h6>
+                                                    <h6 class="font-extrabold mb-0"><?=$users_count;?></h6>
                                                 </div>
                                             </div>
                                         </div>
@@ -84,7 +84,7 @@ require_once 'layout/navbar.php';
                                                     $drugs = mysqli_query($koneksi,"SELECT * FROM drugs");
                                                     $drugs_count = mysqli_num_rows($drugs);
                                                     ?>
-                                                    <h6 class="font-extrabold mb-0"><?php echo $drugs_count; ?></h6>
+                                                    <h6 class="font-extrabold mb-0"><?=$drugs_count;?></h6>
                                                 </div>
                                             </div>
                                         </div>
@@ -101,7 +101,11 @@ require_once 'layout/navbar.php';
                                                 </div>
                                                 <div class="col-md-8">
                                                     <h6 class="text-muted font-semibold">Treatments</h6>
-                                                    <h6 class="font-extrabold mb-0">80.000</h6>
+                                                    <?php
+                                                    $treatments = mysqli_query($koneksi,"SELECT * FROM treatment");
+                                                    $treatments_count = mysqli_num_rows($treatments);
+                                                    ?>
+                                                    <h6 class="font-extrabold mb-0"><?=$treatments_count;?></h6>
                                                 </div>
                                             </div>
                                         </div>
@@ -117,8 +121,12 @@ require_once 'layout/navbar.php';
                                                     </div>
                                                 </div>
                                                 <div class="col-md-8">
-                                                    <h6 class="text-muted font-semibold">News</h6>
-                                                    <h6 class="font-extrabold mb-0">112</h6>
+                                                    <h6 class="text-muted font-semibold">Drug Approvals</h6>
+                                                    <?php
+                                                    $approvals = mysqli_query($koneksi,"SELECT * FROM drug_approval");
+                                                    $approvals_count = mysqli_num_rows($approvals);
+                                                    ?>
+                                                    <h6 class="font-extrabold mb-0"><?=$approvals_count;?></h6>
                                                 </div>
                                             </div>
                                         </div>
