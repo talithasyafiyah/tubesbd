@@ -162,8 +162,8 @@ include 'layout/navHome.php';
                     <div class="card h-100">
                     <img src="https://www.drugs.com/img/home/tile-banner-fda.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text"><b>Drug Safety Communication - FDA Recommends Thyroid Monitoring in Babies and Young Children Who Receive Injections of Iodine-Containing Contrast Media for Medical Imaging</b></p>
+                        <h6 class="card-title" style="color: red;">FDA Medwatch Alerts</h6>
+                        <p class="card-text"><b>FDA Issues Warning Letters to Companies Illegally Selling CBD and Delta-8 THC Products</b></p>
                     </div>
                     </div>
                 </div>
@@ -171,8 +171,8 @@ include 'layout/navHome.php';
                     <div class="card h-100">
                     <img src="https://www.drugs.com/img/home/tile-banner-new-drugs.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text"><b>FDA Approves Tlando (testosterone undecanoate) for Male Hypogonadism</b></p>
+                        <h6 class="card-title">New Drug Approvals</h6>
+                        <p class="card-text"><b><a href="new_drugs.php" style="color: black">FDA Approves Cuvrior (trientine tetrahydrochloride) Tablets for Wilson's disease</a></b></p>
                     </div>
                     </div>
                 </div>
@@ -180,7 +180,7 @@ include 'layout/navHome.php';
                     <div class="card h-100">
                     <img src="https://consumer.healthday.com/media-library/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbWFnZSI6Imh0dHBzOi8vYXNzZXRzLnJibC5tcy8yNjg0MzE1My9vcmlnaW4uanBnIiwiZXhwaXJlc19hdCI6MTY4MjkwODM3NX0.EpxfZr8u9Dy6y0_n1NbGKotheLEy80cS7upcKvkiX08/image.jpg?width=800&coordinates=0%2C0%2C0%2C0&height=600?resize=320:240" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
+                        <h6 class="card-title">Medical News</h6>
                         <p class="card-text"><b>House Passes Bill To Limit Insulin Costs to $35 a Month</b></p>
                     </div>
                     </div>

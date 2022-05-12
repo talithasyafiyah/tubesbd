@@ -57,9 +57,9 @@ include 'layout/header.php';
                         ?>
                             <h2 class="ddc-media-title"><a href="/pro/alymsys.html"><?=$data['new_drug']; ?></a></h2>
                                 <p class="drug-subtitle">
-                                <b>Company:</b><a href="/manufacturer/amneal-pharmaceuticals-llc-19.html"><?=$data['company'];?></a><br>
-                                <b>Date of Approval:</b><?=date('F d, Y', strtotime($data["date_approval"])); ?><br>
-                                <b>Treatment for:</b><?=$data['treatment_name']; ?><br>
+                                <b>Company: </b><a href="/manufacturer/amneal-pharmaceuticals-llc-19.html"><?=$data['company'];?></a><br>
+                                <b>Date of Approval: </b><?=date('F d, Y', strtotime($data["date_approval"])); ?><br>
+                                <b>Treatment for: </b><?=$data['treatment_name']; ?><br>
                                 </p>
                                 <p><?=$data['content']; ?></p>
                         <?php } ?>
