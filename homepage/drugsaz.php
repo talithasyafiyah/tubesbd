@@ -90,52 +90,27 @@ include "layout/header.php";
                                 <div class="col px-0"><button class="button button4">0-9</button></div>
                               </div>
                         </div>
-                        <div class="category mt-lg-5">
-                            <h2>Browse Drugs by Category</h2>
-                            <div class="container">
-                                <div class="row row-cols-2 row-cols-lg-3">
-                                  <div class="col"><a href="#">Drug Side Effects</a></div>
-                                  <div class="col"><a href="#">Drugs by Pharma Company</a></div>
-                                  <div class="col"><a href="#">Medical Q & A</a></div>
-                                  <div class="col"><a href="#">Drug Dosage</a></div>
-                                  <div class="col"><a href="#">Generic Drug Status</a></div>
-                                  <div class="col"><a href="#">Compare Drugs</a></div>
-                                  <div class="col"><a href="#">Pregnancy Warnings</a></div>
-                                  <div class="col"><a href="#">Veterinary Drugs</a></div>
-                                  <div class="col"><a href="#">Natural Products</a></div>
-                                  <div class="col"><a href="#">Breastfeeding Warnings</a></div>
-                                  <div class="col"><a href="#">OTC Drugs</a></div>
-                                  <div class="col"><a href="#">Pricing & Coupons</a></div>
-                                  <div class="col"><a href="#">Treatment Options</a></div>
-                                  <div class="col"><a href="#">UK Drug Database</a></div>
-                                  <div class="col"><a href="#">Inactive Ingredients</a></div>
-                                  <div class="col"><a href="#">Drugs by Class</a></div>
-                                  <div class="col"><a href="#">International Drug Database</a></div>
-                                  <div class="col"><a href="#">Info en Español</a></div>
-                                </div>
-                            </div>
-                         </div>
+
                         <div class="popular mt-lg-5 mb-lg-5">
                             <h2>Popular Drug Searches</h2>
+                                
                             <div class="container">
                                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
-                                  <div class="col"><a href="#">Acetaminophen</a></div>
-                                  <div class="col"><a href="#">Cyclobenzaprine</a></div>
-                                  <div class="col"><a href="#">Januvia</a></div>
-                                  <div class="col"><a href="#">Omeprazole</a></div>
-                                  <div class="col"><a href="#">Acetaminophen</a></div>
-                                  <div class="col"><a href="#">Acetaminophen</a></div>
-                                  <div class="col"><a href="#">Acetaminophen</a></div>
-                                  <div class="col"><a href="#">Acetaminophen</a></div>
-                                  <div class="col"><a href="#">Acetaminophen</a></div>
-                                  <div class="col"><a href="#">Acetaminophen</a></div>
-                                  <div class="col"><a href="#">Acetaminophen</a></div>
-                                  <div class="col"><a href="#">Acetaminophen</a></div>
-                                  <div class="col"><a href="#">Acetaminophen</a></div>
-                                  <div class="col"><a href="#">Acetaminophen</a></div>
-                                  <div class="col"><a href="#">Acetaminophen</a></div>
-                                  <div class="col"><a href="#">Acetaminophen</a></div>
-                                </div>
+                                  <div class="col">
+                                  <?php 
+                                    require_once '../admin/includes/koneksi.php';
+                                    $query = mysqli_query($koneksi, "SELECT * FROM drugs WHERE drug_id < 20");
+                                    foreach ($query as $row) { 
+                              ?>                                       
+                                        <form method='POST' action='drugsdetail.php'>
+                                        <input hidden type='text' name='drug_name' value=<?php echo $row["drug_name"];?>>
+                                        <button type='submit' name='btnDrug' class='btn btn-success' style="background-color: rgb(40, 93, 185, 0); color: blue; border: none;">
+                                        <?php echo $row["drug_name"];?></button></form>
+                                <?php } ?>
+                                  </div>
+                                  
+                                 </div>
+                                    
                             </div>
                         </div>
                         <div class="consumer mt-lg-5">

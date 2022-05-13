@@ -222,6 +222,13 @@ include 'layout/navHome.php';
 
             <div class="col-7">
                 <p><b>Drugs.com</b> is the most popular, comprehensive and up-to-date source of drug information online. Providing free, peer-reviewed, accurate and independent data on more than 24,000 prescription drugs, over-the-counter medicines & natural products.</p>
+                
+                <?php 
+                    require_once '../admin/includes/koneksi.php';
+                    $query = "SELECT * FROM news where news_id < 7";
+                    $hasil = mysqli_query($koneksi, $query);
+                    foreach($hasil as $data) {
+                ?>
                 <div class="card mb-3" style="width: auto;">
                     <div class="row g-0">
                         <div class="col-md-4">
@@ -229,43 +236,18 @@ include 'layout/navHome.php';
                         </div>
                         <div class="col-md-8">
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <p class="card-text"><small class="text-muted">Today News for Health Professionals</small></p>
+                            <h5 class="card-title"><?php echo $data['title']; ?> </h5>
+                            <p class="card-text"> <?php echo $data['content']; ?> </p>
+                            <p class="card-text"><small class="text-muted"> <?php echo strftime("%A, %d %B %Y", strtotime($data['created_at'])) ?> | <?php echo $data['author']; ?> </small></p>
                         </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="card mb-3" style="width: auto;">
-                    <div class="row g-0">
-                        <div class="col-md-4">
-                        <img src="//www.drugs.com/images/hdi/hd104506.jpg" class="img-fluid rounded-start" alt="...">
-                        </div>
-                        <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <p class="card-text"><small class="text-muted">Today News for Health Professionals</small></p>
-                        </div>
-                        </div>
-                    </div>
-                </div>
+                <?php 
+                    }
+                ?>
 
-                <div class="card mb-3" style="width: auto;">
-                    <div class="row g-0">
-                        <div class="col-md-4">
-                        <img src="//www.drugs.com/images/hdi/hd104506.jpg" class="img-fluid rounded-start" alt="...">
-                        </div>
-                        <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <p class="card-text"><small class="text-muted">Today News for Health Professionals</small></p>
-                        </div>
-                        </div>
-                    </div>
-                </div>
             </div>
             <div class="col-2">
                 <div class="box1 text-center">

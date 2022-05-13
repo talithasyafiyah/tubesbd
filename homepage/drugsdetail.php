@@ -1,3 +1,11 @@
+<?php 
+include '../admin/includes/koneksi.php';
+$id = $_POST['drug_id'];
+$query = mysqli_query($koneksi, "SELECT * FROM drugs WHERE drug_id= $id");
+$query2= mysqli_fetch_array($query); 
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -50,43 +58,31 @@ include 'layout/header.php';
         <div class="row row-cols-2">
             <div class="col-9 ">
               <p style="font-size: 13px;"> <a href="" style="color: grey;"> Drugs A to Z</a>  </p>
-                <h1><bold>Acetaminophen</bold></h1>
-                <p><b>generic name : </b> acetaminophen (oral) [ a- <i>SEET-a-MIN-oh-fen ]</i>  <br>
-                    <b>Brand names : </b> Actamin, Anacin AF, Aurophen, Bromo Seltzer, Children's Tylenol, Mapap, M-Pap,
-                     Pharbetol, Silapap Childrens, Tactinal, Tempra Quicklets, Tycolene, Tylenol, Vitapap
+
+              <?php
+                require_once '../admin/includes/koneksi.php';
+                $query = mysqli_query($koneksi, "SELECT * FROM drugs WHERE drug_id =$id");
+                foreach($query as $row) {
+              ?>
+              <input hidden type="text" name="name" value="<?php echo $data['drug_name']; ?>">
+                <h1><bold><?php echo $data['drug_name']; ?></bold></h1>
+                <p><b>generic name : </b> <?php echo $data['generic_name']; ?>  <br>
+                    <b>Brand names : </b> <?php echo $data['brand_name']; ?>
                      <br>
-                     <b>Dosage forms : </b> oral capsule (325 mg; 500 mg); oral granule, effervescent (650 mg);
-                      oral liquid (160 mg/5 mL; 325 mg/10.15 mL; 500 mg/15 mL; 650 mg/20.3 mL); oral powder (500 mg); 
-                      oral suspension (160 mg/5 mL; 650 mg/20.3 mL); oral tablet (325 mg; 500 mg); oral tablet, 
-                      chewable (160 mg; 80 mg);
-                      oral tablet, disintegrating (160 mg; 325 mg; 80 mg); oral tablet, extended release (650 mg)
+                     <b>Dosage forms : </b> <?php echo $data['dosage_form']; ?>
                       <br>
-                      <b>Drug class : </b> <a href="">Miscellaneous analgesics</a>
+                      <b>Drug class : </b> <a href=""><?php echo $data['drug_class']; ?></a>
                       <br>
                 </p>
                 <br>
 
                   <!--what is ...-->
 
-                <h2> <bold>What is acetaminophen?</bold> </h2>
+                <h2> <bold>What is <?php echo $data['drug_name']; ?>?</bold> </h2>
                 <div>
-                  <p>Acetaminophen is a <a href=""> pain reliever </a> and a fever reducer. </p> 
-                  <p>Acetaminophen is used to treat mild to moderate and pain, to treat moderate to severe pain in
-                   conjunction with opiates, or to reduce fever. Common conditions treated include headache, muscle 
-                   aches, <a href="">arthritis</a> , backache, toothaches, sore throat, colds, flu, and <a href="">fevers</a> .</p> 
-                    
-                    <p> Acetaminophen is also available in many over-the-counter combination medications with other drugs, 
-                    including Actifed, Alka-Seltzer Plus Liquid Gels, Cepacol, Contac, Coridicin, Dayquil, Dimetapp, 
-                    Dristan, Excedrin, Feverall, Liquiprin, Midol, Nyquil, Panadol, Robitussin Singlet, Sinutab, Sudafed,
-                     Theraflu, Triaminic, Vanquish, Vicks, and Zicam.</p> 
-                    
-                    <p> Acetaminophen is also found in many prescription combination drugs, including Butalbital, Endocet,
-                     Fioricet, Hycotab, Hydrocet, Hydrocodone bitartrate, Lortab, Percocet, Phenaphen, Sedapap, Tapanol,
-                      Tylenol with codeine, Tylox, Ultracet, Vicodin, and Zydone.</p> 
-                    
-                    <p> Acetaminophen is typically used orally, but can be given intravenously.</p> 
+                <?php echo $data['definition']; ?>
                 </div>
-
+              <?php } ?>
                
             </div>
                                       
