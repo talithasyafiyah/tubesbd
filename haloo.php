@@ -1,5 +1,5 @@
 <?php 
-include 'koneksi.php';
+include 'admin/includes/koneksi.php';
 $id = $_POST['treatment_id'];
 $query = mysqli_query($koneksi, "SELECT * FROM treatment WHERE treatment_id= $id");
 $query2= mysqli_fetch_array($query); 
@@ -24,7 +24,7 @@ $query2= mysqli_fetch_array($query);
 <body>
 
     <?php 
-        include 'koneksi.php';
+        include 'admin/includes/koneksi.php';
         $hasil = mysqli_query($koneksi, "SELECT * FROM drugs INNER JOIN treatment on drugs.drug_id=treatment.drug_id WHERE treatment_id =$id " );
         $hasil2 = mysqli_fetch_array($hasil);
 

@@ -25,7 +25,7 @@
 <body>
     <h2><b>List conditions</b></h2>
     <?php 
-    include 'koneksi.php';
+    include 'admin/includes/koneksi.php';
     $query = mysqli_query($koneksi, "SELECT * FROM treatment WHERE treatment_id < 10");
     foreach($query as $row){ ?>
 
