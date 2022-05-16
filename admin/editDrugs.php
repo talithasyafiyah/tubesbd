@@ -3,7 +3,7 @@ session_start();
    if(empty($_SESSION['level'])) {
       echo "<script>alert('Sorry, you are not allowed to access this page.'); document.location='./../homepage/login.php'</script>";
    }
-   require_once 'includes/koneksi.php';
+require_once 'includes/koneksi.php';
 $page = "Drugs";
 /* $username = $_SESSION['username']; */
 ?>
@@ -65,13 +65,10 @@ require_once './layout/navbar.php';
                     <div class="row match-height">
                         <div class="col-md-12 col-12">
                             <div class="card">
-                                <div class="card-header">
-                                    <h4 class="card-title">Horizontal Form</h4>
-                                </div>
                                 <div class="card-content">
                                     <div class="card-body">
                                         <?php
-                                        require_once'includes/koneksi.php';
+                                        require_once 'includes/koneksi.php';
                                         $drug_id = $_POST['drug_id'];
                                         $query = "SELECT * FROM drugs WHERE drug_id='$drug_id'";
                                         $hasil = mysqli_query($koneksi, $query);

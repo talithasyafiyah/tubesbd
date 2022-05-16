@@ -48,7 +48,7 @@ include 'layout/navHome.php';
                         <!-- item -->
                         <div class="item">
                             <div class="card border-0" style="width: 110px;">
-                                <img src="https://www.drugs.com/img/home/side-effects.png" alt="image" class="card-img-top">
+                                <a href="#"><img src="https://www.drugs.com/img/home/side-effects.png" alt="image" class="card-img-top"></a>
                                 <span style="font-size: 13pt; font-weight: 550;" class="text-center mt-3">Side<br>Effects</span> 
                             </div>
                         </div>
@@ -56,8 +56,8 @@ include 'layout/navHome.php';
                         <!-- item -->
                         <div class="item">
                             <div class="card border-0" style="width: 110px;">
-                                <img src="https://www.drugs.com/img/home/treatment-guides.png" alt="image" class="card-img-top">
-                                <span style="font-size: 13pt; font-weight: 550;" class="text-center mt-3">Treatment<br>Guides</span> 
+                                <a href="treatment.php"><img src="https://www.drugs.com/img/home/treatment-guides.png" alt="image" class="card-img-top"></a>
+                                <span style="font-size: 13pt; font-weight: 550;" class="text-center mt-3"><a href="treatment.php" style="color: black; text-decoration: none;">Treatment<br>Guides</span></a>
                             </div>
                         </div>
                         <!-- end item -->

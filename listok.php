@@ -34,14 +34,12 @@
     <ul class="list-group list-group-flush">
 
         <li class="list-group-item">
-            <form action="haloo.php" method="POST">
+            <form action="homepage/treatmentDetails.php" method="POST">
 
                 <input hidden type="text" name="treatment_id" value=<?php echo $row["treatment_id"]; ?>>
                 <button type="submit" name="nt" class="iykh">  
                     <?php echo $row["treatment_name"]; ?> 
                 </button>
-
-
             </form>
         </li>
 

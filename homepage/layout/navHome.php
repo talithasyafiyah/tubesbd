@@ -14,7 +14,7 @@
                 <a class="nav-link ms-3 me-1 px-1" href="#" id="nav">Pro Edition</a>
                 <a class="nav-link ms-3 me-1 px-1" href="#" id="nav">More</a>
                 <a class="nav-link ms-3 me-1 px-1" href="./register.php" style="color: blue;">Register</a>
-                <a class="nav-link ms-3 me-1 px-1" href="./login.php" id="nav" style="background-color: white; border-radius: 5px; width: 80px; text-align: center; border: .5px solid black;">Sign In</a>
+                <a class="nav-link ms-3 me-1 px-1" href="./login.php" id="nav1" style="background-color: white; border-radius: 5px; width: 80px; text-align: center; border: .5px solid black;">Sign In</a>
                 
             </div>
             </div>

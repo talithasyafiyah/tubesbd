@@ -52,7 +52,7 @@ require_once './layout/navbar.php';
                         <div class="col-12 col-md-6 order-md-2 order-first">
                             <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="pillident.php"><?php echo $page; ?></a></li>
+                                    <li class="breadcrumb-item"><a href="news.php"><?php echo $page; ?></a></li>
                                     <li class="breadcrumb-item active" aria-current="page">Edit <?php echo $page; ?></li>
                                 </ol>
                             </nav>
@@ -84,7 +84,7 @@ require_once './layout/navbar.php';
                                                 $time = $_POST['created_at'];
                                                 
                                                 if ($koneksi) {
-                                                    $sql = "UPDATE news SET title='$title', content='$content', author='$author', created_at='$time' WHERE news_id=$no";
+                                                    $sql = "UPDATE news SET title='$title', content='$content', author='$author', date_approval='$time' WHERE news_id=$no";
                                                     $row = mysqli_query($koneksi,$sql);
                                                     echo "<br><p class='alert alert-primary text-center'><b>Data has been updated.</p>";
                                                 } else {
@@ -118,7 +118,7 @@ require_once './layout/navbar.php';
                                                             name="author">
                                                     </div>
                                                     <div class="col-md-4">
-                                                        <label>Time</label>
+                                                        <label>Created at</label>
                                                     </div>
                                                     <div class="col-md-8 form-group">
                                                         <input value="<?php echo $data['created_at']; ?>" type="text" id="created_at" class="form-control"

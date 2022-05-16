@@ -84,8 +84,8 @@ require_once 'layout/navbar.php';
                                                 <td>".$row['author']."</td>
                                                 <td>".$row['created_at']."</td>
                                                 <td>
-                                                    <form method='POST' action='ubah.php'>
-                                                        <input hidden type='text' name='id' value=".$row['news_id'].">
+                                                    <form method='POST' action='editNews.php'>
+                                                        <input hidden type='text' name='news_id' value=".$row['news_id'].">
                                                         <button type='submit' name='btnUpdate' class='btn btn-success btn-sm'>
                                                             <i class='fa fa-edit'></i>
                                                         </button>
