@@ -1,8 +1,8 @@
 <?php
-/* session_start();
+session_start();
    if(empty($_SESSION['level'])) {
-      echo "<script>alert('Sorry, you are not allowed to access this page.'); document.location='../pages/login.php'</script>";
-   } */
+      echo "<script>alert('Sorry, you are not allowed to access this page.'); document.location='./../homepage/login.php'</script>";
+   }
 $page = "Drug Approval";
 require_once './includes/koneksi.php';
 

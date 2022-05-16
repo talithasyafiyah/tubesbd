@@ -1,19 +1,4 @@
-<?php
-require 'functions.php';
-
-if( isset($_POST["submit"])) {
-    
-    if( registrasi($_POST) > 0 ) {
-        echo "<script>
-                alert('You have successfully registered!')
-            </script>";
-    } else {
-        echo mysqli_error($conn);
-    }
-}
-
-
-?><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -61,7 +46,6 @@ include 'layout/header.php'
 
     <!--Grid Kiri-->
     <!--baris 1-->
-    <form action="" method="post">
     <div class="container mt-2 mb-5 ">
         <div class="row row-cols-2">
             <div class="col-8">
@@ -74,46 +58,43 @@ include 'layout/header.php'
                     </p>
                     <form action="">
                         <div class="form-group col-9">
-                            <label for="email">Email Address</label>
-                            <input type="text" name="email" id="email" class="form-control" placeholder="Insert Your Email " required autocomplete="off">
+                            <label for="">Email Address</label>
+                            <input type="text" name="" class="form-control" placeholder="Insert Your Email ">
                         </div>
 
                         <div class="form-group col-8">
-                            <label for="username">Username</label>
-                            <input type="text" name="username" id="username" class="form-control" placeholder="Insert Your Username " required autocomplete="off">
+                            <label for="">Username</label>
+                            <input type="text" name="" class="form-control" placeholder="Insert Your Username ">
                         </div>
                         <div class="form-group col-8">
-                            <label for="password">Password</label>
-                            <input type="password" name="password" id="password" class="form-control" placeholder="Insert Your Password " required autocomplete="off">
+                            <label for="">Password</label>
+                            <input type="password" name="" class="form-control" placeholder="Insert Your Password ">
                         </div>
                         <div class="form-group col-8">
-                            <label for="age">Age</label>
-                            <input type="age" name="age" id="age" class="form-control" placeholder="Insert Your Age " required autocomplete="off" >
-                            <!--<span > Age :</span> 
-                            <select name="age" id="age"  data-live-validate class="ddc-width-one-half mt-1" >
+                            <span > Age :</span> 
+                            <select name="age"  data-live-validate class="ddc-width-one-half mt-1" id="">
                                 <option value disabled selected > -- select -- </option>
-                                <option value="8"> <18 </option>
+                                <option value="8"><18</option>
                                 <option value="2">18-24</option>
                                 <option value="3">25-34</option>
                                 <option value="4">35-44</option>
                                 <option value="5">45-54</option>
                                 <option value="6">55-64</option>
                                 <option value="7">>65</option>  
-                            </select>-->
+                            </select>
                         </div>
                         <div class="form-group ml-3 mt-3">
                             <label for="">Healthcare Professionals</label>
 
                             <input type="checkbox" id="healthcarepro" name="healthcarepro" value="healthcarepro"> I am a Healthcare Professional
-                        </div> 
+                        </div>
 
-                        <button type="submit" name="submit" class="btn btn-primary ml-3 mt-2">Create Account</button>
+                        <button type="submit" class="btn btn-primary ml-3 mt-2">Create Account</button>
                     </form>
                 </div>
             </div>
         </div> 
     </div>
-    </form>
      
 <?php
 include 'layout/footer.php';

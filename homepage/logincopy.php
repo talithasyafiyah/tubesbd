@@ -1,69 +1,3 @@
-<?php
-session_start();
-
-//cek cookie
-//if( isset($_COOKIE['login']) ) {
-//    if( $_COOKIE['login'] == 'true' ) {
-//        $_SESSION['login'] = true;
-//    }
-  //  }
-
-//    if( isset($_SESSION["login"] ) ) {
- //   header("location: index.php");
- //   exit;
-//    }
-
-require 'functions.php';
-
-    if( isset($_POST["login"])) {
-
-        $username = $_POST["username"];
-        $password = $_POST["password"];
-
-        $result = mysqli_query($conn, "SELECT * FROM user WHERE username = '$username'");
-
-        //cek username
-        if( mysqli_num_rows($result) === 1 ) {
-
-            // cek password
-            $row = mysqli_fetch_assoc($result);
-            $username = $row['username'];
-            $email = $row['email'];
-
-            if( password_verify($password, $row["password"])) {
-                if ($row['level'] == 'User') {
-                    $_SESSION['username'] = $username;
-                    $_SESSION['email'] = $email;
-                    $_SESSION['level'] = "User";
-                    header("location: index.php");
-                    exit;
-                } else if ($row['level'] == "Admin"){
-                    $_SESSION['username'] = $username;
-                    $_SESSION['email'] = $email;
-                    $_SESSION['level'] = "Admin";
-                    header("location: ../admin/index.php");
-                    exit;
-                }
-
-                // set session
-                //$_SESSION["login"] = true;
-
-                // cek remember me
-              //  if( isset($_POST['remember']) ) {
-                    // buat cookie
-               ///     setcookie('login', 'true', time() + 60 )
-             //   }
-
-
-            }
-
-        }
-
-        $error = true;
-    }
-
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -114,9 +48,6 @@ include 'layout/header.php'
 
     <!--Grid Kiri-->
     <!--baris 1-->
-
-    
-    <form action="" method="post">
     <div class="container mt-3 mb-5 pb-3">
         <div class="row row-cols-2">
             <div class="col-8">
@@ -125,31 +56,22 @@ include 'layout/header.php'
                     <p class="ml-3 ">
                         New to Drugs.com?  <a href="register.php">Create an account</a>
                     </p>
-                    <form action="" method="post" class=" border pt-3">
+                    <form action="" class=" pt-3">
                         <div class="form-group col-6">
-                            <label  for="username">Username</label>
-                            <input type="text"  name="username" id="username" class="form-control" placeholder="Insert Your Username" >
+                            <label for="">Email or Username</label>
+                            <input type="text" name="" class="form-control" >
                         </div>
                         <div class="form-group col-6">
-                            <label for="password">Password</label>
-                            <input type="password" name="password" id="password" class="form-control" placeholder="Insert Your Password " autocomplete="off" required>
+                            <label for="">Password</label>
+                            <input type="password" name="" class="form-control" placeholder="Insert Your Password ">
                         </div>
-                       <!-- <div class="form-group  pl-3">
-                            <input type="checkbox" name="remember" id="remember">
-                            <label for="remember">Remember Me</label>
-                        </div> -->
-                        <?php if( isset($error) ) : ?>
-                          <p style="color: red; font-style: italic; margin-left: 20px;"> Username or password was incorrect.</p>
-                        <?php endif; ?>
-                        
 
-                        <button type="submit" name="login" class="btn btn-primary ml-3 mt-2">Sign In</button> 
+                        <button type="submit" class="btn btn-primary ml-3 mt-2">Sign In</button> 
                     </form>
                 </div>
             </div>
         </div> 
     </div>
-    </form>
 
 <?php
 include 'layout/footer.php';
