@@ -5,6 +5,6 @@ unset($_SESSION['password']);
 unset($_SESSION['level']);
 
 session_destroy();
-echo "<script>alert('You have successfully logged out.');document.location='login.php'</script>"
+echo "<script>alert('You have successfully logged out.');document.location='index.php'</script>"
 
 ?>

@@ -5,7 +5,7 @@ if( isset($_POST["submit"])) {
     
     if( registrasi($_POST) > 0 ) {
         echo "<script>
-                alert('You have successfully registered!')
+                alert('You have successfully registered!'); document.location='overviewAcc.php'
             </script>";
     } else {
         echo mysqli_error($conn);
@@ -55,7 +55,12 @@ if( isset($_POST["submit"])) {
 </head>
 <body>
 <?php
-include 'layout/header.php'
+session_start();
+if(empty($_SESSION['level'])) {
+    include 'layout/header.php';
+} else {
+    include 'layout/header1.php';
+}
 ?>
     <!--CONTENT-->
 

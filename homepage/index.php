@@ -20,7 +20,12 @@
 <body>
 
 <?php
-include 'layout/navHome.php';
+session_start();
+if(empty($_SESSION['level'])) {
+    include 'layout/navHome.php';
+} else {
+    include 'layout/navHome1.php';
+}
 ?>
 
     <!-- icon carousel -->

@@ -48,7 +48,12 @@ $query2= mysqli_fetch_array($query);
 </head>
 <body>
 <?php
-include 'layout/header.php';
+session_start();
+if(empty($_SESSION['level'])) {
+    include 'layout/header.php';
+} else {
+    include 'layout/header1.php';
+}
 ?>
     <!--CONTENT-->
 

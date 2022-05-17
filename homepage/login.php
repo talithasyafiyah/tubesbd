@@ -29,17 +29,20 @@ require 'functions.php';
             $row = mysqli_fetch_assoc($result);
             $username = $row['username'];
             $email = $row['email'];
+            $pass = $row['password'];
 
             if( password_verify($password, $row["password"])) {
                 if ($row['level'] == 'User') {
                     $_SESSION['username'] = $username;
                     $_SESSION['email'] = $email;
+                    $_SESSION['password'] = $pass;
                     $_SESSION['level'] = "User";
                     header("location: index.php");
                     exit;
                 } else if ($row['level'] == "Admin"){
                     $_SESSION['username'] = $username;
                     $_SESSION['email'] = $email;
+                    $_SESSION['password'] = $pass;
                     $_SESSION['level'] = "Admin";
                     header("location: ../admin/index.php");
                     exit;
@@ -107,7 +110,11 @@ require 'functions.php';
 <body>
 
 <?php
-include 'layout/header.php'
+if(empty($_SESSION['level'])) {
+    include 'layout/header.php';
+} else {
+    include 'layout/header1.php';
+}
 ?>
 
     <!--CONTENT-->
