@@ -82,21 +82,21 @@ include 'layout/header1.php';
                                         <label><b>Username</b></label>
                                     </div>
                                     <div class="col-md-8 form-group">
-                                        <input value="<?=$_SESSION['username'];?>" type="text" id="form" class="form-control"
+                                        <input value="<?=$_SESSION['username'];?>" type="text" class="form-control"
                                             name="username">
                                     </div>
                                     <div class="col-md-4">
                                         <label><b>Email</b></label>
                                     </div>
                                     <div class="col-md-8 form-group">
-                                        <input value="<?=$_SESSION['email'];?>" type="text" id="form" class="form-control"
+                                        <input value="<?=$_SESSION['email'];?>" type="text" class="form-control"
                                             name="email">
                                     </div>
                                     <div class="col-md-4">
                                         <label><b>Password</b></label>
                                     </div>
                                     <div class="col-md-8 form-group">
-                                        <input value="<?=$_SESSION['password'];?>" type="password" id="form" class="form-control"
+                                        <input value="<?=$_SESSION['password'];?>" type="password" class="form-control"
                                             name="password">
                                     </div>
                                 </div>

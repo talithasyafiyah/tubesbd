@@ -105,8 +105,8 @@ include 'layout/header1.php';
                                     $sql = "INSERT INTO medlist (profile_name, emergency_contact, primary_physician, other_details, user_id) VALUES ('$profile','$emergency','$physician','$other','$id')";
 																			
 			                        if($koneksi->query($sql)===TRUE){
-                                        header("location: medlistDetails.php");
-                                        echo "<script>setTimeout(\"<p class='alert alert-success text-center'><b>New profile added.</b></p>;\",1500);</script>";
+                                        echo "<p class='alert alert-success text-center'><b>New Profile added.</b></p>";
+                                        echo "<script>setTimeout(\"location.href = 'medlistDetails.php';\",1500);</script>";
 			                        } else {
 				                        echo "Terjadi kesalahan:".$sql."<br/>".$koneksi->error;
 			                        }             

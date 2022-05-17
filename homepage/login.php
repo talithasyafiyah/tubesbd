@@ -13,6 +13,8 @@ session_start();
  //   exit;
 //    }
 
+
+
 require 'functions.php';
 
     if( isset($_POST["login"])) {
@@ -27,30 +29,28 @@ require 'functions.php';
 
             // cek password
             $row = mysqli_fetch_assoc($result);
+            if( password_verify($password, $row["password"]) ) {
+                $data = mysqli_query($conn, "SELECT * FROM user WHERE username = '$username'");
+                $hasil = mysqli_fetch_assoc($data);
+                $cekuser = $hasil['level'];
+                $email = $hasil['email'];
+                $user_id = $hasil['user_id'];
 
-            if( password_verify($password, $row["password"])) {
-                $data = mysqli_query($koneksi, "SELECT * FROM user WHERE username = '$username'");
-                $multi = mysqli_fetch_assoc($data);
-                $username = $row['username'];
-                $email = $row['email'];
-                $pass = $multi['password'];
-                $id = $multi['user_id'];
-
-                if ($row['level'] == 'User') {
+                if($cekuser == "User") {
                     $_SESSION['username'] = $username;
+                    $_SESSION['password'] = $password;
                     $_SESSION['email'] = $email;
-                    $_SESSION['password'] = $pass;
-                    $_SESSION['user_id'] = $id;
+                    $_SESSION['user_id'] = $user_id;
                     $_SESSION['level'] = "User";
-                    header("location: index.php");
+                    header("location:index.php");
                     exit;
-                } else if ($row['level'] == "Admin"){
+                } elseif ($cekuser == "Admin") {
                     $_SESSION['username'] = $username;
+                    $_SESSION['password'] = $password;
                     $_SESSION['email'] = $email;
-                    $_SESSION['password'] = $pass;
-                    $_SESSION['user_id'] = $id;
+                    $_SESSION['user_id'] = $user_id;
                     $_SESSION['level'] = "Admin";
-                    header("location: ../admin/index.php");
+                    header("location:../admin/index.php");
                     exit;
                 }
 
@@ -63,6 +63,8 @@ require 'functions.php';
                ///     setcookie('login', 'true', time() + 60 )
              //   }
 
+                header("location: index.php");
+                exit;
 
             }
 
@@ -116,11 +118,7 @@ require 'functions.php';
 <body>
 
 <?php
-if(empty($_SESSION['level'])) {
-    include 'layout/header.php';
-} else {
-    include 'layout/header1.php';
-}
+include 'layout/header.php'
 ?>
 
     <!--CONTENT-->
