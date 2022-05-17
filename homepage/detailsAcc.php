@@ -65,7 +65,7 @@ include 'layout/header1.php';
             <div class="container mt-lg-5">
                 <div class="row">
                     <div class="col-8">
-                        <h1><b>Your Account</b></h1>
+                        <h1><b>Account Details</b></h1>
                             <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
                                 <a href="overviewAcc.php"><input type="submit" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
                                 <label class="btn btn-outline-dark" for="btnradio1">Overview</label></a>

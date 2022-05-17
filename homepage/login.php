@@ -27,15 +27,20 @@ require 'functions.php';
 
             // cek password
             $row = mysqli_fetch_assoc($result);
-            $username = $row['username'];
-            $email = $row['email'];
-            $pass = $row['password'];
 
             if( password_verify($password, $row["password"])) {
+                $data = mysqli_query($koneksi, "SELECT * FROM user WHERE username = '$username'");
+                $multi = mysqli_fetch_assoc($data);
+                $username = $row['username'];
+                $email = $row['email'];
+                $pass = $multi['password'];
+                $id = $multi['user_id'];
+
                 if ($row['level'] == 'User') {
                     $_SESSION['username'] = $username;
                     $_SESSION['email'] = $email;
                     $_SESSION['password'] = $pass;
+                    $_SESSION['user_id'] = $id;
                     $_SESSION['level'] = "User";
                     header("location: index.php");
                     exit;
@@ -43,6 +48,7 @@ require 'functions.php';
                     $_SESSION['username'] = $username;
                     $_SESSION['email'] = $email;
                     $_SESSION['password'] = $pass;
+                    $_SESSION['user_id'] = $id;
                     $_SESSION['level'] = "Admin";
                     header("location: ../admin/index.php");
                     exit;

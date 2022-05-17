@@ -91,7 +91,7 @@ include 'layout/header1.php';
                                 <svg class="ddc-icon ddc-icon-medication-guide" width="30" height="30" viewBox="0 0 24 24" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path d="M18 12a2.75 2.75 0 012.75 2.75v5a2.75 2.75 0 11-5.5 0v-5A2.75 2.75 0 0118 12zM12.34 1.5c.4 0 .8.14 1.1.4l.13.11 4.67 4.67c.28.28.46.66.5 1.06l.01.17V11h-1.5V9H13c-.92 0-1.67-.7-1.74-1.6l-.01-.15V3H5.5a.25.25 0 00-.24.2l-.01.05v17.5c0 .12.08.22.2.24l.05.01H14v1.5H5.5c-.92 0-1.67-.7-1.74-1.6l-.01-.15V3.25c0-.92.7-1.67 1.6-1.74l.15-.01h6.84zM19.25 18h-2.5v1.75c0 .65.5 1.18 1.12 1.24L18 21c.69 0 1.25-.56 1.25-1.25V18zm-7.3-1.5V18h-4.6v-1.5h4.6zm6.05-3c-.69 0-1.25.56-1.25 1.25v1.75h2.5v-1.75c0-.65-.5-1.18-1.12-1.24zM13.87 12v1.5H7.34V12h6.54zm-1.12-8.69v3.94c0 .12.08.22.2.24l.05.01h3.94L12.75 3.3z"></path></svg>
                             </div>
                             <div class="col-11">
-                                <a href=""><h4 class="text-start"> My Med List</h4></a>
+                                <a href="1medlist.php"><h4 class="text-start"> My Med List</h4></a>
                                 <p>
                                     Manage your list of drugs and conditions, with detailed interaction warnings. Get notified of new treatments or alerts.
                                 </p>
