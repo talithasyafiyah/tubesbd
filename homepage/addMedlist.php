@@ -93,7 +93,10 @@ include 'layout/header1.php';
 
                                 <button type="submit" class="btn btn-lg mb-5" name="btnAdd" style="background-color: rgb(59, 83, 161);  color: white;">Save</button>
                                 
-                                <?php
+                            </form>
+                        </div>
+                        <div class="row">
+                            <?php
                                 require_once'../admin/includes/koneksi.php';
                                                     
                                 if(isset($_POST['btnAdd'])){
@@ -105,14 +108,15 @@ include 'layout/header1.php';
                                     $sql = "INSERT INTO medlist (profile_name, emergency_contact, primary_physician, other_details, user_id) VALUES ('$profile','$emergency','$physician','$other','$id')";
 																			
 			                        if($koneksi->query($sql)===TRUE){
-                                        echo "<p class='alert alert-success text-center'><b>New Profile added.</b></p>";
+                                        echo '<div class="alert alert-primary text-center" role="alert">
+                                        <b><b>New Profile added.</b>
+                                        </div>';
                                         echo "<script>setTimeout(\"location.href = 'medlistDetails.php';\",1500);</script>";
 			                        } else {
 				                        echo "Terjadi kesalahan:".$sql."<br/>".$koneksi->error;
 			                        }             
                                 }
-                                ?>
-                            </form>
+                            ?>
                         </div>
                     </div>
                 </div>
