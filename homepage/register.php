@@ -5,7 +5,7 @@ if( isset($_POST["submit"])) {
     
     if( registrasi($_POST) > 0 ) {
         echo "<script>
-                alert('You have successfully registered!'); document.location='overviewAcc.php'
+                alert('You have successfully registered!'); document.location='login.php'
             </script>";
     } else {
         echo mysqli_error($conn);

@@ -25,7 +25,20 @@
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                     <li><a class="dropdown-item" href="#">Account Settings</a></li>
-                    <li><a class="dropdown-item" href="#">My Med List</a></li>
+                    <li><a class="dropdown-item" href="
+                    <?php
+                    require_once '../admin/includes/koneksi.php';
+
+                    $id = $_SESSION['user_id'];
+                    $result = mysqli_query($koneksi, "SELECT * FROM medlist WHERE user_id = '$id'");
+                        
+                    if( mysqli_num_rows($result) === 1 ) {
+                        echo './medlistDetails.php';
+                    } else {
+                        echo './1medlist.php';
+                    }
+                    ?>
+                    ">My Med List</a></li>
                     <li><a class="dropdown-item" href="./logout.php"><button type="button" class="btn mb-4" style="background-color: rgb(59, 83, 161); color: white;">Sign Out</button></a></li>
                 </ul>
                 </div>

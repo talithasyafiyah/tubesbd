@@ -69,8 +69,21 @@
                       <?=$_SESSION['username']; ?>
                     </button>
                       <ul class="dropdown-menu dropdown-menu-end">
-                        <li><a class="dropdown-item" href="#">Account Settings</a></li>
-                        <li><a class="dropdown-item" href="#">My Med List</a></li>
+                        <li><a class="dropdown-item" href="./overviewAcc.php">Account Settings</a></li>
+                        <li><a class="dropdown-item" href="
+                        <?php
+                        require_once '../admin/includes/koneksi.php';
+
+                        $id = $_SESSION['user_id'];
+                        $result = mysqli_query($koneksi, "SELECT * FROM medlist WHERE user_id = '$id'");
+                        
+                        if( mysqli_num_rows($result) === 1 ) {
+                          echo './medlistDetails.php';
+                        } else {
+                          echo './1medlist.php';
+                        }
+                        ?>
+                        ">My Med List</a></li>
                         <li><a class="dropdown-item" href="./logout.php"><button type="button" class="btn btn-primary">Sign Out</button></a></li>
                     </ul>
                 </div>
