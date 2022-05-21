@@ -1,52 +1,50 @@
 <?php 
 include '../admin/includes/koneksi.php';
 $id = $_POST['drug_id'];
-$query = mysqli_query($koneksi, "SELECT * FROM drugs WHERE drug_id= $id");
+$query = mysqli_query($koneksi, "SELECT * FROM drugs WHERE drug_id = '$id'");
 $query2= mysqli_fetch_array($query); 
-
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel='stylesheet' href='css/ddc-pack-site.min.2af34de6.css'>
-    <link rel='stylesheet' href='css/ddc-print.min.07943132.css' media='print'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-    <script src="https://kit.fontawesome.com/769f430edb.js" crossorigin="anonymous"></script>
-
-    <title>Pill Identifier - Drugs.Com</title>
+    <title><?php echo $query2["drug_name"]; ?></title>
     <link rel="icon" href="img/drugs1.png" type="image/png">
     <link rel="stylesheet" href="css/style1.css">
-    <style>
-        .isi {
-            margin-left: 12px;
-            padding-left: 4px;
-            font-size: 20px;
-        }
-        .form-check {
-            margin-left: 10px;
-            font-size: 15px;
-            padding-bottom: 3px;
-        }
-        .form {
-            margin-left: 10px;
-        }
-        .hint {
-          height: 160px;
-          width: 230px;
-        }
-        .popularpill {
-          margin-top: 12px;
-        }
-    </style>
+    <script src="https://kit.fontawesome.com/769f430edb.js" crossorigin="anonymous"></script>
 </head>
+
+<style>
+.button4 {
+  background-color: #e7e7e7;
+  color: rgb(0, 0, 0);
+  border: 2px solid #e7e7e7;
+  font-size: 16px;
+  margin: 4px 2px;
+  width: 40px;
+}
+
+.button4:hover {background-color: #000000; color:white;}
+.cari{
+    font-size: 15px;
+}
+.adsearch{
+    text-align: right;
+}
+.nav-link{
+    text-align: center;
+}
+.Recently{
+    text-align: left;
+}
+</style>
+
 <body>
+
 <?php
 session_start();
 if(empty($_SESSION['level'])) {
@@ -55,101 +53,137 @@ if(empty($_SESSION['level'])) {
     include 'layout/header1.php';
 }
 ?>
-    <!--CONTENT-->
 
-    <!--Grid Kiri-->
-    <!--baris 1-->
-    <div class="container mt-4 ">
-        <div class="row row-cols-2">
-            <div class="col-9 ">
-              <p style="font-size: 13px;"> <a href="" style="color: grey;"> Drugs A to Z</a>  </p>
-
-              <?php
-                require_once '../admin/includes/koneksi.php';
-                $query = mysqli_query($koneksi, "SELECT * FROM drugs WHERE drug_id =$id");
-                foreach($query as $row) {
-              ?>
-              <input hidden type="text" name="name" value="<?php echo $data['drug_name']; ?>">
-                <h1><bold><?php echo $data['drug_name']; ?></bold></h1>
-                <p><b>generic name : </b> <?php echo $data['generic_name']; ?>  <br>
-                    <b>Brand names : </b> <?php echo $data['brand_name']; ?>
-                     <br>
-                     <b>Dosage forms : </b> <?php echo $data['dosage_form']; ?>
-                      <br>
-                      <b>Drug class : </b> <a href=""><?php echo $data['drug_class']; ?></a>
-                      <br>
-                </p>
-                <br>
-
-                  <!--what is ...-->
-
-                <h2> <bold>What is <?php echo $data['drug_name']; ?>?</bold> </h2>
-                <div>
-                <?php echo $data['definition']; ?>
-                </div>
-              <?php } ?>
-               
-            </div>
-                                      
-            <!--Grid Kanan-->
-            <div class="col-3 mt-5 pl-4">
-                <img src="img/logo/Situs.png" alt="">
-            
-                <div class="border mt-1" style="border-radius: 11px; background-color:rgb(228, 228, 228);">
-                    <div class="isi">
-                        <h5>Subscribe To Our Newsletter</h5>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                        <label class="form-check-label" for="exampleRadios1">
-                        FDA Safety Alerts
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                        <label class="form-check-label" for="exampleRadios2">
-                        Daily MedNews
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                        <label class="form-check-label" for="exampleRadios2">
-                        Monthly Letters
-                        </label>
-                    </div>
-                    <div class="form-check pb-3">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                        <label class="form-check-label" for="exampleRadios2">
-                            I accept the Terms and Privacy Policy
-                        </label>
-                    </div>
-                    <form>
-                        <div class="form-row align-items-center ml-2">
-                          <div class="col pl-2">
-                            <label class="sr-only" for="inlineFormInput">Email</label>
-                            <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Enter Email">
-                          </div>
-                          <div class="col ">
-                            <button type="submit" class="btn btn-primary mb-2">Submit</button>
-                          </div>
+<!-- Content-->
+    <div class="container-xxl">
+        <div class="main">
+            <div class="container mt-lg-5">
+                <div class="row">
+                    <div class="col-8">
+                        <h1><b>Medications for <?=$query2['drug_name'];?></b></h1>
+                        <p><?=$query2['definition'];?></p>
+                        
+                        <h3><b>Drug used to treat <?=$query2['drug_name'];?></b></h3>
+                        <p>The following list of medications are in some way related to or used in the treatment of this condition.</p>
+                        
+                        <div class="accordion accordion-flush" id="accordionFlushExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="flush-headingOne">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                    <?=$query2['drug_name'];?>
+                                    </button>
+                                </h2>
+                                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                    <div class="accordion-body" > 
+                                    <a href="#"><?=$query2['drug_name'];?></a> <br>
+                                    Generic Name : <?=$query2['generic_name'];?> <br>  Class : <?=$query2['drug_class'];?> <br></div>
+                                </div>
+                            </div>
                         </div>
-                      </form>
+                        <div class="consumer mt-lg-5">
+                            <h2>Consumer Drug Sources</h2>
+                            <div class="row">
+                                <div class="col-sm-4"><img src="img/cerner-logo.png"></div>
+                                <div class="col-sm-8">
+                                <h5><a href="#">Cerner Multum Consumer Drug Information</a></h5>
+                                <p>Multum leaflets provide basic consumer drug information, such as drug descriptions and interactions, details of possible side effects and the effects of missed doses and overdosing, as well as instructions for use. The leaflets are available in English and Spanish.</p>
+                                </div>
+                                <div class="col-sm-4"><img src="img/ibm-logo.png"></div>
+                                <div class="col-sm-8">
+                                    <h5><a href="#">IBM Watson Micromedex Consumer Information (Advanced)</a></h5>
+                                    <p>IBM Watson Micromedex Advanced Consumer Information provides comprehensive consumer information pertaining to a wide variety of drugs, such as a list of commonly used brand names, drug descriptions, warnings and precautions, and detailed information on the proper use of each drug.</p>   
+                                </div>                                
+                            </div>
+                        </div>
+                        <div class="Profesional mt-lg-5">
+                            <h2>Professional Drug Sources</h2>
+                            <div class="row">
+                                <div class="col-sm-4"><img src="img/ashp-logo.png"></div>
+                                <div class="col-sm-8">
+                                <h5><a href="#">AHFS DI Monographs</a></h5>
+                                <p>Multum leaflets provide basic consumer drug information, such as drug descriptions and interactions, details of possible side effects and the effects of missed doses and overdosing, as well as instructions for use. The leaflets are available in English and Spanish.AHFS DI from the American Society of Health-System Pharmacists (ASHP) is the most comprehensive source of unbiased and authoritative drug information available to health professionals today. A wholly independent staff of drug information pharmacists and other professional editorial and analytical staff thoroughly research AHFS DI content. Authors incorporate clinical research findings, therapeutic guidelines, and Food and Drug Administration (FDA) approved labeling to ensure that monographs include an evidence-based foundation for safe and effective drug therapy.</p>
+                                </div>
+                                <div class="col-sm-4"><img src="img/fda-logo.png"></div>
+                                <div class="col-sm-8">
+                                    <h5><a href="#">FDA Professional Drug Information</a></h5>
+                                    <p>The Professional Drug Information database is a repository of drug information sourced directly from the FDA. It includes detailed notes on the clinical pharmacology of a wide variety of drugs.</p>   
+                                </div> 
+                                <div class>
+                                    <h5><a href="#">Professional Patient Advice</a></h5>
+                                    <p>Drugs.com provides A-Z Patient Advice for the professional.</p>
+                                </div>                              
+                            </div>
+                        </div>
+                        <div class="Natural mt-lg-5 mb-lg-5">
+                            <h2>Natural Product Sources</h2>
+                            <div class="row">
+                            <div class>                            
+                            <h5><a href="#">Natural Product Information (Consumer)</a></h5>
+                            <p>The Natural Product Information (Consumer) database is a comprehensive source of information on traditional and/or conventional uses of natural products. A basic overview of each product is provided (including dosages, possible drug interactions, side effects and contraindications) along with safety and/or efficacy ratings.</p>
+                            </div>
+                            <div class>                            
+                            <h5><a href="#">Natural Product Information (Professional)</a></h5>
+                            <p>The Natural Product Information (Professional) database is a comprehensive source of information on traditional and/or conventional uses of natural products. A basic overview of each product is provided (including dosages, possible drug interactions, side effects and contraindications) along with safety and/or efficacy ratings.</p>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="card" style="width: 20rem; background-color: #f7f7f7;">
+                            <div class="card-body">
+                                <h6>Subscribe to our newsletters</h6>
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        FDA Safety Alerts
+                                    </label>
+                                  </div>
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        Daily MedNews
+                                    </label>
+                                  </div>
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        Monthly Newsletter
+                                    </label>
+                                  </div>
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        I accept the Terms and Privacy Policy
+                                    </label>
+                                  </div>
+                                  <div class="input-group mb-3">
+                                    <input type="text" class="form-control" placeholder="Email address" aria-label="Email address" aria-describedby="button-addon2" style="width:5cm;">
+                                    <button class="btn btn-outline-secondary" type="button" id="button-addon2" style="background-color: rgb(40, 93, 185); color: white;">Subscribe</button>
+                                  </div>
+                                  
+                            </div>
+                        </div>
+                        <div class="Recently mt-lg-5 mb-lg-5 ml" style="width: 20rem;">
+                        <h5>Recently Approved</h5>
+                        <a href="#">Vijoice</a>
+                        <p>Vijoice (alpelisib) is a kinase inhibitor indicated for the treatment of adult...</p>
+                        <a href="#">Igalmi</a>
+                        <p>Igalmi (dexmedetomidine) is a sublingual film formulation of the approved...</p>
+                        <a href="#">Tlando</a>
+                        <p>Tlando (testosterone) is an androgen indicated for testosterone replacement...</p>
+                        <a href="#">More...</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div> 
+        </div>
     </div>
-     
-<?php
-include 'layout/footer.php';
-?>
 
-<!--Script-->
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-<script src="js/bootstrap.js" ></script>
-<script src="js/jquery-3.6.0.min.js" ></script>
+    <?php
+    include 'layout/footer.php';
+    ?>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 </body>
 </html>

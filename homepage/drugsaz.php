@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-    <title>A - Z Drugs List</title>
+    <title>Medical Treatment Options for Disease and Conditions - Drugs.com</title>
     <link rel="icon" href="img/drugs1.png" type="image/png">
     <link rel="stylesheet" href="css/style1.css">
     <script src="https://kit.fontawesome.com/769f430edb.js" crossorigin="anonymous"></script>
@@ -54,17 +54,16 @@ if(empty($_SESSION['level'])) {
             <div class="container mt-lg-5">
                 <div class="row">
                     <div class="col-8">
-                        <h1>Drug Index A to Z</h1>
-                        <p>Detailed and accurate information is provided on over 24,000 prescription and over-the-counter medicines for both consumers and healthcare professionals.</p>
+                        <h1><b>Treatment Options</b></h1>
+                        <p>Find your disease or condition and discover what medication options are available for you.</p>
                         <div class="Search">
-                            <h2>Search</h2>
                             <div class="input-group mb-3">
-                                <input type="text" class="form-control" placeholder="Enter a drug name" aria-label="Enter a drug name" aria-describedby="button-addon2">
+                                <input type="text" class="form-control" placeholder="Enter a condition, e.g. acne" aria-label="Enter a condition, e.g. acne" aria-describedby="button-addon2">
                                 <button class="btn search" type="button" id="button" style="background-color: rgb(40, 93, 185); color: white;"><i class="fa-solid fa-magnifying-glass"></i></button>
                             </div>
                         </div>
                         <div class="Browse mt-lg-5">
-                            <h2>Browse Alphabetically</h2>
+                            <h2><b>Browse Alphabetically</b></h2>
                             <div class="row">
                                 <div class="col px-0"><button class="button button4">A</button></div>
                                 <div class="col px-0"><button class="button button4">B</button></div>
@@ -97,25 +96,23 @@ if(empty($_SESSION['level'])) {
                         </div>
 
                         <div class="popular mt-lg-5 mb-lg-5">
-                            <h2>Popular Drug Searches</h2>
-                                
+                            <h3><b>Common treatment options for:</b></h3>
                             <div class="container">
                                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
-                                  <div class="col">
-                                  <?php 
-                                    require_once '../admin/includes/koneksi.php';
-                                    $query = mysqli_query($koneksi, "SELECT * FROM drugs WHERE drug_id < 20");
-                                    foreach ($query as $row) { 
-                              ?>                                       
-                                        <form method='POST' action='drugsdetail.php'>
-                                        <input hidden type='text' name='drug_name' value=<?php echo $row["drug_name"];?>>
-                                        <button type='submit' name='btnDrug' class='btn btn-success' style="background-color: rgb(40, 93, 185, 0); color: blue; border: none;">
-                                        <?php echo $row["drug_name"];?></button></form>
-                                <?php } ?>
+                                  <div class="col-3">
+                                        <?php 
+                                        include '../admin/includes/koneksi.php';
+                                        $query = mysqli_query($koneksi, "SELECT * FROM drugs WHERE drug_id < 10");
+                                        foreach($query as $row){ ?>
+                                            <form action="drugsdetail.php" method="POST">
+                                                <input hidden type="text" name="drug_id" value=<?php echo $row["drug_id"]; ?>>
+                                                <button type='submit' name='nt' class='btn btn-success text-start' style="background-color: rgb(40, 93, 185, 0); color: blue; border: none;">  
+                                                    <?php echo $row["drug_name"]; ?> 
+                                                </button>
+                                            </form>
+                                        <?php } ?>
                                   </div>
-                                  
-                                 </div>
-                                    
+                                </div>  
                             </div>
                         </div>
                         <div class="consumer mt-lg-5">
