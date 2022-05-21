@@ -1,9 +1,3 @@
-<?php 
-include '../admin/includes/koneksi.php';
-$id = $_POST['drug_id'];
-$query = mysqli_query($koneksi, "SELECT * FROM drugs WHERE drug_id = '$id'");
-$query2= mysqli_fetch_array($query); 
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +6,7 @@ $query2= mysqli_fetch_array($query);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-    <title><?php echo $query2["drug_name"]; ?></title>
+    <title>Medical Treatment Options for Disease and Conditions - Drugs.com</title>
     <link rel="icon" href="img/drugs1.png" type="image/png">
     <link rel="stylesheet" href="css/style1.css">
     <script src="https://kit.fontawesome.com/769f430edb.js" crossorigin="anonymous"></script>
@@ -60,24 +54,65 @@ if(empty($_SESSION['level'])) {
             <div class="container mt-lg-5">
                 <div class="row">
                     <div class="col-8">
-                        <h1><b>Medications for <?=$query2['drug_name'];?></b></h1>
-                        <p><?=$query2['definition'];?></p>
-                        
-                        <h3><b>Drug used to treat <?=$query2['drug_name'];?></b></h3>
-                        <p>The following list of medications are in some way related to or used in the treatment of this condition.</p>
-                        
-                        <div class="accordion accordion-flush" id="accordionFlushExample">
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="flush-headingOne">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                                    <?=$query2['drug_name'];?>
-                                    </button>
-                                </h2>
-                                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                                    <div class="accordion-body" > 
-                                    <a href="#"><?=$query2['drug_name'];?></a> <br>
-                                    Generic Name : <?=$query2['generic_name'];?> <br>  Class : <?=$query2['drug_class'];?> <br></div>
-                                </div>
+                        <h1><b>Treatment Options</b></h1>
+                        <p>Find your disease or condition and discover what medication options are available for you.</p>
+                        <div class="Search">
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="Enter a condition, e.g. acne" aria-label="Enter a condition, e.g. acne" aria-describedby="button-addon2">
+                                <button class="btn search" type="button" id="button" style="background-color: rgb(40, 93, 185); color: white;"><i class="fa-solid fa-magnifying-glass"></i></button>
+                            </div>
+                        </div>
+                        <div class="Browse mt-lg-5">
+                            <h2><b>Browse Alphabetically</b></h2>
+                            <div class="row">
+                                <div class="col px-0"><button class="button button4">A</button></div>
+                                <div class="col px-0"><button class="button button4">B</button></div>
+                                <div class="col px-0"><button class="button button4">C</button></div>
+                                <div class="col px-0"><button class="button button4">D</button></div>
+                                <div class="col px-0"><button class="button button4">E</button></div>
+                                <div class="col px-0"><button class="button button4">F</button></div>
+                                <div class="col px-0"><button class="button button4">G</button></div>
+                                <div class="col px-0"><button class="button button4">H</button></div>
+                                <div class="col px-0"><button class="button button4">I</button></div>
+                                <div class="col px-0"><button class="button button4">J</button></div>
+                                <div class="col px-0"><button class="button button4">K</button></div>
+                                <div class="col px-0"><button class="button button4">L</button></div>
+                                <div class="col px-0"><button class="button button4">M</button></div>
+                                <div class="col px-0"><button class="button button4">N</button></div>
+                                <div class="col px-0"><button class="button button4">O</button></div>
+                                <div class="col px-0"><button class="button button4">P</button></div>
+                                <div class="col px-0"><button class="button button4">Q</button></div>
+                                <div class="col px-0"><button class="button button4">R</button></div>
+                                <div class="col px-0"><button class="button button4">S</button></div>
+                                <div class="col px-0"><button class="button button4">T</button></div>
+                                <div class="col px-0"><button class="button button4">U</button></div>
+                                <div class="col px-0"><button class="button button4">V</button></div>
+                                <div class="col px-0"><button class="button button4">W</button></div>
+                                <div class="col px-0"><button class="button button4">X</button></div>
+                                <div class="col px-0"><button class="button button4">Y</button></div>
+                                <div class="col px-0"><button class="button button4">Z</button></div>
+                                <div class="col px-0"><button class="button button4">0-9</button></div>
+                              </div>
+                        </div>
+
+                        <div class="popular mt-lg-5 mb-lg-5">
+                            <h3><b>Common treatment options for:</b></h3>
+                            <div class="container">
+                                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+                                  <div class="col-3">
+                                        <?php 
+                                        include '../admin/includes/koneksi.php';
+                                        $query = mysqli_query($koneksi, "SELECT * FROM drugs WHERE drug_id < 10");
+                                        foreach($query as $row){ ?>
+                                            <form action="drugsdetail1.php" method="POST">
+                                                <input hidden type="text" name="drug_id" value=<?php echo $row["drug_id"]; ?>>
+                                                <button type='submit' name='nt' class='btn btn-success text-start' style="background-color: rgb(40, 93, 185, 0); color: blue; border: none;">  
+                                                    <?php echo $row["drug_name"]; ?> 
+                                                </button>
+                                            </form>
+                                        <?php } ?>
+                                  </div>
+                                </div>  
                             </div>
                         </div>
                         <div class="consumer mt-lg-5">

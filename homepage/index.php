@@ -37,8 +37,8 @@ if(empty($_SESSION['level'])) {
                         <!-- item -->
                         <div class="item">
                             <div class="card border-0" style="width: 110px;">
-                                <a href="drugsaz.php"><img src="https://www.drugs.com/img/home/drugs-az.png" alt="image" class="card-img-top"></a>
-                                <span style="font-size: 13pt; font-weight: 550;" class="text-center mt-3"><a href="drugsaz.php" style="color: black; text-decoration: none;">Drugs & Medications</span></a>
+                                <a href="drugsaz1.php"><img src="https://www.drugs.com/img/home/drugs-az.png" alt="image" class="card-img-top"></a>
+                                <span style="font-size: 13pt; font-weight: 550;" class="text-center mt-3"><a href="drugsaz1.php" style="color: black; text-decoration: none;">Drugs & Medications</span></a>
                             </div>
                         </div>
                         <!-- end item -->
