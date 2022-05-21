@@ -64,10 +64,10 @@ if(empty($_SESSION['level'])) {
             <div class="col-9 ">
               <p style="font-size: 13px;"> <a href="" style="color: grey;"> Drugs A to Z</a>  </p>
 
-              <?php
-                require_once '../admin/includes/koneksi.php';
-                $query = mysqli_query($koneksi, "SELECT * FROM drugs WHERE drug_id =$id");
-                foreach($query as $row) {
+              <?php 
+                include '../admin/includes/koneksi.php';
+                $hasil = mysqli_query($koneksi, "SELECT * FROM drugs WHERE drugs_id = '$id' " );
+                foreach ($hasil as $data) {
               ?>
               <input hidden type="text" name="name" value="<?php echo $data['drug_name']; ?>">
                 <h1><bold><?php echo $data['drug_name']; ?></bold></h1>
