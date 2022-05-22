@@ -59,73 +59,24 @@ if(empty($_SESSION['level'])) {
             <div class="container mt-lg-5">
                 <div class="row">
                     <div class="col-8">
-                        <h1><b>Medications for <?=$query2['drug_name'];?></b></h1>
-                        <p><?=$query2['definition'];?></p>
-                        
-                        <h3><b>Drug used to treat <?=$query2['drug_name'];?></b></h3>
-                        <p>The following list of medications are in some way related to or used in the treatment of this condition.</p>
-                        
-                        <div class="accordion accordion-flush" id="accordionFlushExample">
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="flush-headingOne">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                                    <?=$query2['drug_name'];?>
-                                    </button>
-                                </h2>
-                                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                                    <div class="accordion-body" > 
-                                    <a href="#"><?=$query2['drug_name'];?></a> <br>
-                                    Generic Name : <?=$query2['generic_name'];?> <br>  Class : <?=$query2['drug_class'];?> <br></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="consumer mt-lg-5">
-                            <h2>Consumer Drug Sources</h2>
-                            <div class="row">
-                                <div class="col-sm-4"><img src="img/cerner-logo.png"></div>
-                                <div class="col-sm-8">
-                                <h5><a href="#">Cerner Multum Consumer Drug Information</a></h5>
-                                <p>Multum leaflets provide basic consumer drug information, such as drug descriptions and interactions, details of possible side effects and the effects of missed doses and overdosing, as well as instructions for use. The leaflets are available in English and Spanish.</p>
-                                </div>
-                                <div class="col-sm-4"><img src="img/ibm-logo.png"></div>
-                                <div class="col-sm-8">
-                                    <h5><a href="#">IBM Watson Micromedex Consumer Information (Advanced)</a></h5>
-                                    <p>IBM Watson Micromedex Advanced Consumer Information provides comprehensive consumer information pertaining to a wide variety of drugs, such as a list of commonly used brand names, drug descriptions, warnings and precautions, and detailed information on the proper use of each drug.</p>   
-                                </div>                                
-                            </div>
-                        </div>
-                        <div class="Profesional mt-lg-5">
-                            <h2>Professional Drug Sources</h2>
-                            <div class="row">
-                                <div class="col-sm-4"><img src="img/ashp-logo.png"></div>
-                                <div class="col-sm-8">
-                                <h5><a href="#">AHFS DI Monographs</a></h5>
-                                <p>Multum leaflets provide basic consumer drug information, such as drug descriptions and interactions, details of possible side effects and the effects of missed doses and overdosing, as well as instructions for use. The leaflets are available in English and Spanish.AHFS DI from the American Society of Health-System Pharmacists (ASHP) is the most comprehensive source of unbiased and authoritative drug information available to health professionals today. A wholly independent staff of drug information pharmacists and other professional editorial and analytical staff thoroughly research AHFS DI content. Authors incorporate clinical research findings, therapeutic guidelines, and Food and Drug Administration (FDA) approved labeling to ensure that monographs include an evidence-based foundation for safe and effective drug therapy.</p>
-                                </div>
-                                <div class="col-sm-4"><img src="img/fda-logo.png"></div>
-                                <div class="col-sm-8">
-                                    <h5><a href="#">FDA Professional Drug Information</a></h5>
-                                    <p>The Professional Drug Information database is a repository of drug information sourced directly from the FDA. It includes detailed notes on the clinical pharmacology of a wide variety of drugs.</p>   
-                                </div> 
-                                <div class>
-                                    <h5><a href="#">Professional Patient Advice</a></h5>
-                                    <p>Drugs.com provides A-Z Patient Advice for the professional.</p>
-                                </div>                              
-                            </div>
-                        </div>
-                        <div class="Natural mt-lg-5 mb-lg-5">
-                            <h2>Natural Product Sources</h2>
-                            <div class="row">
-                            <div class>                            
-                            <h5><a href="#">Natural Product Information (Consumer)</a></h5>
-                            <p>The Natural Product Information (Consumer) database is a comprehensive source of information on traditional and/or conventional uses of natural products. A basic overview of each product is provided (including dosages, possible drug interactions, side effects and contraindications) along with safety and/or efficacy ratings.</p>
-                            </div>
-                            <div class>                            
-                            <h5><a href="#">Natural Product Information (Professional)</a></h5>
-                            <p>The Natural Product Information (Professional) database is a comprehensive source of information on traditional and/or conventional uses of natural products. A basic overview of each product is provided (including dosages, possible drug interactions, side effects and contraindications) along with safety and/or efficacy ratings.</p>
-                            </div>
-                            </div>
-                        </div>
+                        <p style="font-size: 13px;"> <a href="" style="color: grey;"> Drugs A to Z</a>  </p>
+                        <h1><b><?=$query2['drug_name'];?></b></h1>
+
+                        <p><b>Generic name : </b> <?=$query2['generic_name'];?>  <br>
+                        <b>Brand names : </b> <?=$query2['brand_name'];?>
+                        <br>
+                        <b>Dosage forms : </b> <?=$query2['dosage_form'];?>
+                        <br>
+                        <b>Drug class : </b> <?=$query2['drug_class'];?>
+                        <br>
+                    </p>
+
+                  <!--what is ...-->
+
+                <h2> <b>What is <?=$query2['drug_name'];?>?</b> </h2>
+                <div>
+                  <p><?=strip_tags($query2['definition']);?></p>  
+                </div>
                     </div>
                     <div class="col-4">
                         <div class="card" style="width: 20rem; background-color: #f7f7f7;">
@@ -161,16 +112,6 @@ if(empty($_SESSION['level'])) {
                                   </div>
                                   
                             </div>
-                        </div>
-                        <div class="Recently mt-lg-5 mb-lg-5 ml" style="width: 20rem;">
-                        <h5>Recently Approved</h5>
-                        <a href="#">Vijoice</a>
-                        <p>Vijoice (alpelisib) is a kinase inhibitor indicated for the treatment of adult...</p>
-                        <a href="#">Igalmi</a>
-                        <p>Igalmi (dexmedetomidine) is a sublingual film formulation of the approved...</p>
-                        <a href="#">Tlando</a>
-                        <p>Tlando (testosterone) is an androgen indicated for testosterone replacement...</p>
-                        <a href="#">More...</a>
                         </div>
                     </div>
                 </div>

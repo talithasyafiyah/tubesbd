@@ -97,125 +97,124 @@ if(empty($_SESSION['level'])) {
 
                         <div class="popular mt-lg-5 mb-lg-5">
                             <h3><b>Common treatment options for:</b></h3>
-                            <div class="container">
-                                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
-                                  <div class="col-3">
-                                        <?php 
-                                        include '../admin/includes/koneksi.php';
-                                        $query = mysqli_query($koneksi, "SELECT * FROM treatment WHERE treatment_id BETWEEN 8 AND 14");
-                                        foreach($query as $row){ ?>
-                                                <form action="treatmentDetails.php" method="POST">
-                                                    <input hidden type="text" name="treatment_id" value=<?php echo $row["treatment_id"]; ?>>
-                                                    <button type='submit' name='nt' class='btn btn-success text-start' style="background-color: rgb(40, 93, 185, 0); color: blue; border: none;">  
-                                                        <?php echo $row["treatment_name"]; ?> 
-                                                    </button>
-                                                </form>
-                                        <?php } ?>
+                            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+                                <div class="col-3">
+                                    <?php 
+                                    include '../admin/includes/koneksi.php';
+                                    $query = mysqli_query($koneksi, "SELECT * FROM treatment WHERE treatment_id BETWEEN 8 AND 14");
+                                    foreach($query as $row){ ?>
+                                            <form action="treatmentDetails.php" method="POST">
+                                                <input hidden type="text" name="treatment_id" value=<?php echo $row["treatment_id"]; ?>>
+                                                <button type='submit' name='nt' class='btn btn-success text-start' style="background-color: rgb(40, 93, 185, 0); color: blue; border: none;">  
+                                                    <?php echo $row["treatment_name"]; ?> 
+                                                </button>
+                                            </form>
+                                    <?php } ?>
 
-                                        <?php 
-                                        include '../admin/includes/koneksi.php';
-                                        $query = mysqli_query($koneksi, "SELECT * FROM treatment WHERE treatment_id BETWEEN 24 AND 29");
-                                        foreach($query as $row){ ?>
-                                                <form action="treatmentDetails.php" method="POST">
-                                                    <input hidden type="text" name="treatment_id" value=<?php echo $row["treatment_id"]; ?>>
-                                                    <button type='submit' name='nt' class='btn btn-success text-start' style="background-color: rgb(40, 93, 185, 0); color: blue; border: none;">  
-                                                        <?php echo $row["treatment_name"]; ?> 
-                                                    </button>
-                                                </form>
-                                        <?php } ?>
-                                  </div>
+                                    <?php 
+                                    include '../admin/includes/koneksi.php';
+                                    $query = mysqli_query($koneksi, "SELECT * FROM treatment WHERE treatment_id BETWEEN 24 AND 29");
+                                    foreach($query as $row){ ?>
+                                            <form action="treatmentDetails.php" method="POST">
+                                                <input hidden type="text" name="treatment_id" value=<?php echo $row["treatment_id"]; ?>>
+                                                <button type='submit' name='nt' class='btn btn-success text-start' style="background-color: rgb(40, 93, 185, 0); color: blue; border: none;">  
+                                                    <?php echo $row["treatment_name"]; ?> 
+                                                </button>
+                                            </form>
+                                    <?php } ?>
+                                </div>
 
-                                  <div class="col-3">
-                                        <?php 
-                                        include '../admin/includes/koneksi.php';
-                                        $query = mysqli_query($koneksi, "SELECT * FROM treatment WHERE treatment_id BETWEEN 39 AND 43");
-                                        foreach($query as $row){ ?>
-                                                <form action="treatmentDetails.php" method="POST">
-                                                    <input hidden type="text" name="treatment_id" value=<?php echo $row["treatment_id"]; ?>>
-                                                    <button type='submit' name='nt' class='btn btn-success text-start' style="background-color: rgb(40, 93, 185, 0); color: blue; border: none;">  
-                                                        <?php echo $row["treatment_name"]; ?> 
-                                                    </button>
-                                                </form>
-                                        <?php } ?>
+                                <div class="col-3">
+                                    <?php 
+                                    include '../admin/includes/koneksi.php';
+                                    $query = mysqli_query($koneksi, "SELECT * FROM treatment WHERE treatment_id BETWEEN 39 AND 43");
+                                    foreach($query as $row){ ?>
+                                            <form action="treatmentDetails.php" method="POST">
+                                                <input hidden type="text" name="treatment_id" value=<?php echo $row["treatment_id"]; ?>>
+                                                <button type='submit' name='nt' class='btn btn-success text-start' style="background-color: rgb(40, 93, 185, 0); color: blue; border: none;">  
+                                                    <?php echo $row["treatment_name"]; ?> 
+                                                </button>
+                                            </form>
+                                    <?php } ?>
 
-                                        <?php 
-                                        include '../admin/includes/koneksi.php';
-                                        $query = mysqli_query($koneksi, "SELECT * FROM treatment WHERE treatment_id BETWEEN 45 AND 49");
-                                        foreach($query as $row){ ?>
-                                                <form action="treatmentDetails.php" method="POST">
-                                                    <input hidden type="text" name="treatment_id" value=<?php echo $row["treatment_id"]; ?>>
-                                                    <button type='submit' name='nt' class='btn btn-success text-start' style="background-color: rgb(40, 93, 185, 0); color: blue; border: none;">  
-                                                        <?php echo $row["treatment_name"]; ?> 
-                                                    </button>
-                                                </form>
-                                        <?php } ?>
+                                    <?php 
+                                    include '../admin/includes/koneksi.php';
+                                    $query = mysqli_query($koneksi, "SELECT * FROM treatment WHERE treatment_id BETWEEN 45 AND 49");
+                                    foreach($query as $row){ ?>
+                                            <form action="treatmentDetails.php" method="POST">
+                                                <input hidden type="text" name="treatment_id" value=<?php echo $row["treatment_id"]; ?>>
+                                                <button type='submit' name='nt' class='btn btn-success text-start' style="background-color: rgb(40, 93, 185, 0); color: blue; border: none;">  
+                                                    <?php echo $row["treatment_name"]; ?> 
+                                                </button>
+                                            </form>
+                                    <?php } ?>
 
-                                        <?php 
-                                        include '../admin/includes/koneksi.php';
-                                        $query = mysqli_query($koneksi, "SELECT * FROM treatment WHERE treatment_id BETWEEN 65 AND 67");
-                                        foreach($query as $row){ ?>
-                                                <form action="treatmentDetails.php" method="POST">
-                                                    <input hidden type="text" name="treatment_id" value=<?php echo $row["treatment_id"]; ?>>
-                                                    <button type='submit' name='nt' class='btn btn-success text-start' style="background-color: rgb(40, 93, 185, 0); color: blue; border: none;">  
-                                                        <?php echo $row["treatment_name"]; ?> 
-                                                    </button>
-                                                </form>
-                                        <?php } ?>
-                                  </div>
+                                    <?php 
+                                    include '../admin/includes/koneksi.php';
+                                    $query = mysqli_query($koneksi, "SELECT * FROM treatment WHERE treatment_id BETWEEN 65 AND 67");
+                                    foreach($query as $row){ ?>
+                                            <form action="treatmentDetails.php" method="POST">
+                                                <input hidden type="text" name="treatment_id" value=<?php echo $row["treatment_id"]; ?>>
+                                                <button type='submit' name='nt' class='btn btn-success text-start' style="background-color: rgb(40, 93, 185, 0); color: blue; border: none;">  
+                                                    <?php echo $row["treatment_name"]; ?> 
+                                                </button>
+                                            </form>
+                                    <?php } ?>
+                                </div>
 
-                                  <div class="col-3">
-                                        <?php 
-                                        include '../admin/includes/koneksi.php';
-                                        $query = mysqli_query($koneksi, "SELECT * FROM treatment WHERE treatment_id BETWEEN 97 AND 103");
-                                        foreach($query as $row){ ?>
-                                                <form action="treatmentDetails.php" method="POST">
-                                                    <input hidden type="text" name="treatment_id" value=<?php echo $row["treatment_id"]; ?>>
-                                                    <button type='submit' name='nt' class='btn btn-success text-start' style="background-color: rgb(40, 93, 185, 0); color: blue; border: none;">  
-                                                        <?php echo $row["treatment_name"]; ?> 
-                                                    </button>
-                                                </form>
-                                        <?php } ?>
+                                <div class="col-3">
+                                    <?php 
+                                    include '../admin/includes/koneksi.php';
+                                    $query = mysqli_query($koneksi, "SELECT * FROM treatment WHERE treatment_id BETWEEN 97 AND 103");
+                                    foreach($query as $row){ ?>
+                                            <form action="treatmentDetails.php" method="POST">
+                                                <input hidden type="text" name="treatment_id" value=<?php echo $row["treatment_id"]; ?>>
+                                                <button type='submit' name='nt' class='btn btn-success text-start' style="background-color: rgb(40, 93, 185, 0); color: blue; border: none;">  
+                                                    <?php echo $row["treatment_name"]; ?> 
+                                                </button>
+                                            </form>
+                                    <?php } ?>
 
-                                        <?php 
-                                        include '../admin/includes/koneksi.php';
-                                        $query = mysqli_query($koneksi, "SELECT * FROM treatment WHERE treatment_id BETWEEN 128 AND 132");
-                                        foreach($query as $row){ ?>
-                                                <form action="treatmentDetails.php" method="POST">
-                                                    <input hidden type="text" name="treatment_id" value=<?php echo $row["treatment_id"]; ?>>
-                                                    <button type='submit' name='nt' class='btn btn-success text-start' style="background-color: rgb(40, 93, 185, 0); color: blue; border: none;">  
-                                                        <?php echo $row["treatment_name"]; ?> 
-                                                    </button>
-                                                </form>
-                                        <?php } ?>
-                                  </div>
+                                    <?php 
+                                    include '../admin/includes/koneksi.php';
+                                    $query = mysqli_query($koneksi, "SELECT * FROM treatment WHERE treatment_id BETWEEN 128 AND 132");
+                                    foreach($query as $row){ ?>
+                                            <form action="treatmentDetails.php" method="POST">
+                                                <input hidden type="text" name="treatment_id" value=<?php echo $row["treatment_id"]; ?>>
+                                                <button type='submit' name='nt' class='btn btn-success text-start' style="background-color: rgb(40, 93, 185, 0); color: blue; border: none;">  
+                                                    <?php echo $row["treatment_name"]; ?> 
+                                                </button>
+                                            </form>
+                                    <?php } ?>
+                                </div>
 
-                                  <div class="col-3">
-                                        <?php 
-                                        include '../admin/includes/koneksi.php';
-                                        $query = mysqli_query($koneksi, "SELECT * FROM treatment WHERE treatment_id BETWEEN 152 AND 159");
-                                        foreach($query as $row){ ?>
-                                                <form action="treatmentDetails.php" method="POST">
-                                                    <input hidden type="text" name="treatment_id" value=<?php echo $row["treatment_id"]; ?>>
-                                                    <button type='submit' name='nt' class='btn btn-success text-start' style="background-color: rgb(40, 93, 185, 0); color: blue; border: none;">  
-                                                        <?php echo $row["treatment_name"]; ?> 
-                                                    </button>
-                                                </form>
-                                        <?php } ?>
+                                <div class="col-3">
+                                    <?php 
+                                    include '../admin/includes/koneksi.php';
+                                    $query = mysqli_query($koneksi, "SELECT * FROM treatment WHERE treatment_id BETWEEN 152 AND 159");
+                                    foreach($query as $row){ ?>
+                                            <form action="treatmentDetails.php" method="POST">
+                                                <input hidden type="text" name="treatment_id" value=<?php echo $row["treatment_id"]; ?>>
+                                                <button type='submit' name='nt' class='btn btn-success text-start' style="background-color: rgb(40, 93, 185, 0); color: blue; border: none;">  
+                                                    <?php echo $row["treatment_name"]; ?> 
+                                                </button>
+                                            </form>
+                                    <?php } ?>
 
-                                        <?php 
-                                        include '../admin/includes/koneksi.php';
-                                        $query = mysqli_query($koneksi, "SELECT * FROM treatment WHERE treatment_id BETWEEN 169 AND 172");
-                                        foreach($query as $row){ ?>
-                                                <form action="treatmentDetails.php" method="POST">
-                                                    <input hidden type="text" name="treatment_id" value=<?php echo $row["treatment_id"]; ?>>
-                                                    <button type='submit' name='nt' class='btn btn-success text-start' style="background-color: rgb(40, 93, 185, 0); color: blue; border: none;">  
-                                                        <?php echo $row["treatment_name"]; ?> 
-                                                    </button>
-                                                </form>
-                                        <?php } ?>
-                                  </div>
-                                </div>  
-                            </div>
+                                    <?php 
+                                    include '../admin/includes/koneksi.php';
+                                    $query = mysqli_query($koneksi, "SELECT * FROM treatment WHERE treatment_id BETWEEN 169 AND 172");
+                                    foreach($query as $row){ ?>
+                                            <form action="treatmentDetails.php" method="POST">
+                                                <input hidden type="text" name="treatment_id" value=<?php echo $row["treatment_id"]; ?>>
+                                                <button type='submit' name='nt' class='btn btn-success text-start' style="background-color: rgb(40, 93, 185, 0); color: blue; border: none;">  
+                                                    <?php echo $row["treatment_name"]; ?> 
+                                                </button>
+                                            </form>
+                                    <?php } ?>
+                                </div>
+                            </div>  
+                            
                         </div>
                         <div class="consumer mt-lg-5">
                             <h2>Consumer Drug Sources</h2>

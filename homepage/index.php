@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="css/style1.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/8e7d76cb66.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <!-- owl carousel -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -106,36 +107,38 @@ $query2= mysqli_fetch_array($query);
                     </div>
                 </div>
                 <div class="row mt-3">
-                    <ul id="alphabet">
-                        <li><button type="button" class="btn btn-outline-dark">A</button></li>
-                        <li><button type="button" class="btn btn-outline-dark">B</button></li>
-                        <li><button type="button" class="btn btn-outline-dark">C</button></li>
-                        <li><button type="button" class="btn btn-outline-dark">D</button></li>
-                        <li><button type="button" class="btn btn-outline-dark">E</button></li>
-                        <li><button type="button" class="btn btn-outline-dark">F</button></li>
-                        <li><button type="button" class="btn btn-outline-dark">G</button></li>
-                        <li><button type="button" class="btn btn-outline-dark">H</button></li>
-                        <li><button type="button" class="btn btn-outline-dark">I</button></li>
-                        <li><button type="button" class="btn btn-outline-dark">J</button></li>
-                        <li><button type="button" class="btn btn-outline-dark">K</button></li>
-                        <li><button type="button" class="btn btn-outline-dark">L</button></li>
-                        <li><button type="button" class="btn btn-outline-dark">M</button></li>
-                        <li><button type="button" class="btn btn-outline-dark">N</button></li>
-                        <li><button type="button" class="btn btn-outline-dark">O</button></li>
-                        <li><button type="button" class="btn btn-outline-dark">P</button></li>
-                        <li><button type="button" class="btn btn-outline-dark">Q</button></li>
-                        <li><button type="button" class="btn btn-outline-dark">R</button></li>
-                        <li><button type="button" class="btn btn-outline-dark">S</button></li>
-                        <li><button type="button" class="btn btn-outline-dark">T</button></li>
-                        <li><button type="button" class="btn btn-outline-dark">U</button></li>
-                        <li><button type="button" class="btn btn-outline-dark">V</button></li>
-                        <li><button type="button" class="btn btn-outline-dark">W</button></li>
-                        <li><button type="button" class="btn btn-outline-dark">X</button></li>
-                        <li><button type="button" class="btn btn-outline-dark">Y</button></li>
-                        <li><button type="button" class="btn btn-outline-dark">Z</button></li>
-                        <li><button type="button" class="btn btn-outline-dark">0-9</button></li>
-                        <li><button type="button" class="btn btn-outline-dark">Advanced Search</button></li>
-                    </ul>
+                    <form action="alpha.php" method="POST">
+                        <ul id="alphabet">
+                            <li><button type="submit" name="A" class="btn btn-outline-dark">A</button></li>
+                            <li><button type="submit" name="B" class="btn btn-outline-dark">B</button></li>
+                            <li><button type="submit" name="C" class="btn btn-outline-dark">C</button></li>
+                            <li><button type="submit" name="D" class="btn btn-outline-dark">D</button></li>
+                            <li><button type="submit" name="E" class="btn btn-outline-dark">E</button></li>
+                            <li><button type="submit" name="F" class="btn btn-outline-dark">F</button></li>
+                            <li><button type="submit" name="G" class="btn btn-outline-dark">G</button></li>
+                            <li><button type="submit" name="H" class="btn btn-outline-dark">H</button></li>
+                            <li><button type="submit" name="I" class="btn btn-outline-dark">I</button></li>
+                            <li><button type="submit" name="J" class="btn btn-outline-dark">J</button></li>
+                            <li><button type="submit" name="K" class="btn btn-outline-dark">K</button></li>
+                            <li><button type="submit" name="L" class="btn btn-outline-dark">L</button></li>
+                            <li><button type="submit" name="M" class="btn btn-outline-dark">M</button></li>
+                            <li><button type="submit" name="N" class="btn btn-outline-dark">N</button></li>
+                            <li><button type="submit" name="O" class="btn btn-outline-dark">O</button></li>
+                            <li><button type="submit" name="P" class="btn btn-outline-dark">P</button></li>
+                            <li><button type="submit" name="Q" class="btn btn-outline-dark">Q</button></li>
+                            <li><button type="submit" name="R" class="btn btn-outline-dark">R</button></li>
+                            <li><button type="submit" name="S" class="btn btn-outline-dark">S</button></li>
+                            <li><button type="submit" name="T" class="btn btn-outline-dark">T</button></li>
+                            <li><button type="submit" name="U" class="btn btn-outline-dark">U</button></li>
+                            <li><button type="submit" name="V" class="btn btn-outline-dark">V</button></li>
+                            <li><button type="submit" name="W" class="btn btn-outline-dark">W</button></li>
+                            <li><button type="submit" name="X" class="btn btn-outline-dark">X</button></li>
+                            <li><button type="submit" name="Y" class="btn btn-outline-dark">Y</button></li>
+                            <li><button type="submit" name="Z" class="btn btn-outline-dark">Z</button></li>
+                            <li><button type="submit" class="btn btn-outline-dark">0-9</button></li>
+                            <li><button type="submit" class="btn btn-outline-dark">Advanced Search</button></li>
+                        </ul>
+                    </form>
                     <p>Browse A-Z: Drug, Treatment, Condition or Class</p>
                 </div>
             </div>
