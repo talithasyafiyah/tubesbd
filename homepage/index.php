@@ -26,6 +26,9 @@ if(empty($_SESSION['level'])) {
 } else {
     include 'layout/navHome1.php';
 }
+require_once '../admin/includes/koneksi.php';
+$query = mysqli_query($koneksi, "SELECT * FROM news WHERE news_id = 51");
+$query2= mysqli_fetch_array($query); 
 ?>
 
     <!-- icon carousel -->
@@ -182,10 +185,10 @@ if(empty($_SESSION['level'])) {
                 </div>
                 <div class="col mb-5 mt-5">
                     <div class="card h-100">
-                    <img src="https://consumer.healthday.com/media-library/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbWFnZSI6Imh0dHBzOi8vYXNzZXRzLnJibC5tcy8yNjg0MzE1My9vcmlnaW4uanBnIiwiZXhwaXJlc19hdCI6MTY4MjkwODM3NX0.EpxfZr8u9Dy6y0_n1NbGKotheLEy80cS7upcKvkiX08/image.jpg?width=800&coordinates=0%2C0%2C0%2C0&height=600?resize=320:240" class="card-img-top" alt="...">
+                    <img src="<?=$query2['picture'];?>" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h6 class="card-title">Medical News</h6>
-                        <p class="card-text"><b>House Passes Bill To Limit Insulin Costs to $35 a Month</b></p>
+                        <p class="card-text"><b><a href="newsandalerts.php" style="color: black"><?=$query2['title'];?></a></b></p>
                     </div>
                     </div>
                 </div>
@@ -229,14 +232,14 @@ if(empty($_SESSION['level'])) {
                 
                 <?php 
                     require_once '../admin/includes/koneksi.php';
-                    $query = "SELECT * FROM news where news_id < 7";
+                    $query = "SELECT * FROM news WHERE news_id BETWEEN 36 AND 52";
                     $hasil = mysqli_query($koneksi, $query);
                     foreach($hasil as $data) {
                 ?>
                 <div class="card mb-3" style="width: auto;">
                     <div class="row g-0">
                         <div class="col-md-4">
-                        <img src="//www.drugs.com/images/hdi/hd104506.jpg" class="img-fluid rounded-start" alt="...">
+                        <img src="<?php echo $data['picture']; ?>" class="img-fluid rounded-start" alt="...">
                         </div>
                         <div class="col-md-8">
                         <div class="card-body">
