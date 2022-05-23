@@ -69,11 +69,12 @@ require_once 'layout/navbar.php';
                                         <th>Emergency Contact</th>
                                         <th>Primary Phisician</th>
                                         <th>Other Details</th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $query = mysqli_query($koneksi, "SELECT medlist.profile_name, medlist.emergency_contact, medlist.primary_phisician, medlist.other_details, user.age FROM medlist JOIN user on medlist.user_id = user.user_id");
+                                    $query = mysqli_query($koneksi, "SELECT medlist.medlist_id, medlist.profile_name, medlist.emergency_contact, medlist.primary_physician, medlist.other_details, user.age FROM medlist JOIN user on medlist.user_id = user.user_id");
                                     $no = 1;
                                     foreach ($query as $row) {
                                         echo"<tr>
@@ -81,8 +82,14 @@ require_once 'layout/navbar.php';
                                                 <td>".$row['profile_name']."</td>
                                                 <td>".$row['age']."</td>
                                                 <td>".$row['emergency_contact']."</td>
-                                                <td>".$row['primary_phisician']."</td>
+                                                <td>".$row['primary_physician']."</td>
                                                 <td>".$row['other_details']."</td>
+                                                <td>
+                                                    <form onsubmit=\"return confirm ('Are you sure want to delete ".$row['profile_name']."’s data?');\"method='POST';>
+                                                        <input hidden name='medlist_id' type='text' value=".$row['medlist_id'].">
+                                                        <button type='submit' name='btnHapus' class='btn btn-danger btn-sm'><i class='fa fa-trash'></i></button>
+                                                    </form>
+                                                </td>
                                             </tr>";
                                     $no++;
                                     }

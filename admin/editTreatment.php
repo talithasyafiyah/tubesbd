@@ -52,7 +52,7 @@ require_once './layout/navbar.php';
                         <div class="col-12 col-md-6 order-md-2 order-first">
                             <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="pillident.php"><?php echo $page; ?></a></li>
+                                    <li class="breadcrumb-item"><a href="treatment.php"><?php echo $page; ?></a></li>
                                     <li class="breadcrumb-item active" aria-current="page">Edit <?php echo $page; ?></li>
                                 </ol>
                             </nav>
@@ -115,6 +115,13 @@ require_once './layout/navbar.php';
                                                     <div class="col-md-8 form-group">
                                                         <input value="<?php echo $data['drug_used']; ?>" type="text" id="drug_used" class="form-control"
                                                             name="drug_used">
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label>Drug ID</label>
+                                                    </div>
+                                                    <div class="col-md-8 form-group">
+                                                        <input value="<?php echo $data['drug_id']; ?>" type="number" id="drug_id" class="form-control"
+                                                            name="drug_id">
                                                     </div>
                                                     <div class="col-sm-12 d-flex justify-content-end">
                                                         <button type="submit" name="btnUbah"

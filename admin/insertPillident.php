@@ -4,7 +4,7 @@ session_start();
       echo "<script>alert('Sorry, you are not allowed to access this page.'); document.location='./../homepage/login.php'</script>";
    }
 require_once 'includes/koneksi.php';
-$page = "Treatment";
+$page = "Pill Identifier";
 /* $username = $_SESSION['username']; */
 ?>
 <!DOCTYPE html>
@@ -52,7 +52,7 @@ require_once './layout/navbar.php';
                         <div class="col-12 col-md-6 order-md-2 order-first">
                             <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="treatment.php"><?php echo $page; ?></a></li>
+                                    <li class="breadcrumb-item"><a href="pillident.php"><?php echo $page; ?></a></li>
                                     <li class="breadcrumb-item active" aria-current="page">Add <?php echo $page; ?></li>
                                 </ol>
                             </nav>
@@ -71,25 +71,39 @@ require_once './layout/navbar.php';
                                             <div class="form-body">
                                                 <div class="row">
                                                     <div class="col-md-4">
-                                                        <label>Treatment Name</label>
+                                                        <label>Pill Imprint</label>
                                                     </div>
                                                     <div class="col-md-8 form-group">
-                                                        <input type="text" id="treatment_name" class="form-control"
-                                                            name="treatment_name">
+                                                        <input type="text" id="pill_imprint" class="form-control"
+                                                            name="pill_imprint">
                                                     </div>
                                                     <div class="col-md-4">
-                                                        <label>Medication</label>
+                                                        <label>Color</label>
                                                     </div>
                                                     <div class="col-md-8 form-group">
-                                                        <input type="text" id="medication" class="form-control"
-                                                            name="medication">
+                                                        <input type="text" id="color" class="form-control"
+                                                            name="color">
                                                     </div>
                                                     <div class="col-md-4">
-                                                        <label>Drugs used</label>
+                                                        <label>Shape</label>
                                                     </div>
                                                     <div class="col-md-8 form-group">
-                                                        <input type="text" id="drug_used" class="form-control"
-                                                            name="drug_used">
+                                                        <input type="text" id="shape" class="form-control"
+                                                            name="shape">
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label>Definition</label>
+                                                    </div>
+                                                    <div class="col-md-8 form-group">
+                                                        <input type="text" id="definition" class="form-control"
+                                                            name="definition">
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label>Picture</label>
+                                                    </div>
+                                                    <div class="col-md-8 form-group">
+                                                        <input type="text" id="url" class="form-control"
+                                                            name="url">
                                                     </div>
                                                     <div class="col-md-4">
                                                         <label>Drug ID</label>
@@ -110,14 +124,16 @@ require_once './layout/navbar.php';
                                             require_once'../admin/includes/koneksi.php';
                                                     
                                             if(isset($_POST['btnAdd'])){
-                                                $treatment_name = $_POST['treatment_name'];
-                                                $medication = $_POST['medication'];
-                                                $drug_used = $_POST['drug_used'];
-                                                $drug_id = $_POST['drug_id'];
-                                                $sql = "INSERT INTO treatment (treatment_name, medication, drug_used, drug_id) VALUES ('$treatment_name','$medication','$drug_used', '$drug_id')";
+                                                $imprint = $_POST['pill_imprint'];
+                                                $color = $_POST['color'];
+                                                $shape = $_POST['shape'];
+                                                $definition = $_POST['definition'];
+                                                $pict = $_POST['url'];
+                                                $drug = $_POST['drug_id'];
+                                                $sql = "INSERT INTO pill_identifier (pill_imprint, definition, color, shape, url, drug_id) VALUES ('$imprint','$definition','$color', '$shape', '$pict', '$drug')";
 																			
 			                                    if($koneksi->query($sql)===TRUE){
-                                                    echo "<script>setTimeout(\"location.href = 'treatment.php';\",1500);</script>";
+                                                    echo "<script>setTimeout(\"location.href = 'pillident.php';\",1500);</script>";
                                                     echo "<p class='alert alert-success text-center'><b>Data has been successfully added.</b></p>";
 			                                    } else {
 				                                    echo "Terjadi kesalahan:".$sql."<br/>".$koneksi->error;

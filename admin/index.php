@@ -135,26 +135,16 @@ require_once 'layout/navbar.php';
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-6">
+                                <div class="col-12 col-lg-12">
                                     <div class="card">
                                         <div class="card-header">
-                                            <h4>Drugs by category</h4>
+                                            <h4>Drugs Data</h4>
                                         </div>
-                                        <div class="card-body">
-                                            <div id="chart-profile-visit"></div>
+                                        <div>
+                                            <canvas id="myChart" class="ps-5 pe-5 pb-5"></canvas>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-6 col-lg-6">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h4>Visitors Profile</h4>
-                                    </div>
-                                    <div style="width: 300px;">
-                                        <canvas id="myChart"></canvas>
-                                    </div>
-                                </div>
-                            </div>
                             </div>
                         </div>
                     </section>
@@ -163,39 +153,73 @@ require_once 'layout/navbar.php';
         </div>
     </div>
     <?php
-    $users = mysqli_query($koneksi,"SELECT * FROM user");
-    $users_count = mysqli_num_rows($users);
+    $drugs = mysqli_query($koneksi,"SELECT * FROM drugs");
+    $drugs_count = mysqli_num_rows($drugs);
 
-    $healthcare = mysqli_query($koneksi,"SELECT * FROM healthcare_pro");
-    $healthcare_count = mysqli_num_rows($healthcare);
+    $pills = mysqli_query($koneksi,"SELECT * FROM pill_identifier");
+    $pills_count = mysqli_num_rows($pills);
+
+    $treatments = mysqli_query($koneksi,"SELECT * FROM treatment");
+    $treatments_count = mysqli_num_rows($drugs);
+
+    $approvals = mysqli_query($koneksi,"SELECT * FROM drug_approval");
+    $approvals_count = mysqli_num_rows($approvals);
+
+
     ?>
+
     <script>
+    const labels = [
+        'Drugs',
+        'Pill Identifier',
+        'Treatments',
+        'New Drug Approvals',
+    ];
+
     const data = {
-    labels: [
-        'User',
-        'Healthcare Pro'
-    ],
-    datasets: [{
-        label: 'My First Dataset',
-        data: [<?php echo $users_count; ?>, <?php echo $healthcare_count; ?>],
+        labels: labels,
+        datasets: [{
+        label: 'Drugs Data',
+        data: [<?=$drugs_count;?>, <?=$pills_count;?>, <?=$treatments_count;?>, <?=$approvals_count;?>],
         backgroundColor: [
-        'rgb(255, 99, 132)',
-        'rgb(255, 205, 86)'
+        'rgba(255, 99, 132, 0.2)',
+        'rgba(255, 159, 64, 0.2)',
+        'rgba(255, 205, 86, 0.2)',
+        'rgba(75, 192, 192, 0.2)',
+        'rgba(54, 162, 235, 0.2)',
+        'rgba(153, 102, 255, 0.2)',
+        'rgba(201, 203, 207, 0.2)'
         ],
-        hoverOffset: 4
+        borderColor: [
+        'rgb(255, 99, 132)',
+        'rgb(255, 159, 64)',
+        'rgb(255, 205, 86)',
+        'rgb(75, 192, 192)',
+        'rgb(54, 162, 235)',
+        'rgb(153, 102, 255)',
+        'rgb(201, 203, 207)'
+        ],
+        borderWidth: 1
     }]
     };
 
     const config = {
-        type: 'pie',
+        type: 'bar',
         data: data,
+        options: {
+            scales: {
+            y: {
+                beginAtZero: true
+            }
+            }
+        },
     };
 
     const myChart = new Chart(
         document.getElementById('myChart'),
         config
     );
-</script>
+    </script>
 
     <script src="assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>

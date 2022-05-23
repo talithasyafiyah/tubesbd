@@ -65,7 +65,7 @@ require_once 'layout/navbar.php';
                                     <tr>
                                         <th>No</th>
                                         <th>Treatment</th>
-                                        <th>Drug Used</th>
+                                        <th>Medication</th>
                                         <th></th>
                                         <th></th>
                                     </tr>
@@ -78,7 +78,7 @@ require_once 'layout/navbar.php';
                                         echo"<tr>
                                                 <td>$no</td>
                                                 <td>".$row['treatment_name']."</td>
-                                                <td>".$row['drug_used']."</td>
+                                                <td>".$row['medication']."</td>
                                                 <td>
                                                     <form method='POST' action='editTreatment.php'>
                                                         <input hidden type='text' name='treatment_id' value=".$row['treatment_id'].">

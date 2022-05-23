@@ -137,11 +137,8 @@ require_once './layout/navbar.php';
                                                         <label>Definition</label>
                                                     </div>
                                                     <div class="col-md-8 form-group">
-                                                        <div class="form-group mb-3">
-                                                            <?php echo "<textarea class='form-control' id='exampleFormControlTextarea1'
-                                                                rows='3'>".strip_tags($data['definition'])."</textarea>"
-                                                            ?>
-                                                        </div>
+                                                        <input value="<?php echo strip_tags($data['definition']); ?>" type="text" id="drug_class" class="form-control"
+                                                            name="drug_class">
                                                     </div>
                                                     <div class="col-sm-12 d-flex justify-content-end">
                                                         <button type="submit" name="btnUbah"

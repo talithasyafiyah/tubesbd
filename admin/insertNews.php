@@ -52,7 +52,7 @@ require_once './layout/navbar.php';
                         <div class="col-12 col-md-6 order-md-2 order-first">
                             <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="treatment.php"><?php echo $page; ?></a></li>
+                                    <li class="breadcrumb-item"><a href="news.php"><?php echo $page; ?></a></li>
                                     <li class="breadcrumb-item active" aria-current="page">Add <?php echo $page; ?></li>
                                 </ol>
                             </nav>
@@ -92,6 +92,13 @@ require_once './layout/navbar.php';
                                                             name="author">
                                                     </div>
                                                     <div class="col-md-4">
+                                                        <label>Picture</label>
+                                                    </div>
+                                                    <div class="col-md-8 form-group">
+                                                        <input type="text" id="picture" class="form-control"
+                                                            name="picture">
+                                                    </div>
+                                                    <div class="col-md-4">
                                                         <label>Created at</label>
                                                     </div>
                                                     <div class="col-md-8 form-group">
@@ -113,8 +120,9 @@ require_once './layout/navbar.php';
                                                 $title = $_POST['title'];
                                                 $content = $_POST['content'];
                                                 $author = $_POST['author'];
+                                                $pict = $_POST['picture'];
                                                 $time = $_POST['created_at'];
-                                                $sql = "INSERT INTO news (title, content, author, created_at) VALUES ('$title','$content','$author','$time')";
+                                                $sql = "INSERT INTO news (title, content, author, picture, created_at) VALUES ('$title','$content','$author', '$pict', '$time')";
 																			
 			                                    if($koneksi->query($sql)===TRUE){
                                                     echo "<script>setTimeout(\"location.href = 'news.php';\",1500);</script>";
