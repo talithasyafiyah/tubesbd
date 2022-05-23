@@ -1,3 +1,20 @@
+<?php
+require 'functions.php';
+
+$obat = $_POST['obat'];
+$drugs = cari($obat);
+
+//var_dump($_POST['obat']);
+/* var_dump($drugs); */
+
+
+/* foreach($drugs as $item) {
+    var_dump($item['drug_name']);
+} */
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,17 +47,28 @@
         <td  style="text-align: left;"  ><a href="../Drugs/Drugs.html" style="color: blue;">Cancel</a></td>
     </tr>
     <tr>
-        <tr>
+        <tr >
             <th style="width: 10%; padding: 30px;"><a href="../profile_info/profile.html"><h5>Peniel</h5></a> </th>
             <td style="border: none; padding-bottom: 1500px; width: 32%;" rowspan="20"   >
                 <h4>Add your first Drug...</h4>
                 <span>Add drugs to your profile to start building a medication record. Gain instant access to interactions, warnings, and alerts.</span> <br> <br>
              </td>
             <td style="border-bottom: none; padding-bottom: 1530px;" rowspan="20">
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="okok" placeholder="Enter the drug name">
-                    <span style="color: gray;">Start typing the name of your medication. A list of suggestions will appear; please select from the list.</span>
-                  </div>
+            <form action="" method="post">
+
+            <?php $i = 1; ?>
+            <?php foreach($drugs as $item) :?>
+                <div class="input-group mb-3 flex-column">` 
+                
+                    <h4 class="m-0">    
+                        <?= $item ["generic_name"]; ?>
+                    </h4>
+                    <p><?= $item ["dosage_form"]; ?></p>
+                </div>
+
+            <?php $i++; ?>
+            <?php endforeach ; ?>
+                </form>
             </td>
           
             

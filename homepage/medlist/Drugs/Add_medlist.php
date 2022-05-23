@@ -1,3 +1,27 @@
+<?php
+require 'functions.php';
+
+if( isset($_POST["submit"]) ) {
+
+    if( tambah($_POST) > 0 ) {
+        echo "
+            <script>
+                alert('Data Berhasil Ditambahkan!');
+                document.location.href = 'medlistdetails.php'
+            </script>
+       ";
+   } else {
+       echo "<script>
+                alert('Data Gagal Ditambahkan!');
+                document.location.href = 'medlistdetails.php'
+            </script>
+   ";
+   }
+   
+
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,9 +31,11 @@
     <link rel="stylesheet" href="../bootstrap-5.1.3/dist/css/bootstrap.css">
     <script src="https://kit.fontawesome.com/6357c29a35.js" crossorigin="anonymous"></script>
     <style>
-        table,th, td {
+        td, td {
             padding: 20px;
             border: 1px solid #dddddd;
+        
+            
         }
         a{
             text-decoration: none;
@@ -19,64 +45,46 @@
             color: rgb(45, 160, 160);
         }
 
-
     </style>
     
-    <title>nt</title>
+    <title>Add Medlist - Drugs.com</title>
 </head>
 <body>
     <table style="width: 90%; height: 85%;  border: 1px solid gray;  border-collapse:collapse; margin-top:80px" align="center" >
     <tr>
         <td style="width: 10%;"><a href="../profile_info/profile.html" style="color: blue;"> < Profiles</a> </td>
-        <td  style="text-align: left;"  ><a href="../Drugs/Drugs.html" style="color: blue;">Cancel</a></td>
+        <td  style="text-align: right;"  ><a href="../Drugs/Add_medlist.php" style="color: blue;">Add Drug</a></td>
     </tr>
     <tr>
         <td style="width: 10%; padding: 30px;"><a href="../profile_info/profile.html"><h5>Profile</h5></a></td>
-        <td style="border: none; padding-bottom: 1300px; " rowspan="20"   >
-            <p style="color: gray;">Edit details
-                <br>
-                <h4>Peniel</h4> <br> 
+        <td style="border: none; padding-bottom: 1300px; " rowspan="20">
+            <ul>
+            <h4>Add your Medlist...</h4>  
+            <span>Add Medlist to your profile to start building a medication record. Gain instant access to interactions, warnings, and alerts.</span> <br> <br>
+            </ul>
 
-                <label for="peniel"><h6>Profile Name</h6></label>
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="peniel" placeholder="Profil name">
-                </div>
-                <h6>Pregnancy/Lactation Warnings</h6> 
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                    <label class="form-check-label" for="flexRadioDefault1">
-                        Disabled  <span style="color: grey;">- pregnancy/lactation warnings not included</span>
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                    <label class="form-check-label" for="flexRadioDefault2">
-                        Enabled <span style="color: grey;">- all relevant pregnancy/lactation warnings will be included in reports</span>
-                    </label> 
-                  </div> <br>
-                  <label for="okok">Emergency Contact <span style="color: gray;">(optional)</span> </label>
-                  <div class="input-group mb-3">
-                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="okok" placeholder="Contact Name">
-                  </div>
-                  <div class="input-group mb-3">
-                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="okok" placeholder="Contact Phone Number">
-                  </div> <br>
-                  <label for="okok">Primary Physician <span style="color: gray;">(optional)</span> </label>
-                  <div class="input-group mb-3">
-                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="okok" placeholder="Physician Name">
-                  </div>
-                  <div class="input-group mb-3">
-                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="okok" placeholder="Physician Phone Number">
-                  </div>
-                  <label for="okok">Other Details <span style="color: gray;">(optional)</span> </label>
-                  <div class="form-floating">
-                    <textarea class="form-control" placeholder="Add additional information" id="floatingTextarea2" style="height: 150px"></textarea>
-                    <label for="floatingTextarea2">Add additional information</label>
-                  </div>
-                  <span style="color: gray;"> E.g. other physicians, specialists, pharmacists, medical history, blood type, etc</span>
-                </p> 
-                <button type="button" class="btn btn-primary">Save</button> <br> <br>
-                <span style="color: red;">Delete this Profile</span>
+            <form action="" class=" " method="post">
+                <ul>
+                    <div class="form-group col-8">
+                        <label style="font-size:17px ;" class="mb-1 " for="drugs">Add Drug</label>
+                        <input type="text" name="drugs" id="drugs" class="form-control mb-3" placeholder="Insert Your Drug " required autocomplete="off">
+                    </div>
+
+                    <div class="form-group col-8">
+                        <label style="font-size:17px ;" class="mb-1 " for="condition">Add Condition</label>
+                        <input type="text" name="condition" id="condition" class="form-control mb-3" placeholder="Insert Your condition " required autocomplete="off">
+                    </div>
+
+                    <div class="form-group col-8">
+                        <label style="font-size:17px ;" class="mb-1 " for="allergy">Add Allergy</label>
+                        <input type="text" name="allergy" id="allergy" class="form-control mb-3" placeholder="Insert Your allergy " required autocomplete="off">
+                    </div>
+                    
+                    <button type="submit" name="submit" class="btn btn-primary">Add Medlist</a></button>
+                </ul>
+            </form>
+            
+            
          </td>
    
         
@@ -87,7 +95,8 @@
         </td>
     </tr>
 
-
+    
+   
     <tr>
         <td style="width: 10%;"><a href="../Reports/report.html"><img src="../gambar/report.png" alt="" srcset="" width="40px"> Reports</a></td>
     </tr>
