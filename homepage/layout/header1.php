@@ -70,7 +70,7 @@
                     </button>
                       <ul class="dropdown-menu dropdown-menu-end">
                         <li><a class="dropdown-item" href="./overviewAcc.php">Account Settings</a></li>
-                        <li><a class="dropdown-item" href="
+
                         <?php
                         require_once '../admin/includes/koneksi.php';
 
@@ -78,12 +78,20 @@
                         $result = mysqli_query($koneksi, "SELECT * FROM medlist WHERE user_id = '$id'");
                         
                         if( mysqli_num_rows($result) === 1 ) {
-                          echo './medlistdetails.php';
+                            $user_id = $_SESSION['user_id'];
+                            $query = mysqli_query($koneksi, "SELECT medlist.medlist_id FROM medlist WHERE medlist.user_id = '$user_id'");
+                            $query2= mysqli_fetch_array($query); 
+                          
+                           echo "<form action='medlistdetails.php' method='POST'>
+                                <input hidden type='text' name='medlist_id' value=".$query2['medlist_id'].">
+                                <button type='submit' name='nt' class='btn text-start'  style='background-color: rgb(40, 93, 185, 0); border: none;'>  
+                                    My Med List
+                                </button>
+                            </form>";
                         } else {
-                          echo './1medlist.php';
+                          echo '<li><a class="dropdown-item" href="1medlist.php">My Med List</a></li>';
                         }
                         ?>
-                        ">My Med List</a></li>
                         <li><a class="dropdown-item" href="./logout.php"><button type="button" class="btn btn-primary">Sign Out</button></a></li>
                     </ul>
                 </div>

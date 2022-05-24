@@ -24,21 +24,28 @@
                     <?=$_SESSION['username']; ?>
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <li><a class="dropdown-item" href="#">Account Settings</a></li>
-                    <li><a class="dropdown-item" href="
+                    <li><a class="dropdown-item" href="./overviewAcc.php">Account Settings</a></li>
                     <?php
-                    require_once '../admin/includes/koneksi.php';
+                        require_once '../admin/includes/koneksi.php';
 
-                    $id = $_SESSION['user_id'];
-                    $result = mysqli_query($koneksi, "SELECT * FROM medlist WHERE user_id = '$id'");
+                        $id = $_SESSION['user_id'];
+                        $result = mysqli_query($koneksi, "SELECT * FROM medlist WHERE user_id = '$id'");
                         
-                    if( mysqli_num_rows($result) === 1 ) {
-                        echo './medlistDetails.php';
-                    } else {
-                        echo './1medlist.php';
-                    }
-                    ?>
-                    ">My Med List</a></li>
+                        if( mysqli_num_rows($result) === 1 ) {
+                            $user_id = $_SESSION['user_id'];
+                            $query = mysqli_query($koneksi, "SELECT medlist.medlist_id FROM medlist WHERE medlist.user_id = '$user_id'");
+                            $query2= mysqli_fetch_array($query); 
+                          
+                           echo "<form action='medlistdetails.php' method='POST'>
+                                <input hidden type='text' name='medlist_id' value=".$query2['medlist_id'].">
+                                <button type='submit' name='nt' class='btn text-start'  style='background-color: rgb(40, 93, 185, 0); border: none;'>  
+                                    My Med List
+                                </button>
+                            </form>";
+                        } else {
+                          echo '<li><a class="dropdown-item" href="1medlist.php">My Med List</a></li>';
+                        }
+                        ?>
                     <li><a class="dropdown-item" href="./logout.php"><button type="button" class="btn mb-4" style="background-color: rgb(59, 83, 161); color: white;">Sign Out</button></a></li>
                 </ul>
                 </div>
