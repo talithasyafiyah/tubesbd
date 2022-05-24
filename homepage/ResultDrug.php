@@ -35,7 +35,7 @@ if(empty($_SESSION['level'])) {
     <div class="container">
         <div class="row">
           <div class="col-md-8 py-5">
-            <h1><b>Hasil</b></h1>
+            <h1><b>Result.</b></h1>
 
             <br>
             <?php
@@ -59,8 +59,8 @@ if(empty($_SESSION['level'])) {
                         <div class="ddc-media-content">
                             <form action="drugsdetail1.php" method="POST">
                             <input hidden type="text" name="drug_id" value="<?php echo $row["drug_id"]; ?>" >
-                            <button type="submit" name="nt" class="btn btn-success text-start" style="background-color: rgb(40, 93, 185, 0); color: blue; border: none;">  
-                               <h2 class="ddc-media-title">
+                            <button type="submit" name="nt" class="btn btn-success text-start" style="background-color: rgb(40, 93, 185, 0); border: none;">  
+                               <h2 class="ddc-media-title text-primary">
                                     <?php echo $row["drug_name"]; ?> 
                                </h2>
                                </button>
@@ -81,8 +81,9 @@ if(empty($_SESSION['level'])) {
             </div>
                     
             </div>
+        </div>
 
-        <div class="col-md-4 ">
+        <div class="col-md-4 py-5">
             <div class="alert alert-secondary" role="alert">
                 <h4>Subscribe to our newsletters</h4>
               <div class="form-check">

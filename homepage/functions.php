@@ -1,5 +1,6 @@
 <?php
 // koneksi ke database
+
 $conn = mysqli_connect("localhost", "root", "", "tubes_sbd");
 
 function query($query) {
@@ -15,7 +16,6 @@ function query($query) {
 // FUNCTION REGIS
 function registrasi($data) {
     global $conn;
-
     $email = strtolower(stripslashes($data["email"]));
     $username = strtolower(stripslashes($data["username"]));
     $password = mysqli_real_escape_string($conn, $data["password"]);
@@ -55,16 +55,22 @@ function registrasi($data) {
 
 function tambah($data) {
     global $conn;
+    $user_id = $_SESSION['user_id'];
+    $query = mysqli_query($conn, "SELECT medlist.medlist_id FROM medlist WHERE medlist.user_id = '$user_id'");
+    $query2= mysqli_fetch_array($query);
+
     // ambil data dari tiap elemen dalam form
     $drugs = htmlspecialchars($data["drugs"]);
     $condition = htmlspecialchars($data["condition"]);
     $allergy = htmlspecialchars($data["allergy"]);
+    $medlist = $query2['medlist_id'];
 
 
     //query insert data
     $query = "INSERT INTO medlist_details 
+                (detail_id, drugs, condition, allergy, medlist_id, drug_id)
                 VALUES
-                ('', '$drugs', '$condition', '$allergy', '')
+                ('', '$drugs', '$condition', '$allergy', '$medlist', '')
                 ";
     mysqli_query($conn, $query);
 

@@ -88,7 +88,7 @@ session_start();
                 <td style="width: 30%;"><a href="../Reports/report.html"><i class="fa-solid fa-print"></i> Reports</a></td>
             </tr>
             <tr>
-                <td style="width: 30%;"><a href="../notes/notes.html"><i class="fa-solid fa-memo-pad"></i> Notes</a></td>
+                <td style="width: 30%;"><a href="../notes/notes.html"><i class="fa-solid fa-clipboard"></i> Notes</a></td>
             </tr>
 
         

@@ -3,6 +3,27 @@ session_start();
    if(empty($_SESSION['level'])) {
       echo "<script>alert('Sorry, you are not allowed to access this page.'); document.location='./../homepage/login.php'</script>";
    }
+require 'functions.php';
+
+if( isset($_POST["submit"]) ) {
+
+    if( tambah($_POST) > 0 ) {
+        echo "
+            <script>
+                alert('Data Berhasil Ditambahkan!');
+                document.location.href = 'medlistdetails.php'
+            </script>
+       ";
+   } else {
+       echo "<script>
+                alert('Data Gagal Ditambahkan!');
+                document.location.href = 'medlistdetails.php'
+            </script>
+   ";
+   }
+   
+
+}
 
 ?>
 <!DOCTYPE html>
@@ -40,7 +61,7 @@ session_start();
     include 'layout/header1.php';
     ?>
     <div class="container">
-        <table style="width: 90%; height: auto; border: 1px solid gray;  border-collapse:collapse; margin-top:80px" align="center" >
+        <table style="width: 90%; border: 1px solid gray;  border-collapse:collapse; margin-top:80px" align="center" >
             <tr>
                 <td style="width: 30%;"><a href="medlistdetails.php" style="color: blue;">
                 <?php
@@ -61,7 +82,7 @@ session_start();
                 <td  style="text-align: right;"  ></td>
             </tr>
             <tr>
-                <td style="width: 10%;"><a href="../profile_info/profile.html"><i class="fa-solid fa-user"></i> Profil</a></td>
+                <td style="width: 10%;;"><a href="../profile_info/profile.html"><i class="fa-solid fa-user"></i> Profil</a></td>
                 <td style="border: none; " rowspan="20">
                     <ul>
                     <h4>Add your Medlist...</h4>  
@@ -92,34 +113,11 @@ session_start();
                             ?>
                             
                             <form method="POST">
-                                <input hidden type="text" name="btnAdd" value=<?php echo $query2["medlist_id"]; ?>>
+                                <input hidden type="text" name="medlist_id" value=<?php echo $query2["medlist_id"]; ?>>
                                 <button type='submit' name='submit' class='btn btn-lg text-start' style="background-color: rgb(59, 83, 161);  color: white;">  
                                     Add Medlist
                                 </button>
                             </form>
-                            <br>
-                            <?php
-                            require_once '../admin/includes/koneksi.php';
-                                    
-                            if(isset($_POST['btnAdd'])){
-                                $user_id = $_SESSION['user_id'];
-                                $query = mysqli_query($koneksi, "SELECT medlist.medlist_id FROM medlist WHERE medlist.user_id = '$user_id'");
-                                $query2= mysqli_fetch_array($query);
-
-                                $drugs = $_POST['drugs'];
-                                $condition = $_POST['condition'];
-                                $allergy = $_POST['allergy'];
-                                $medlist_id = $query2['medlist_id'];
-
-                                $sql = "INSERT INTO medlist_details VALUES ('', '$drugs','$condition','$allergy','$medlist_id', '2')";
-                                           
-                                if($koneksi->query($sql)===TRUE){
-                                    echo "<br><p class='alert alert-success text-center'><b>Data has been successfully added.</b></p>";
-                                } else {
-                                    echo "Terjadi kesalahan:".$sql."<br/>".$koneksi->error;
-                                }             
-                            }
-                            ?>
                         </ul>
                     </form>
                     
@@ -140,7 +138,7 @@ session_start();
                 <td style="width: 30%;"><a href="../Reports/report.html"><i class="fa-solid fa-print"></i> Reports</a></td>
             </tr>
             <tr>
-                <td style="width: 30%;"><a href="../Reports/report.html"><i class="fa-solid fa-clipboard"></i> Notes</a></td>
+                <td style="width: 30%;"><a href="../notes/notes.html"><i class="fa-solid fa-memo-pad"></i> Notes</a></td>
             </tr>
             
         
