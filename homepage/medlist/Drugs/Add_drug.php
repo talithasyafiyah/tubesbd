@@ -1,5 +1,5 @@
 <?php
-require 'functions.php';
+require '../functions.php';
 /* $drugs = query("SELECT * FROM drugs "); */
 
 if( isset($_POST["cari"] ) ) {

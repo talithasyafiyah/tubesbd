@@ -111,7 +111,7 @@ include 'layout/header1.php';
                                         echo '<div class="alert alert-primary text-center" role="alert">
                                         <b><b>New Profile added.</b>
                                         </div>';
-                                        echo "<script>setTimeout(\"location.href = 'medlistDetails.php';\",1500);</script>";
+                                        echo "<script>setTimeout(\"location.href = '1medlistDetails.php';\",1500);</script>";
 			                        } else {
 				                        echo "Terjadi kesalahan:".$sql."<br/>".$koneksi->error;
 			                        }             

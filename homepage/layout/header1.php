@@ -78,7 +78,7 @@
                         $result = mysqli_query($koneksi, "SELECT * FROM medlist WHERE user_id = '$id'");
                         
                         if( mysqli_num_rows($result) === 1 ) {
-                          echo './medlistDetails.php';
+                          echo './medlistdetails.php';
                         } else {
                           echo './1medlist.php';
                         }
