@@ -35,6 +35,48 @@
 .Recently{
     text-align: left;
 }
+body {
+    font-family: 'Roboto', Arial, Sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+input[type=text] {
+    border: 2px solid #bdbdbd;
+    font-family: 'Roboto', Arial, Sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    padding: .5em .75em;
+    width: 300px;
+}
+input[type=text]:focus {
+    border: 2px solid #757575;
+    outline: none;
+}
+.autocomplete-suggestions {
+    border: 1px solid #999;
+    background: #FFF;
+    overflow: auto;
+}
+.autocomplete-suggestion {
+    padding: 2px 5px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.autocomplete-selected {
+    background: #F0F0F0;
+}
+.autocomplete-suggestions strong {
+    font-weight: normal;
+    color: #3399FF;
+}
+.autocomplete-group {
+    padding: 2px 5px;
+}
+.autocomplete-group strong {
+    display: block;
+    border-bottom: 1px solid #000;
+}
 </style>
 
 <body>
@@ -57,10 +99,12 @@ if(empty($_SESSION['level'])) {
                         <h1><b>Drug Index A to Z</b></h1>
                         <p>Detailed and accurate information is provided on over 24,000 prescription and over-the-counter medicines for both consumers and healthcare professionals.</p>
                         <div class="Search">
+                          <form action="ResultDrug.php" method="POST">
                             <div class="input-group mb-3">
-                                <input type="text" class="form-control" placeholder="Enter a drug name" aria-label="Enter a condition, e.g. acne" aria-describedby="button-addon2">
-                                <button class="btn search" type="button" id="button" style="background-color: rgb(40, 93, 185); color: white;"><i class="fa-solid fa-magnifying-glass"></i></button>
+                                <input type="text" name="search" id="search" class="form-control" placeholder="Enter a drug name" aria-label="Enter a condition, e.g. acne" aria-describedby="button-addon2">
+                                <button class="btn search" name="submit-search" type="submit" id="button" style="background-color: rgb(40, 93, 185); color: white;"><i class="fa-solid fa-magnifying-glass"></i></button>
                             </div>
+                          </form>
                         </div>
                         <div class="Browse mt-lg-5">
                             <h2><b>Browse Alphabetically</b></h2>
@@ -315,7 +359,25 @@ if(empty($_SESSION['level'])) {
     <?php
     include 'layout/footer.php';
     ?>
+    <script src="js/jquery-3.6.0.js"></script>
+    <script src="js/jquery.autocomplete.min.js"></script>
+       <script>
+        
+        $(document).ready(function() {
+            // Selector input yang akan menampilkan autocomplete.
+            $( "#search" ).autocomplete({
+                serviceUrl: "source.php",   // Kode php untuk prosesing data.
+                dataType: "JSON",           // Tipe data JSON.
+                onSelect: function (suggestion) {
+                    $( "#search" ).val("" + suggestion.drugs)     
+                             
+                }
 
+            });
+
+        })
+   
+</script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 </body>

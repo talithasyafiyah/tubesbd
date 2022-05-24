@@ -42,7 +42,7 @@ if(empty($_SESSION['level'])) {
             require_once '../admin/includes/koneksi.php';
             if (isset($_POST['submit-search'])) {
                 $search = trim($_POST["search"]);
-                $sql= "SELECT * FROM drugs WHERE drug_name like '%$search%' ";        
+                $sql= "SELECT * FROM treatment WHERE treatment_name like '%$search%' ";        
                 $result = mysqli_query($koneksi, $sql);
                 $queryResult = mysqli_num_rows($result);
         
@@ -57,16 +57,16 @@ if(empty($_SESSION['level'])) {
                         
                         
                         <div class="ddc-media-content">
-                            <form action="drugsdetail1.php" method="POST">
-                            <input hidden type="text" name="drug_id" value="<?php echo $row["drug_id"]; ?>" >
+                            <form action="treatmentDetails.php" method="POST">
+                            <input hidden type="text" name="treatment_id" value="<?php echo $row["treatment_id"]; ?>" >
                             <button type="submit" name="nt" class="btn btn-success text-start" style="background-color: rgb(40, 93, 185, 0); color: blue; border: none;">  
                                <h2 class="ddc-media-title">
-                                    <?php echo $row["drug_name"]; ?> 
+                                    <?php echo $row["treatment_name"]; ?> 
                                </h2>
                                </button>
                                </form>
                                 <p class="drug-subtitle">
-                                <p><?=$row['definition']; ?></p>
+                                <p><?=$row['medication']; ?></p>
                
                         </div>
                         <?php  }

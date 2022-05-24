@@ -42,7 +42,7 @@ if(empty($_SESSION['level'])) {
             require_once '../admin/includes/koneksi.php';
             if (isset($_POST['submit-search'])) {
                 $search = trim($_POST["search"]);
-                $sql= "SELECT * FROM drugs WHERE drug_name like '%$search%' ";        
+                $sql= "SELECT treatment.treatment_id, treatment.treatment_name, treatment.medication, drugs.drug_id, drugs.drug_name, drugs.definition   FROM drugs LEFT JOIN treatment ON drugs.drug_id= treatment.treatment_id WHERE drug_name LIKE '%$search%' OR treatment_name LIKE '%$search%'  UNION SELECT treatment.treatment_id, treatment.treatment_name, treatment.medication, drugs.drug_id, drugs.drug_name, drugs.definition  FROM drugs RIGHT JOIN treatment ON drugs.drug_id= treatment.treatment_id WHERE drug_name LIKE '%$search%' OR treatment_name LIKE '%$search%' ";        
                 $result = mysqli_query($koneksi, $sql);
                 $queryResult = mysqli_num_rows($result);
         
@@ -67,6 +67,19 @@ if(empty($_SESSION['level'])) {
                                </form>
                                 <p class="drug-subtitle">
                                 <p><?=$row['definition']; ?></p>
+                            
+
+
+                            <form action="treatmentDetails.php" method="POST">
+                            <input hidden type="text" name="treatment_id" value="<?php echo $row["treatment_id"]; ?>" >
+                            <button type="submit" name="nt" class="btn btn-success text-start" style="background-color: rgb(40, 93, 185, 0); color: blue; border: none;">  
+                               <h2 class="ddc-media-title">
+                                    <?php echo $row["treatment_name"]; ?> 
+                               </h2>
+                               </button>
+                               </form>
+                               <p class="drug-subtitle">
+                               <p><?=$row['medication']; ?></p>
                
                         </div>
                         <?php  }
@@ -74,7 +87,37 @@ if(empty($_SESSION['level'])) {
            
         }
     } ?>
-     
+      <?php
+            require_once '../admin/includes/koneksi.php';
+            if (isset($_POST['submit-search'])) {
+                $search = trim($_POST["search"]);
+                $sql= "SELECT * FROM news LEFT JOIN drug_approval ON news.news_id= drug_approval.approval_id WHERE title LIKE '%$search%' or new_drug like '%$search%'  UNION SELECT * FROM news RIGHT JOIN drug_approval ON news.news_id= drug_approval.approval_id  WHERE  new_drug LIKE '%$search%' or title like '%$search%'";        
+                $result = mysqli_query($koneksi, $sql);
+                $queryResult = mysqli_num_rows($result);
+        
+                if ($queryResult > 0) {
+                    while ($row = mysqli_fetch_assoc($result)) {
+            ?>
+        
+            
+            
+                <div class="ddc-media-list ddc-mgt-4">
+                    <div class="ddc-media">
+                        <div class="ddc-media-content">
+
+                            <h2 class="ddc-media-title"><a href="/pro/alymsys.html"><?=$row['title']; ?></a></h2>
+                                <p class="drug-subtitle">
+                                <p><?=$row['content']; ?></p>
+                            <h2 class="ddc-media-title"><a href="/pro/alymsys.html"><?=$row['new_drug']; ?></a></h2>
+                                <p class="drug-subtitle">
+                                <p><?=$row['content']; ?></p>
+               
+                        </div>
+                        <?php  }
+        } else {
+           
+        }
+    } ?>
                         
                     </div>
                 </div>
