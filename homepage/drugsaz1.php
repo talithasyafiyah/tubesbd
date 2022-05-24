@@ -101,7 +101,7 @@ if(empty($_SESSION['level'])) {
                                 <div class="col-3">
                                     <?php 
                                     include '../admin/includes/koneksi.php';
-                                    $query = mysqli_query($koneksi, "SELECT * FROM drugs WHERE drug_id < 12");
+                                    $query = mysqli_query($koneksi, "SELECT * FROM drugs  WHERE drug_id < 12");
                                     foreach($query as $row){ ?>
                                         <form action="drugsdetail1.php" method="POST">
                                             <input hidden type="text" name="drug_id" value=<?php echo $row["drug_id"]; ?>>

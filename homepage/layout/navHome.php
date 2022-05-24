@@ -23,13 +23,17 @@
         <div class="container">
             <b><h1 id="judul" class="text-center">Find Drugs & Conditions</h1></b>
             <div class="row mt-3">
+                <form action="ResultDrug.php" method="POST">
                 <div class="box mx-auto shadow-lg">
-                    <input type="search" placeholder="Enter a drug name, condition, pill imprint, etc.">
-                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" name="search" id="search"  placeholder="Enter a drug name, condition, pill imprint, etc.">
+                    <button type="submit" name="submit-search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </form>
                 </div>
+                </form>
             </div>
             <div class="row">
                 <p class="text-center mt-4" style="font-size: 11pt;">Trending searches: amlodipine, gabapentin, aspirin, lisinopril, prednisone</p>
             </div>
         </div>
     </div>
+  

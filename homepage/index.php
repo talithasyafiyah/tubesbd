@@ -17,6 +17,51 @@
     <!-- owl carousel -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://masrud.com/cloudme.fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <style>
+        body {
+    font-family: 'Roboto', Arial, Sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+input[type=text] {
+    border: 2px solid #bdbdbd;
+    font-family: 'Roboto', Arial, Sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    padding: .5em .75em;
+    width: 300px;
+}
+input[type=text]:focus {
+    border: 2px solid #757575;
+    outline: none;
+}
+.autocomplete-suggestions {
+    border: 1px solid #999;
+    background: #FFF;
+    overflow: auto;
+}
+.autocomplete-suggestion {
+    padding: 2px 5px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.autocomplete-selected {
+    background: #F0F0F0;
+}
+.autocomplete-suggestions strong {
+    font-weight: normal;
+    color: #3399FF;
+}
+.autocomplete-group {
+    padding: 2px 5px;
+}
+.autocomplete-group strong {
+    display: block;
+    border-bottom: 1px solid #000;
+}
+    </style>
 </head>
 <body>
 
@@ -284,5 +329,24 @@ include 'layout/footer.php';
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script src="js/script.js"></script>
+    <script src="js/jquery-3.6.0.js"></script>
+    <script src="js/jquery.autocomplete.min.js"></script>
+    <script>
+        
+            $(document).ready(function() {
+                // Selector input yang akan menampilkan autocomplete.
+                $( "#search" ).autocomplete({
+                    serviceUrl: "source.php",   // Kode php untuk prosesing data.
+                    dataType: "JSON",           // Tipe data JSON.
+                    onSelect: function (suggestion) {
+                        $( "#search" ).val("" + suggestion.drugs)     
+                                 
+                    }
+
+                });
+
+            })
+       
+    </script>
 </body>
 </html>
