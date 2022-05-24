@@ -1,6 +1,6 @@
 <?php
 session_start();
-   if(empty($_SESSION['level'])) {
+   if(empty($_SESSION['level']) == "Admin") {
       echo "<script>alert('Sorry, you are not allowed to access this page.'); document.location='./../homepage/login.php'</script>";
    }
 $page = "Pill Identifier";

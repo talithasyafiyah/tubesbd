@@ -1,6 +1,6 @@
 <?php
 session_start();
-   if(empty($_SESSION['level'])) {
+   if(empty($_SESSION['level'] == "Admin")) {
       echo "<script>alert('Sorry, you are not allowed to access this page.'); document.location='./../homepage/login.php'</script>";
    }
 $page = "News";
@@ -68,13 +68,14 @@ require_once 'layout/navbar.php';
                                         <th>Content</th>
                                         <th>Author Name</th>
                                         <th>Created at</th>
+                                        <th>Admin</th>
                                         <th></th>
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $query = mysqli_query($koneksi, "SELECT * FROM news");
+                                    $query = mysqli_query($koneksi, "SELECT news.news_id, news.title, news.content, news.author, news.created_at, user.username FROM news JOIN user ON news.user_id = user.user_id");
                                     $no = 1;
                                     foreach ($query as $row) {
                                         echo"<tr>
@@ -83,6 +84,7 @@ require_once 'layout/navbar.php';
                                                 <td>".$row['content']."</td>
                                                 <td>".$row['author']."</td>
                                                 <td>".$row['created_at']."</td>
+                                                <td>".$row['username']."</td>
                                                 <td>
                                                     <form method='POST' action='editNews.php'>
                                                         <input hidden type='text' name='news_id' value=".$row['news_id'].">

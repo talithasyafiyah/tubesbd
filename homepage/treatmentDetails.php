@@ -2,7 +2,7 @@
 include '../admin/includes/koneksi.php';
 $id = $_POST['treatment_id'];
 $query = mysqli_query($koneksi, "SELECT * FROM treatment WHERE treatment_id = '$id'");
-$query2= mysqli_fetch_array($query); 
+$query2= mysqli_fetch_assoc($query); 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -60,33 +60,31 @@ if(empty($_SESSION['level'])) {
             <div class="container mt-lg-5">
                 <div class="row">
                     <div class="col-8">
-                        <?php 
-                        include '../admin/includes/koneksi.php';
-                        $hasil = mysqli_query($koneksi, "SELECT * FROM drugs INNER JOIN treatment on drugs.drug_id=treatment.drug_id WHERE treatment_id = '$id' " );
-                        foreach ($hasil as $data) {
-                        ?>
-
-                        <h1><b>Medications for <?=$data['treatment_name'];?></b></h1>
-                        <p><?=$data['medication'];?></p>
+                    <?php
+                        $hasil = mysqli_query($koneksi, "SELECT treatment.treatment_name, treatment.medication, drugs.drug_name, drugs.generic_name, drugs.drug_class FROM treatment JOIN drugs ON treatment.drug_id = drugs.drug_id WHERE treatment_id = '$id'");
+                        foreach($hasil as $row2) {
+                    ?>
+                        <h1><b>Medications for <?=$row2['treatment_name'];?></b></h1>
+                        <p><?=$row2['medication'];?></p>
                         
-                        <h3><b>Drug used to treat <?=$data['treatment_name'];?></b></h3>
+                        <h3><b>Drug used to treat <?=$row2['treatment_name'];?></b></h3>
                         <p>The following list of medications are in some way related to or used in the treatment of this condition.</p>
                         
                         <div class="accordion accordion-flush" id="accordionFlushExample">
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="flush-headingOne">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                                    <?=$data['drug_name'];?>
+                                    <?=$row2['drug_name'];?>
                                     </button>
                                 </h2>
                                 <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                                     <div class="accordion-body" > 
-                                    <a href="#"><?=$data['drug_name'];?></a> <br>
-                                    Generic Name : <?=$data['generic_name'];?> <br>  Class : <?=$data['drug_class'];?> <br></div>
+                                    <a href="#"><?=$row2['drug_name'];?></a> <br>
+                                    Generic Name : <?=$row2['generic_name'];?> <br>  Class : <?=$row2['drug_class'];?> <br></div>
                                 </div>
+                                <?php }?>
                             </div>
                         </div>
-                        <?php } ?>
                         <div class="consumer mt-lg-5">
                             <h2>Consumer Drug Sources</h2>
                             <div class="row">

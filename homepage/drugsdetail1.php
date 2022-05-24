@@ -60,22 +60,28 @@ if(empty($_SESSION['level'])) {
                 <div class="row">
                     <div class="col-8">
                         <p style="font-size: 13px;"> <a href="" style="color: grey;"> Drugs A to Z</a>  </p>
-                        <h1><b><?=$query2['drug_name'];?></b></h1>
+                        <?php
+                        $drug_id = $_POST['drug_id'];
+                        $hasil = mysqli_query($koneksi, "SELECT * FROM drugs WHERE drug_id = '$drug_id'");
+                        foreach($hasil as $row) {
+                        ?>
+                        <h1><b><?=$row['drug_name'];?></b></h1>
 
-                        <p><b>Generic name : </b> <?=$query2['generic_name'];?>  <br>
-                        <b>Brand names : </b> <?=$query2['brand_name'];?>
+                        <p><b>Generic name : </b> <?=$row['generic_name'];?>  <br>
+                        <b>Brand names : </b> <?=$row['brand_name'];?>
                         <br>
-                        <b>Dosage forms : </b> <?=$query2['dosage_form'];?>
+                        <b>Dosage forms : </b> <?=$row['dosage_form'];?>
                         <br>
-                        <b>Drug class : </b> <?=$query2['drug_class'];?>
+                        <b>Drug class : </b> <?=$row['drug_class'];?>
                         <br>
                     </p>
 
                   <!--what is ...-->
 
-                <h2> <b>What is <?=$query2['drug_name'];?>?</b> </h2>
+                <h2> <b>What is <?=$row['drug_name'];?>?</b> </h2>
                 <div>
-                  <p><?=strip_tags($query2['definition']);?></p>  
+                  <p><?=strip_tags($row['definition']);?></p>
+                  <?php } ?>
                 </div>
                     </div>
                     <div class="col-4">

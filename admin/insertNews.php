@@ -1,6 +1,6 @@
 <?php
 session_start();
-   if(empty($_SESSION['level'])) {
+   if(empty($_SESSION['level'] == "Admin")) {
       echo "<script>alert('Sorry, you are not allowed to access this page.'); document.location='./../homepage/login.php'</script>";
    }
 require_once 'includes/koneksi.php';
@@ -122,7 +122,8 @@ require_once './layout/navbar.php';
                                                 $author = $_POST['author'];
                                                 $pict = $_POST['picture'];
                                                 $time = $_POST['created_at'];
-                                                $sql = "INSERT INTO news (title, content, author, picture, created_at) VALUES ('$title','$content','$author', '$pict', '$time')";
+                                                $admin = $_SESSION['user_id'];
+                                                $sql = "INSERT INTO news (title, content, author, picture, created_at, user_id) VALUES ('$title','$content','$author', '$pict', '$time', '$admin')";
 																			
 			                                    if($koneksi->query($sql)===TRUE){
                                                     echo "<script>setTimeout(\"location.href = 'news.php';\",1500);</script>";

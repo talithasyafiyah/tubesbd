@@ -1,7 +1,7 @@
 <?php 
 include '../admin/includes/koneksi.php';
 $id = $_POST['identifier_id'];
-$query = mysqli_query($koneksi, "SELECT pill_identifier.pill_imprint, pill_identifier.definition, pill_identifier.strength, pill_identifier.color, pill_identifier.shape, pill_identifier.url, drugs.drug_id, drugs.drug_name, drugs.drug_class FROM pill_identifier JOIN drugs ON pill_identifier.drug_id = drugs.drug_id WHERE identifier_id = '$id'");
+$query = mysqli_query($koneksi, "SELECT * FROM pill_identifier WHERE identifier_id = '$id'");
 $query2= mysqli_fetch_array($query); 
 ?>
 
@@ -68,43 +68,48 @@ if(empty($_SESSION['level'])) {
         <div class="row">
             <div class="col-8">
                 <main id="container" class="container">
-                    <h1><?=$query2['pill_imprint'];?> (<?=$query2['drug_name'];?> <?=$query2['strength'];?>)</h1>
-                    <p><?=$query2['definition'];?></p>
+                    <?php
+                        $identifier_id = $_POST['identifier_id'];
+                        $hasil = mysqli_query($koneksi, "SELECT pill_identifier.pill_imprint, pill_identifier.definition, pill_identifier.color, pill_identifier.shape, pill_identifier.strength, pill_identifier.url, drugs.drug_name, drugs.drug_class, drugs.drug_id  FROM pill_identifier JOIN drugs ON pill_identifier.drug_id = drugs.drug_id WHERE identifier_id = '$identifier_id'");
+                        foreach($hasil as $row) {
+                    ?>
+                    <h1><?=$row['pill_imprint'];?> (<?=$row['drug_name'];?> <?=$row['strength'];?>)</h1>
+                    <p><?=$row['definition'];?></p>
             </div>
             <div class="row mt-0">
-              <h2 class="mb-4">Images for <?=$query2['pill_imprint'];?></h2>
+              <h2 class="mb-4">Images for <?=$row['pill_imprint'];?></h2>
               <div class="col-3">
-                  <div class="zoom "><img src="<?=$query2['url'];?>" alt=""></div>
+                  <div class="zoom "><img src="<?=$row['url'];?>" alt=""></div>
               </div>
               <div class="col-9">
                   <form action="drugsdetail1.php" method="POST">
-                      <input hidden type="text" name="drug_id" value=<?php echo $query2["drug_id"]; ?>>
+                      <input hidden type="text" name="drug_id" value=<?php echo $row["drug_id"]; ?>>
                       <button type='submit' name='nt' class='btn btn-success text-start' style="background-color: rgb(40, 93, 185, 0); color: blue; border: none;">  
-                          <h5 class="ddc-mgt-0"><b><?php echo $query2["drug_name"]; ?></b></h5>
+                          <h5 class="ddc-mgt-0"><b><?php echo $row["drug_name"]; ?></b></h5>
                       </button>
                   </form>
                 
                 <dl class="pid-list">
 			
 			<dt>Imprint: </dt>
-			<dd><?=$query2['pill_imprint'];?></dd>
+			<dd><?=$row['pill_imprint'];?></dd>
 
             <dt>Strength: </dt>
-			<dd><?=$query2['strength'];?></dd>
+			<dd><?=$row['strength'];?></dd>
 
 			<dt>Color: </dt>
-			<dd><?=$query2['color'];?></dd>
+			<dd><?=$row['color'];?></dd>
 			
 			<dt>Shape: </dt>
-			<dd><?=$query2['shape'];?></dd>
+			<dd><?=$row['shape'];?></dd>
 		
 			<dt>Drug Class: </dt>
-			<dd class="pid-list-item-wide"> <?=$query2['drug_class'];?> </dd>
+			<dd class="pid-list-item-wide"> <?=$row['drug_class'];?> </dd>
 		
 			</dl>
             <div class="ddc-mgt-2 ddc-mgb-4 ddc-btn-group noprint">
                 <form action="drugsdetail1.php" method="POST">
-                      <input hidden type="text" name="drug_id" value=<?php echo $query2["drug_id"]; ?>>
+                      <input hidden type="text" name="drug_id" value=<?php echo $row["drug_id"]; ?>>
                       <button type='submit' name='nt' class= 'btn btn-primary'>  
                           Drug Uses
                       </button>
@@ -112,6 +117,7 @@ if(empty($_SESSION['level'])) {
                 <a><button type="button" class="btn btn-light">Print</button></a>
             </div>
               </div>
+            <?php } ?>
 </main>
 </div>
 </div>
