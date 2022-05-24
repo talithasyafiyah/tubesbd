@@ -176,75 +176,22 @@ if(empty($_SESSION['level'])) {
                       <h2 style="margin-bottom: 25px;">Popular Pill Imprints</h2>
                       <div class="container">
                         <div class="popularpill row">
-                          <div class="col">
-                            <a href="">30 M</a>
-                          </div>
-                          <div class="col">
-                            <a href="">512</a>
-                          </div>
-                          <div class="col">
-                            <a href="">4H2</a>
-                          </div>
-                          <div class="col">
-                            <a href="">H 49</a>
-                          </div>
-                        </div>
-                        <div class="popularpill row">
-                          <div class="col">
-                            <a href="">M367</a>
-                          </div>
-                          <div class="col">
-                            <a href="">M366</a>
-                          </div>
-                          <div class="col">
-                            <a href="">R180</a>
-                          </div>
-                          <div class="col">
-                            <a href="">LUPIN 500</a>
-                          </div>
-                        </div>
-                        <div class="popularpill row">
-                          <div class="col">
-                            <a href="">M365</a>
-                          </div>
-                          <div class="col">
-                            <a href="">S 90 3</a>
-                          </div>
-                          <div class="col">
-                            <a href="">R P 5 325</a>
-                          </div>
-                          <div class="col">
-                            <a href="">R P 10</a>
-                          </div>
-                        </div>
-                        <div class="popularpill row">
-                          <div class="col">
-                            <a href="">L484</a>
-                          </div>
-                          <div class="col">
-                            <a href="">AN 627</a>
-                          </div>
-                          <div class="col">
-                            <a href="">R 0 3 9</a>
-                          </div>
-                          <div class="col">
-                            <a href="">377</a>
-                          </div>
-                        </div>
-                        <div class="popularpill row">
-                          <div class="col">
-                            <a href="">RP 10 325</a>
-                          </div>
-                          <div class="col">
-                            <a href="">PLIVIA 433</a>
-                          </div>
-                          <div class="col">
-                            <a href="">U03</a>
-                          </div>
-                          <div class="col">
-                            <a href="">TEVA 3927</a>
-                          </div>
-                        </div>                        
+                          
+                        <div class="col-3">
+                                    <?php 
+                                    include '../admin/includes/koneksi.php';
+                                    $query = mysqli_query($koneksi, "SELECT * FROM pill_identifier");
+                                    foreach($query as $row){ ?>
+                                            <form action="pillidentifierdetails.php" method="POST">
+                                                <input hidden type="text" name="identifier_id" value=<?php echo $row["identifier_id"]; ?>>
+                                                <button type='submit' name='nt' class='btn btn-success text-start' style="background-color: rgb(40, 93, 185, 0); color: blue; border: none;">  
+                                                    <?php echo $row["pill_imprint"]; ?> 
+                                                </button>
+                                            </form>
+                                    <?php } ?>
+
+                                  </div>
+                      </div>                        
                       </div>
                       <br>
                       
