@@ -61,7 +61,8 @@ if(empty($_SESSION['level'])) {
                 <div class="row">
                     <div class="col-8">
                     <?php
-                        $hasil = mysqli_query($koneksi, "SELECT treatment.treatment_name, treatment.medication, drugs.drug_name, drugs.generic_name, drugs.drug_class FROM treatment JOIN drugs ON treatment.drug_id = drugs.drug_id WHERE treatment_id = '$id'");
+                        $treatment_id = $_POST['treatment_id'];
+                        $hasil = mysqli_query($koneksi, "SELECT treatment.treatment_name, treatment.medication, drugs.drug_name, drugs.generic_name, drugs.drug_class FROM treatment JOIN drugs ON treatment.drug_id = drugs.drug_id WHERE treatment_id = '$treatment_id'");
                         foreach($hasil as $row2) {
                     ?>
                         <h1><b>Medications for <?=$row2['treatment_name'];?></b></h1>

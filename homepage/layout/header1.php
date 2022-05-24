@@ -103,7 +103,7 @@
                       <a class="nav-link" href="./drugsaz1.php" style="color:black;">DRUGS A-Z</a>
                       <a class="nav-link" href="./imprint.php" style="color:black;">PILL IDENTIFIER</a>
                       <a class="nav-link" href="#" style="color:black;">INTERACTIONS CHECKER</a>
-                      <a class="nav-link" href="#" style="color:black;">NEWS & ALERTS</a>
+                      <a class="nav-link" href="./newsandalerts.php" style="color:black;">NEWS & ALERTS</a>
                       <a class="nav-link" href="#" style="color:black;">PRO EDITION</a>
                       <a class="nav-link" href="#" style="color:black;">MORE</a>
                     </div>

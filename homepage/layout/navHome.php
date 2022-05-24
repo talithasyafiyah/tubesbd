@@ -25,8 +25,8 @@
             <div class="row mt-3">
                 <form action="ResultDrug.php" method="POST">
                 <div class="box mx-auto shadow-lg">
-                    <input type="text" name="search" id="search"  placeholder="Enter a drug name, condition, pill imprint, etc.">
-                    <button type="submit" name="submit-search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <input type="text" name="search" id="search"  style="background-color: rgb(40, 93, 185, 0); border: none;" placeholder="Enter a drug name, condition, pill imprint, etc.">
+                    <button type="submit" name="submit-search" style="background-color: rgb(40, 93, 185, 0); color: rgb(82, 82, 82); border: none;"><i class="fa-solid fa-magnifying-glass"></i></button>
                     </form>
                 </div>
                 </form>
