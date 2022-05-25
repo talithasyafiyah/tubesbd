@@ -36,6 +36,49 @@
         .popularpill {
           margin-top: 12px;
         }
+        body {
+    font-family: 'Roboto', Arial, Sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+input[type=text] {
+    border: 2px solid #bdbdbd;
+    font-family: 'Roboto', Arial, Sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    padding: .5em .75em;
+    width: 300px;
+}
+input[type=text]:focus {
+    border: 2px solid #757575;
+    outline: none;
+}
+.autocomplete-suggestions {
+    border: 1px solid #999;
+    background: #FFF;
+    overflow: auto;
+}
+.autocomplete-suggestion {
+    padding: 2px 5px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.autocomplete-selected {
+    background: #F0F0F0;
+}
+.autocomplete-suggestions strong {
+    font-weight: normal;
+    color: #3399FF;
+}
+.autocomplete-group {
+    padding: 2px 5px;
+}
+.autocomplete-group strong {
+    display: block;
+    border-bottom: 1px solid #000;
+}
+        
     </style>
 </head>
 <body>
@@ -61,29 +104,37 @@ if(empty($_SESSION['level'])) {
                 
                 <!--Baris 2-->
 
-                <form class="container form-h border shadow-sm p-3 mb-5 bg-white rounded mt-3" style="border-radius: 10px;">
-                  
-
+                <form class="container form-h border shadow-sm p-3 mb-5 bg-white rounded mt-3" style="border-radius: 10px;" action="ResultPI.php" method="POST" >
+                  <?php
+                  include '../admin/includes/koneksi.php';
+                  $query = mysqli_query($koneksi, "SELECT * FROM pill_identifier");
+                  ?>
                   <div class="row form ">
                     <div class="form-group col-md-6">
                         <div class="row">
                             <div class="col-md-12 mt-1"
                               <label for="inputEmail4">Pill Imprint</label>
-                              <input type="email" class="form-control" id="inputEmail4">
+                              <input type="text" class="form-control" id="inputEmail4" name="pill_imprint">
                             </div>
                             <div class="col-md-12 mt-2">
                               <label for="inputState">Color</label>
-                              <select id="inputState" class="form-control">
-                                <option selected>Choose...</option>
-                                <option>...</option>
+                              <select id="inputState" class="form-control" name="color">
+                                <option selected >Choose..</option>
+                                <?php foreach($query as $row){ ?>
+                                  <option><?php echo $row['color'] ?></option>
+                              <?php  } ?>
                               </select>
                             </div>
                             <div class="col-md-12 mt-2 ">
                               <label for="inputState">Shape</label>
-                              <select id="inputState" class="form-control">
+                              <select id="inputState" class="form-control" name="shape">
                                 <option selected>Choose...</option>
-                                <option>...</option>
+                                <?php foreach($query as $row){ 
+                                ?>
+                                <option ><?php echo $row['shape'] ?></option>
+                                <?php } ?>
                               </select>
+                              
                             </div>
                             <button style="  margin-top: 12px; margin-left: 17px;" type="submit" class="btn btn-primary col-md-3">Search</button>
                         </div>
@@ -299,5 +350,24 @@ include 'layout/footer.php';
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
 <script src="js/bootstrap.js" ></script>
 <script src="js/jquery-3.6.0.min.js" ></script>
+<script src="js/jquery-3.6.0.js"></script>
+    <script src="js/jquery.autocomplete.min.js"></script>
+    <script>
+        
+            $(document).ready(function() {
+                // Selector input yang akan menampilkan autocomplete.
+                $( "#search2" ).autocomplete({
+                    serviceUrl: "source3.php",   // Kode php untuk prosesing data.
+                    dataType: "JSON",           // Tipe data JSON.
+                    onSelect: function (suggestion) {
+                        $( "#search2" ).val("" + suggestion.drugs)     
+                                 
+                    }
+
+                });
+
+            })
+       
+    </script>
 </body>
 </html>

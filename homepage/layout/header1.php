@@ -11,7 +11,7 @@
                 </div>
                 <div class="col-7 mt-lg-4">
                     <div class="input-group">
-                    <input type="text" class="form-control" aria-label="Text input with segmented dropdown button" placeholder="Search">
+                    <input type="text" class="form-control" aria-label="Text input with segmented dropdown button" placeholder="Search" name="search2" id="search2">
                     
                     <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
                       All<span class="visually-hidden">Toggle Dropdown</span>
@@ -114,3 +114,22 @@
     </div>
     </header>
     </div>
+    <script src="js/jquery-3.6.0.js"></script>
+    <script src="js/jquery.autocomplete.min.js"></script>
+    <script>
+        
+            $(document).ready(function() {
+                // Selector input yang akan menampilkan autocomplete.
+                $( "#search2" ).autocomplete({
+                    serviceUrl: "source3.php",   // Kode php untuk prosesing data.
+                    dataType: "JSON",           // Tipe data JSON.
+                    onSelect: function (suggestion) {
+                        $( "#search2" ).val("" + suggestion.drugs)     
+                                 
+                    }
+
+                });
+
+            })
+       
+    </script>
