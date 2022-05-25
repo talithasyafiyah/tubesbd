@@ -67,6 +67,7 @@ require_once './layout/navbar.php';
                                         <th>No</th>
                                         <th>Drug Name</th>
                                         <th>Company</th>
+                                        <th>Treatment Name</th>
                                         <th>Created at</th>
                                         <th></th>
                                         <th></th>
@@ -74,13 +75,14 @@ require_once './layout/navbar.php';
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $query = mysqli_query($koneksi, "SELECT * FROM drug_approval");
+                                    $query = mysqli_query($koneksi, "SELECT drug_approval.approval_id, drug_approval.new_drug, drug_approval.company, drug_approval.date_approval, treatment.treatment_name FROM drug_approval JOIN treatment ON drug_approval.treatment_id = treatment.treatment_id");
                                     $no = 1;
                                     foreach ($query as $row) {
                                         echo"<tr>
                                                 <td>$no</td>
                                                 <td>".$row['new_drug']."</td>
                                                 <td>".$row['company']."</td>
+                                                <td>".$row['treatment_name']."</td>
                                                 <td>".$row['date_approval']."</td>
                                                 <td>
                                                     <form method='POST' action='editDrugapproval.php'>

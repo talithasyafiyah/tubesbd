@@ -6,7 +6,7 @@
                     <img src="https://www.drugs.com/img/apps/promo-uberapp.png" alt="">
                 </div>
                 <div class="col mt-5 ms-0 ps-0">
-                    <h2>Drugs.com Mobile Apps</h2>
+                    <h2><b>Drugs.com Mobile Apps</b></h2>
                     <p>The easiest way to lookup drug information, identify pills, check interactions and set up your own personal medication records. Available for Android and iOS devices.</p>
                     <button type="button" class="btn btn-lg" style="background-color: rgb(59, 83, 161); color: white;">Explore Apps</button>
                 </div>

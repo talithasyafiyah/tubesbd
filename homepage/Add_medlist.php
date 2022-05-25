@@ -72,7 +72,15 @@ session_start();
                         <ul>
                             <div class="form-group col-8">
                                 <label style="font-size:17px ;" class="mb-1 " for="drugs">Add Drug</label>
-                                <input type="text" name="drugs" id="drugs" class="form-control mb-3" placeholder="Insert Your Drug " required autocomplete="off">
+                                <select name="drug_id" class="form-select" id="basicSelect">
+                                    <?php
+                                        include '../admin/includes/koneksi.php';
+                                        $hasil = mysqli_query($koneksi, "SELECT * FROM drugs");
+                                        foreach($hasil as $row) {
+                                    ?>
+                                    <option value="<?=$row['drug_id']?>"><?=$row['drug_name'];?></option>
+                                    <?php } ?>
+                                </select>
                             </div>
 
                             <div class="form-group col-8">
@@ -106,12 +114,12 @@ session_start();
                                 $query = mysqli_query($koneksi, "SELECT medlist.medlist_id FROM medlist WHERE medlist.user_id = '$user_id'");
                                 $query2= mysqli_fetch_array($query);
 
-                                $drugs = $_POST['drugs'];
                                 $condition = $_POST['condition'];
                                 $allergy = $_POST['allergy'];
                                 $medlist_id = $query2['medlist_id'];
+                                $drug_id = $_POST['drug_id'];
 
-                                $sql = "INSERT INTO medlist_details VALUES ('', '$drugs','$condition','$allergy','$medlist_id', '2')";
+                                $sql = "INSERT INTO medlist_details VALUES ('', '$condition','$allergy','$medlist_id','$drug_id')";
                                            
                                 if($koneksi->query($sql)===TRUE){
                                     echo "<br><p class='alert alert-success text-center'><b>Data has been successfully added.</b></p>";

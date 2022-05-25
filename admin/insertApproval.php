@@ -88,7 +88,7 @@ require_once './layout/navbar.php';
                                                         <label>Date Approval</label>
                                                     </div>
                                                     <div class="col-md-8 form-group">
-                                                        <input type="text" id="date_approval" class="form-control"
+                                                        <input type="date" id="date_approval" class="form-control"
                                                             name="date_approval">
                                                     </div>
                                                     <div class="col-md-4">
@@ -99,11 +99,18 @@ require_once './layout/navbar.php';
                                                             name="content">
                                                     </div>
                                                     <div class="col-md-4">
-                                                        <label>Treatment ID</label>
+                                                        <label>Treatment Name</label>
                                                     </div>
                                                     <div class="col-md-8 form-group">
-                                                        <input type="text" id="treatment_id" class="form-control"
-                                                            name="treatment_id">
+                                                        <select name="treatment_id" class="form-select" id="basicSelect">
+                                                            <?php
+                                                                include 'includes/koneksi.php';
+                                                                $hasil = mysqli_query($koneksi, "SELECT * FROM treatment");
+                                                                foreach($hasil as $row) {
+                                                            ?>
+                                                            <option value="<?=$row['treatment_id']?>"><?=$row['treatment_name'];?></option>
+                                                            <?php } ?>
+                                                        </select>
                                                     </div>
                                                     <div class="col-sm-12 d-flex justify-content-end">
                                                         <button type="submit" name="btnAdd"

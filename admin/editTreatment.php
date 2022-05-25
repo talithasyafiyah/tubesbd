@@ -70,7 +70,7 @@ require_once './layout/navbar.php';
                                         <?php
                                         require_once 'includes/koneksi.php';
                                         $treatment_id = $_POST['treatment_id'];
-                                        $query = "SELECT * FROM treatment WHERE treatment_id='$treatment_id'";
+                                        $query = "SELECT * FROM treatment JOIN drugs ON treatment.drug_id = drugs.drug_id WHERE treatment_id='$treatment_id'";
                                         $hasil = mysqli_query($koneksi, $query);
                                         foreach ($hasil as $data){
                                         ?>
@@ -80,10 +80,9 @@ require_once './layout/navbar.php';
                                                 $no = $_POST['treatment_id'];
                                                 $name = $_POST['treatment_name'];
                                                 $medication = $_POST['medication'];
-                                                $drug = $_POST['drug_used'];
                                                 
                                                 if ($koneksi) {
-                                                    $sql = "UPDATE treatment SET treatment_name='$name', medication='$medication', drug_used='$drug' WHERE treatment_id=$no";
+                                                    $sql = "UPDATE treatment SET treatment_name='$name', medication='$medication' WHERE treatment_id='$no'";
                                                     $row = mysqli_query($koneksi,$sql);
                                                     echo "<br><p class='alert alert-primary text-center'><b>Data has been updated.</p>";
                                                 } else {
@@ -113,15 +112,8 @@ require_once './layout/navbar.php';
                                                         <label>Drugs used</label>
                                                     </div>
                                                     <div class="col-md-8 form-group">
-                                                        <input value="<?php echo $data['drug_used']; ?>" type="text" id="drug_used" class="form-control"
+                                                        <input value="<?php echo $data['drug_name']; ?>" type="text" id="drug_used" class="form-control"
                                                             name="drug_used">
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <label>Drug ID</label>
-                                                    </div>
-                                                    <div class="col-md-8 form-group">
-                                                        <input value="<?php echo $data['drug_id']; ?>" type="number" id="drug_id" class="form-control"
-                                                            name="drug_id">
                                                     </div>
                                                     <div class="col-sm-12 d-flex justify-content-end">
                                                         <button type="submit" name="btnUbah"

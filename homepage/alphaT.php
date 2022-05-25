@@ -535,7 +535,7 @@ if(empty($_SESSION['level'])) {
                                             $query = mysqli_query($koneksi, "SELECT * FROM treatment WHERE treatment_name LIKE 'Z%'");
                                             foreach($query as $row) { ?>
                                             <form action="treatmentDetails.php" method="POST">
-                                                <input hidden type="text" name="treatment_id" value=<?php echo $row["drug_id"]; ?>>
+                                                <input hidden type="text" name="treatment_id" value=<?php echo $row["treatment_id"]; ?>>
                                                 <button type='submit' name='nt' class='btn btn-success text-start' style="background-color: rgb(40, 93, 185, 0); color: blue; border: none;">  
                                                     <?php echo $row["treatment_name"]; ?> 
                                                 </button>

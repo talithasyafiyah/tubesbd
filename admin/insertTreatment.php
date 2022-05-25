@@ -87,16 +87,17 @@ require_once './layout/navbar.php';
                                                     <div class="col-md-4">
                                                         <label>Drugs used</label>
                                                     </div>
+                                                    
                                                     <div class="col-md-8 form-group">
-                                                        <input type="text" id="drug_used" class="form-control"
-                                                            name="drug_used">
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <label>Drug ID</label>
-                                                    </div>
-                                                    <div class="col-md-8 form-group">
-                                                        <input type="number" id="drug_id" class="form-control"
-                                                            name="drug_id">
+                                                        <select name="drug_id" class="form-select" id="basicSelect">
+                                                            <?php
+                                                                include 'includes/koneksi.php';
+                                                                $hasil = mysqli_query($koneksi, "SELECT * FROM treatment JOIN drugs ON treatment.drug_id = drugs.drug_id");
+                                                                foreach($hasil as $row) {
+                                                            ?>
+                                                            <option value="<?=$row['drug_id']?>"><?=$row['drug_name'];?></option>
+                                                            <?php } ?>
+                                                        </select>
                                                     </div>
                                                     <div class="col-sm-12 d-flex justify-content-end">
                                                         <button type="submit" name="btnAdd"
@@ -112,10 +113,8 @@ require_once './layout/navbar.php';
                                             if(isset($_POST['btnAdd'])){
                                                 $treatment_name = $_POST['treatment_name'];
                                                 $medication = $_POST['medication'];
-                                                $drug_used = $_POST['drug_used'];
                                                 $drug_id = $_POST['drug_id'];
-                                                $sql = "INSERT INTO treatment (treatment_name, medication, drug_used, drug_id) VALUES ('$treatment_name','$medication','$drug_used', '$drug_id')";
-																			
+                                                $sql = "INSERT INTO treatment (treatment_name, medication, drug_id) VALUES ('$treatment_name','$medication', '$drug_id')";			
 			                                    if($koneksi->query($sql)===TRUE){
                                                     echo "<script>setTimeout(\"location.href = 'treatment.php';\",1500);</script>";
                                                     echo "<p class='alert alert-success text-center'><b>Data has been successfully added.</b></p>";

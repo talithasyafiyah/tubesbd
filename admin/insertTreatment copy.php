@@ -4,7 +4,7 @@ session_start();
       echo "<script>alert('Sorry, you are not allowed to access this page.'); document.location='./../homepage/login.php'</script>";
    }
 require_once 'includes/koneksi.php';
-$page = "Drug Approval";
+$page = "Treatment";
 /* $username = $_SESSION['username']; */
 ?>
 <!DOCTYPE html>
@@ -13,7 +13,7 @@ $page = "Drug Approval";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo 'Edit '.$page; ?></title>
+    <title><?php echo 'Add '.$page; ?></title>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -47,13 +47,13 @@ require_once './layout/navbar.php';
                 <div class="page-title">
                     <div class="row">
                         <div class="col-12 col-md-6 order-md-1 order-last">
-                            <h3>Edit <?php echo $page; ?></h3>
+                            <h3>Add <?php echo $page; ?></h3>
                         </div>
                         <div class="col-12 col-md-6 order-md-2 order-first">
                             <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="drugApproval.php"><?php echo $page; ?></a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Edit <?php echo $page; ?></li>
+                                    <li class="breadcrumb-item"><a href="treatment.php"><?php echo $page; ?></a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Add <?php echo $page; ?></li>
                                 </ol>
                             </nav>
                         </div>
@@ -67,81 +67,64 @@ require_once './layout/navbar.php';
                             <div class="card">
                                 <div class="card-content">
                                     <div class="card-body">
-                                        <?php
-                                        require_once 'includes/koneksi.php';
-                                        $approval_id = $_POST['approval_id'];
-                                        $query = "SELECT * FROM drug_approval JOIN treatment ON drug_approval.approval_id = treatment.treatment_id WHERE approval_id='$approval_id'";
-                                        $hasil = mysqli_query($koneksi, $query);
-                                        foreach ($hasil as $data){
-                                        ?>
-
-                                        <?php
-                                            if(isset($_POST['btnUbah'])) {
-                                                $no = $_POST['approval_id'];
-                                                $drug = $_POST['new_drug'];
-                                                $company = $_POST['company'];
-                                                $date = $_POST['date_approval'];
-                                                $content = $_POST['content'];
-                                                $treatment = $_POST['treatment_id'];
-                                                
-                                                if ($koneksi) {
-                                                    $sql = "UPDATE drug_approval SET new_drug='$drug', company='$company', date_approval='$date', content='$content', treatment_id='$treatment' WHERE approval_id=$no";
-                                                    $row = mysqli_query($koneksi,$sql);
-                                                    echo "<br><p class='alert alert-primary text-center'><b>Data has been updated.</p>";
-                                                } else {
-                                                    echo "<p class='alert alert-danger text-center'><b>Terjadi kesalahan:$error</b></p>";
-                                                }
-                                            }
-                                        ?>
                                         <form method="POST" class="form form-horizontal" novalidate="">
-                                            <input hidden type="number" name="approval_id" value="<?php echo $data['approval_id']; ?>">
                                             <div class="form-body">
                                                 <div class="row">
-                                                    <div class="col-md-4">
-                                                        <label>Drug Name</label>
-                                                    </div>
-                                                    <div class="col-md-8 form-group">
-                                                        <input value="<?php echo $data['new_drug']; ?>" type="text" id="new_drug" class="form-control"
-                                                            name="new_drug">
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <label>Company</label>
-                                                    </div>
-                                                    <div class="col-md-8 form-group">
-                                                        <input value="<?php echo $data['company']; ?>" type="text" id="company" class="form-control"
-                                                            name="company">
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <label>Date of Approval</label>
-                                                    </div>
-                                                    <div class="col-md-8 form-group">
-                                                        <input value="<?php echo $data['date_approval']; ?>" type="text" id="date_approval" class="form-control"
-                                                            name="date_approval">
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <label>Content</label>
-                                                    </div>
-                                                    <div class="col-md-8 form-group">
-                                                        <input value="<?php echo $data['content']; ?>" type="text" id="content" class="form-control"
-                                                            name="content">
-                                                    </div>
                                                     <div class="col-md-4">
                                                         <label>Treatment Name</label>
                                                     </div>
                                                     <div class="col-md-8 form-group">
-                                                        <input value="<?php echo $data['treatment_name']; ?>" type="text" id="content" class="form-control"
-                                                            name="content">
+                                                        <input type="text" id="treatment_name" class="form-control"
+                                                            name="treatment_name">
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label>Medication</label>
+                                                    </div>
+                                                    <div class="col-md-8 form-group">
+                                                        <input type="text" id="medication" class="form-control"
+                                                            name="medication">
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label>Drugs used</label>
+                                                    </div>
+                                                    <div class="<?=$treatment_id;?>">
+                                                        <input type="text" id="drug_used" class="form-control"
+                                                            name="drug_used">
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label>Drug ID</label>
+                                                    </div>
+                                                    <div class="col-md-8 form-group">
+                                                        <input type="number" id="drug_id" class="form-control"
+                                                            name="drug_id">
                                                     </div>
                                                     <div class="col-sm-12 d-flex justify-content-end">
-                                                        <button type="submit" name="btnUbah"
-                                                            class="btn btn-primary me-1 mb-1">Update</button>
+                                                        <button type="submit" name="btnAdd"
+                                                            class="btn btn-primary me-1 mb-1">Save</button>
                                                         <button type="reset"
-                                                            class="btn btn-light-secondary me-1 mb-1"><a href="drugApproval.php">Back</a></button>
+                                                            class="btn btn-light-secondary me-1 mb-1"><a href="treatment.php">Back</a></button>
                                                     </div>
                                                 </div>
                                             </div>
+                                            <?php
+                                            require_once'../admin/includes/koneksi.php';
+                                                    
+                                            if(isset($_POST['btnAdd'])){
+                                                $treatment_name = $_POST['treatment_name'];
+                                                $medication = $_POST['medication'];
+                                                $drug_used = $_POST['drug_used'];
+                                                $drug_id = $_POST['drug_id'];
+                                                $sql = "INSERT INTO treatment (treatment_name, medication, drug_used, drug_id) VALUES ('$treatment_name','$medication','$drug_used', '$drug_id')";
+																			
+			                                    if($koneksi->query($sql)===TRUE){
+                                                    echo "<script>setTimeout(\"location.href = 'treatment.php';\",1500);</script>";
+                                                    echo "<p class='alert alert-success text-center'><b>Data has been successfully added.</b></p>";
+			                                    } else {
+				                                    echo "Terjadi kesalahan:".$sql."<br/>".$koneksi->error;
+			                                    }             
+                                            }
+                                            ?>
                                         </form>
-                                        <?php } ?>
                                     </div>
                                 </div>
                             </div>

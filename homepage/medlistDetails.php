@@ -1,7 +1,7 @@
 <?php
 require 'functions.php';
 $id = $_POST['medlist_id'];
-$mdlist = query("SELECT * FROM medlist_details WHERE medlist_id = $id");
+$mdlist = query("SELECT * FROM medlist_details JOIN drugs ON medlist_details.drug_id = drugs.drug_id WHERE medlist_id = $id");
 session_start();
    if(empty($_SESSION['level'])) {
       echo "<script>alert('Sorry, you are not allowed to access this page.'); document.location='./../homepage/login.php'</script>";
@@ -55,12 +55,12 @@ session_start();
                         <div class="accordion-item">
                         <h2 class="accordion-header" id="flush-headingOne">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                            <?= $row["drugs"]; ?>
+                            <?= $row["drug_name"]; ?>
                             </button>
                         </h2>
                         <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                             <div class="accordion-body">
-                            <h3><?= $row["drugs"]; ?></h3>
+                            <h3><?= $row["drug_name"]; ?></h3>
                             <span>Condition :</span>
                             <p><?= $row["condition"]; ?></p>
                             <span>Allergies :</span>
