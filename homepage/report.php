@@ -64,8 +64,20 @@ session_start();
                             </div>
                         </div>  
                         </div>                          
-                          <br><br><br><br>
-                            <a href="cetak.php"><button type="submit" class="btn btn-primary ml-3 mt-2">Print</button></a> 
+                          <br><br>
+                          <?php
+                            include '../admin/includes/koneksi.php';
+                            $user_id = $_SESSION['user_id'];
+                            $query = mysqli_query($koneksi, "SELECT medlist.medlist_id FROM medlist WHERE medlist.user_id = '$user_id'");
+                            $query2= mysqli_fetch_array($query); 
+                            ?>
+                            
+                            <form method="POST" action="cetak.php">
+                                <input hidden type="text" name="medlist_id" value=<?php echo $query2["medlist_id"]; ?>>
+                                <button type='submit' name='submit' class='btn btn-primary text-start'>  
+                                    Print
+                                </button>
+                            </form>
                         </div>
                     
                     </div>

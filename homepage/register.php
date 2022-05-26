@@ -106,11 +106,11 @@ if(empty($_SESSION['level'])) {
                                 <option value="7">>65</option>  
                             </select>-->
                         </div>
-                        <div class="form-group ml-3 mt-3">
+                        <!-- <div class="form-group ml-3 mt-3">
                             <label for="">Healthcare Professionals</label>
 
                             <input type="checkbox" id="healthcarepro" name="healthcarepro" value="healthcarepro"> I am a Healthcare Professional
-                        </div> 
+                        </div>  -->
 
                         <button type="submit" name="submit" class="btn btn-primary ml-3 mt-2">Create Account</button>
                     </form>

@@ -67,16 +67,16 @@ session_start();
                             <p><?= $row["allergy"]; ?></p>
 
                             <!--Update delete-->
-                            <a href="updatemedlist.php?id=<?= $row["detail_id"]; ?>"> 
+                            <!-- <a href="updatemedlist.php/* $row["detail_id"]; */"> 
                                 <form action="updatemedlist.php" method="POST">
-                                    <input type="text" hidden value="<?= $row["detail_id"]; ?>">
+                                    <input type="text" hidden value=" /* $row["detail_id"]; *">
                                     <button type="submit" class="btn btn-primary ml-3 mt-2">Update</button>
                                 </form>
                             </a>
                             
-                            <a href="deletemedlist.php?id=<?= $row["detail_id"]; ?>"
+                            <a href="deletemedlist.php?id= "
                                 <button type="submit" class="btn btn-primary ml-3 mt-2"> Delete</button>
-                            </a>
+                            </a> -->
                             
 
                             </div>

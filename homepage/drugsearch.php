@@ -38,7 +38,7 @@ $drugs = cari($obat);
 
     </style>
     
-    <title>nt</title>
+    <title>Med List Details</title>
 </head>
 <body>
     <table style="width: 93%; height: 85%;   margin-top:80px" align="center" >

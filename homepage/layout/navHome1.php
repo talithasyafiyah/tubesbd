@@ -45,7 +45,7 @@
                           echo '<li><a class="dropdown-item" href="1medlist.php">My Med List</a></li>';
                         }
                         ?>
-                    <li><a class="dropdown-item" href="./logout.php"><button type="button" class="btn mb-4" style="background-color: rgb(59, 83, 161); color: white;">Sign Out</button></a></li>
+                    <li><button type="button" class="btn mb-4 ms-3" style="background-color: rgb(59, 83, 161); color: white;"><a href="./logout.php" style="color: white; text-decoration: none;">Sign Out</button></a></li>
                 </ul>
                 </div>
             </div>

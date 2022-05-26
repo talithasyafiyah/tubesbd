@@ -4,7 +4,7 @@ session_start();
       echo "<script>alert('Sorry, you are not allowed to access this page.'); document.location='./../homepage/login.php'</script>";
    }
 require_once 'includes/koneksi.php';
-$page = "Drugs";
+$page = "Drug Approval";
 /* $username = $_SESSION['username']; */
 ?>
 <!DOCTYPE html>
@@ -14,7 +14,7 @@ $page = "Drugs";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo 'Add '.$page; ?></title>
-
+    <link rel="icon" href="img/drugs1.png" type="image/png">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/bootstrap.css">
