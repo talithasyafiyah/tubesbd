@@ -47,13 +47,13 @@ require_once './layout/navbar.php';
                 <div class="page-title">
                     <div class="row">
                         <div class="col-12 col-md-6 order-md-1 order-last">
-                            <h3>Add Drugs for Treatment</h3>
+                            <h3>Add Drug for</h3>
                         </div>
                         <div class="col-12 col-md-6 order-md-2 order-first">
                             <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="treatment.php"><?php echo $page; ?></a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Add <?php echo $page; ?></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Select Drugs</li>
                                 </ol>
                             </nav>
                         </div>
@@ -67,36 +67,23 @@ require_once './layout/navbar.php';
                             <div class="card">
                                 <div class="card-content">
                                     <div class="card-body">
-                                        <?php
-                                        require_once 'includes/koneksi.php';
-                                        $treatment_id = $_POST['treatment_id'];
-                                        $query = "SELECT * FROM treatment WHERE treatment_id='$treatment_id'";
-                                        $hasil = mysqli_query($koneksi, $query);
-                                        foreach ($hasil as $data){
-                                        ?>
-
-                                        
                                         <form method="POST" class="form form-horizontal" novalidate="">
-                                            <input hidden type="number" name="treatment_id" value="<?php echo $data['treatment_id']; ?>">
                                             <div class="form-body">
                                                 <div class="row">
                                                     <div class="col-md-4">
                                                         <label>Drug Used</label>
                                                     </div>
                                                     <div class="col-md-8 form-group">
-                                                        <form action="POST">
                                                         <select name="drug_id" class="form-select" id="basicSelect">
                                                             <?php
-                                                                include '../admin/includes/koneksi.php';
-                                                                $hasil = mysqli_query($koneksi, "SELECT * FROM drugs");
+                                                                include 'includes/koneksi.php';
+                                                                $hasil = mysqli_query($koneksi, "SELECT * FROM treatment JOIN drugs ON treatment.drug_id = drugs.drug_id");
                                                                 foreach($hasil as $row) {
                                                             ?>
                                                             <option value="<?=$row['drug_id']?>"><?=$row['drug_name'];?></option>
                                                             <?php } ?>
                                                         </select>
-                                                        </form>
                                                     </div>
-        
                                                     <div class="col-sm-12 d-flex justify-content-end">
                                                         <button type="submit" name="btnAdd"
                                                             class="btn btn-primary me-1 mb-1">Save</button>
@@ -105,10 +92,10 @@ require_once './layout/navbar.php';
                                                     </div>
                                                 </div>
                                             </div>
-                                        </form>
-                                        <?php } ?>
-                                        <?php
-                                            if(isset($_POST['btnAdd'])) {
+                                            <?php
+                                            require_once'../admin/includes/koneksi.php';
+                                                    
+                                            if(isset($_POST['btnAdd'])){
                                                 $treatment_id = $_POST['treatment_id'];
                                                 $drug_id = $_POST['drug_id'];
                                                 $sql = "INSERT INTO manydrugs (drug_id, treatment_id) VALUES ('$drug_id','$treatment_id')";			
@@ -117,9 +104,10 @@ require_once './layout/navbar.php';
                                                     echo "<p class='alert alert-success text-center'><b>Data has been successfully added.</b></p>";
 			                                    } else {
 				                                    echo "Terjadi kesalahan:".$sql."<br/>".$koneksi->error;
-			                                    }    
+			                                    }             
                                             }
-                                        ?>
+                                            ?>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
