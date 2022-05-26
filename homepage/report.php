@@ -44,14 +44,30 @@ session_start();
         <table style="width: 90%; border: 1px solid gray;  border-collapse:collapse; margin-top:80px" align="center" >
             <tr>
                 <td style="width: 30%;"><a href="overviewAcc.php" style="color: blue;"> <i class="fa-solid fa-chevron-left"></i> Profiles</a> </td>
+                <td  style="text-align: right;"  ><a href="Report.php" style="color: blue;">Report</a></td>
             </tr>
             <tr>
-                <td style="width: 10%;;"><a href="../profile_info/profile.html"><i class="fa-solid fa-user"></i> Profile</a></td>
+                <td style="width: 10%;;"><a href="medlist/profile_info/profile.php"><i class="fa-solid fa-user"></i> Profil</a></td>
                 <td style="border: none;  " rowspan="20"   >
                     <div class="accordion accordion-flush" id="accordionFlushExample">
-                        <div class="accordion-item">
-                            <!--ISI REPORT-->
+                    
+                        </div>  
+                         <!--ISI REPORT-->
+                         <h4>Interactions Report</h4>
+                            <br>
+                            <span>Note: This is not necessarily a complete list of warnings. Always consult
+                                 your healthcare provider before starting or stopping any medication.</span>
+                                 <br> <br>
+                            <h5>Medlist Details</h5>
+                        
+
+                            </div>
+                        </div>  
+                        </div>                          
+                          <br><br><br><br>
+                            <a href="cetak.php"><button type="submit" class="btn btn-primary ml-3 mt-2">Print</button></a> 
                         </div>
+                    
                     </div>
                 </td>
         
@@ -69,7 +85,7 @@ session_start();
                 <td style="width: 30%;"><a href="report.php"><i class="fa-solid fa-print"></i> Reports</a></td>
             </tr>
             <tr>
-                <td style="width: 30%;"><a href="../notes/notes.html"><i class="fa-solid fa-clipboard"></i> Notes</a></td>
+                <td style="width: 30%;"><a href="medlist/notes/notes.html"><i class="fa-solid fa-clipboard"></i> Notes</a></td>
             </tr>
         
             </table>

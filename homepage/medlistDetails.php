@@ -47,7 +47,7 @@ session_start();
                 <td  style="text-align: right;"  ><a href="Add_medlist.php" style="color: blue;">Add Medlist</a></td>
             </tr>
             <tr>
-                <td style="width: 10%;;"><a href="../profile_info/profile.html"><i class="fa-solid fa-user"></i> Profil</a></td>
+                <td style="width: 10%;;"><a href="medlist/profile_info/profile.php"><i class="fa-solid fa-user"></i> Profil</a></td>
                 <td style="border: none;  " rowspan="20"   >
                     <div class="accordion accordion-flush" id="accordionFlushExample">
                     <?php $i = 1; ?>
@@ -91,7 +91,7 @@ session_start();
             </tr> 
             <tr>
                 <td>
-                    <a href="../Drugs/medlistdetails.php"><i class="fa-solid fa-clipboard-list"></i> Medlist</a>
+                    <a href="medlistdetails.php"><i class="fa-solid fa-clipboard-list"></i> Medlist</a>
                 </td>
             </tr>
 
