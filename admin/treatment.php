@@ -68,6 +68,7 @@ require_once 'layout/navbar.php';
                                         <th>Medication</th>
                                         <th></th>
                                         <th></th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -79,6 +80,15 @@ require_once 'layout/navbar.php';
                                                 <td>$no</td>
                                                 <td>".$row['treatment_name']."</td>
                                                 <td>".$row['medication']."</td>
+                                                <td>
+                                                    <form method='POST' action='insertTD.php'>
+                                                        <input hidden type='text' name='treatment_id' value=".$row['treatment_id'].">
+                                                        <button type='submit' name='btnUpdate' class='btn btn-success btn-sm'>
+                                                            <i class='fa-solid fa-capsules'></i>
+                                                        </button>
+                                                    </form>
+                                                </td>
+
                                                 <td>
                                                     <form method='POST' action='editTreatment.php'>
                                                         <input hidden type='text' name='treatment_id' value=".$row['treatment_id'].">
@@ -94,6 +104,7 @@ require_once 'layout/navbar.php';
                                                         <button type='submit' name='btnHapus' class='btn btn-danger btn-sm'><i class='fa fa-trash'></i></button>
                                                     </form>
                                                 </td>
+
                                             </tr>";
                                     $no++;
                                     }

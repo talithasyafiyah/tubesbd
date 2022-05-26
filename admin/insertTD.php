@@ -3,7 +3,6 @@ session_start();
    if(empty($_SESSION['level'] == "Admin")) {
       echo "<script>alert('Sorry, you are not allowed to access this page.'); document.location='./../homepage/login.php'</script>";
    }
-$treatment_id = $_POST['treatment_id'];
 require_once 'includes/koneksi.php';
 $page = "Treatment";
 /* $username = $_SESSION['username']; */
@@ -48,7 +47,7 @@ require_once './layout/navbar.php';
                 <div class="page-title">
                     <div class="row">
                         <div class="col-12 col-md-6 order-md-1 order-last">
-                            <h3>Add <?php echo $page; ?></h3>
+                            <h3>Add Drug for Treatment</h3>
                         </div>
                         <div class="col-12 col-md-6 order-md-2 order-first">
                             <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
@@ -97,18 +96,12 @@ require_once './layout/navbar.php';
                                             require_once'../admin/includes/koneksi.php';
                                                     
                                             if(isset($_POST['btnAdd'])){
-                                                $data = mysqli_query($koneksi, "SELECT * FROM treatment JOIN manydrugs ON manydrugs.treatment_id = treatment.treatment_id JOIN drugs ON drugs.drug_id = manydrugs.drug_id'");
+                                                $treatment_id = $_POST['treatment_id'];
                                                 $drug_id = $_POST['drug_id'];
                                                 $sql = "INSERT INTO manydrugs (drug_id, treatment_id) VALUES ('$drug_id','$treatment_id')";			
 			                                    if($koneksi->query($sql)===TRUE){
+                                                    echo "<script>setTimeout(\"location.href = 'treatment.php';\",1500);</script>";
                                                     echo "<p class='alert alert-success text-center'><b>Data has been successfully added.</b></p>";
-                                                    echo '<form action="insertTD.php" method="POST">
-                                                            <input hidden type="text" name="treatment_id" value="'.$row['treatment_id'].'">
-                                                            <button type="submit" name="nt" class="btn btn-success text-start" style="background-color: rgb(40, 93, 185, 0); color: blue; border: none;">  
-                                                                Select Drugs
-                                                            </button>
-                                                        </form>
-                                                    ';
 			                                    } else {
 				                                    echo "Terjadi kesalahan:".$sql."<br/>".$koneksi->error;
 			                                    }             

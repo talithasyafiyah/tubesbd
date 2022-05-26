@@ -109,7 +109,9 @@ include 'layout/header1.php';
                                         </button>
                                     </form>";
                                 } else {
-                                echo '<li><a class="dropdown-item" href="1medlist.php">My Med List</a></li>';
+                                echo "<button type='submit' name='nt' class='btn text-start'  style='background-color: rgb(40, 93, 185, 0); border: none;'>  
+                                            <a href='1medlist.php'><h4 class='text-primary'>My Med List</h4></a>
+                                        </button>";
                                 }
                                 ?>
                                 <p>

@@ -9,7 +9,7 @@
                     <img src="img/drugscom-logo.svg" class="mt-4" alt="">
                     </a> 
                 </div>
-                <div class="col-8 mt-lg-4">
+                <div class="col-7 mt-lg-4">
                 <form action="Result1.php" method="POST">
                    <div class="input-group">
                     <input type="text" class="form-control" aria-label="Text input with segmented dropdown button" placeholder="Search" name="search2" id="search2">

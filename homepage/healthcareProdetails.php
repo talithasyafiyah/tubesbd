@@ -65,57 +65,61 @@ include 'layout/header1.php';
             <div class="container mt-lg-5">
                 <div class="row">
                     <div class="col-8">
-                        <h1><b>Account Details</b></h1>
-                            <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                                <a href="overviewAcc.php"><input type="submit" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
-                                <label class="btn btn-outline-dark" for="btnradio1">Overview</label></a>
-
-                                <a href="detailsAcc.php"><input type="submit" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                                <label class="btn btn-outline-dark active" for="btnradio2">Details</label></a>
-                            </div>
+                        <h1><b>Healthcare Professional Information</b></h1>
                         <div class="row mt-4">
+                            <?php
+                                require_once '../admin/includes/koneksi.php';
+                                $id = $_SESSION['user_id'];
+                                $query = "SELECT * FROM healthcare_pro WHERE user_id='$id'";
+                                $hasil = mysqli_query($koneksi, $query);
+                                foreach ($hasil as $data){   
+                            ?>
                             <form method="POST" class="form form-horizontal" novalidate="">
-                            <input hidden type="number" name="news_id" value="<?php echo $data['news_id']; ?>">
                             <div class="form-body">
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <label><b>Username</b></label>
+                                        <label><b>NPI</b></label>
                                     </div>
                                     <div class="col-md-8 form-group">
-                                        <input value="<?=$_SESSION['username'];?>" type="text" class="form-control"
-                                            name="username">
+                                        <input value="<?=$data['NPI'];?>" type="text" class="form-control"
+                                            name="NIP">
                                     </div>
                                     <div class="col-md-4">
-                                        <label><b>Email</b></label>
+                                        <label><b>Job Title</b></label>
                                     </div>
                                     <div class="col-md-8 form-group">
-                                        <input value="<?=$_SESSION['email'];?>" type="text" class="form-control"
-                                            name="email">
+                                        <input value="<?=$data['job_title'];?>" type="text" class="form-control"
+                                            name="job_title">
                                     </div>
                                     <div class="col-md-4">
-                                        <label><b>Password</b></label>
+                                        <label><b>Specialization</b></label>
                                     </div>
                                     <div class="col-md-8 form-group">
-                                        <input value="<?=$_SESSION['password'];?>" type="password" class="form-control"
-                                            name="password">
+                                        <input value="<?=$data['job_special'];?>" type="text" class="form-control"
+                                            name="job_special">
                                     </div>
                                     <div class="col-md-4">
-                                        <label><b>Heallthcare Professional</b></label>
+                                        <label><b>First Name</b></label>
                                     </div>
                                     <div class="col-md-8 form-group">
-                                        <?php
-                                            require_once '../admin/includes/koneksi.php';
-
-                                            $id = $_SESSION['user_id'];
-                                            $result = mysqli_query($koneksi, "SELECT * FROM healthcare_pro WHERE user_id = '$id'");
-                                            
-                                            if( mysqli_num_rows($result) === 1 ) {
-                                                echo '<a href="healthcareProdetails.php">My Information</a>';
-                                            } else {
-                                                echo '<a href="healthcarePro.php">Add Information</a>';
-                                            }
-                                            ?>
+                                        <input value="<?=$data['first_name'];?>" type="text" class="form-control"
+                                            name="first_name">
                                     </div>
+                                    <div class="col-md-4">
+                                        <label><b>Last Name</b></label>
+                                    </div>
+                                    <div class="col-md-8 form-group">
+                                        <input value="<?=$data['last_name'];?>" type="text" class="form-control"
+                                            name="last_name">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label><b>ZIP Code</b></label>
+                                    </div>
+                                    <div class="col-md-8 form-group">
+                                        <input value="<?=$data['ZIP_code'];?>" type="text" class="form-control"
+                                            name="ZIP_code">
+                                    </div>
+                                    <?php } ?>
                                 </div>
                             </div>
                         </form>
