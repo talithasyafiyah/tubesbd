@@ -114,7 +114,6 @@ if(empty($_SESSION['level'])) {
                           Drug Uses
                       </button>
                 </form>
-                <a><button type="button" class="btn btn-light">Print</button></a>
             </div>
               </div>
             <?php } ?>
