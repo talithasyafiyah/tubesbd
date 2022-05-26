@@ -83,7 +83,7 @@ require_once 'layout/navbar.php';
                                                 <td>
                                                     <form method='POST' action='insertTD.php'>
                                                         <input hidden type='text' name='treatment_id' value=".$row['treatment_id'].">
-                                                        <button type='submit' name='btnUpdate' class='btn btn-success btn-sm'>
+                                                        <button type='submit' name='btnAdd' class='btn btn-primary btn-sm'>
                                                             <i class='fa-solid fa-capsules'></i>
                                                         </button>
                                                     </form>

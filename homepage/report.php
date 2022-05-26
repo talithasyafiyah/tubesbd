@@ -1,7 +1,7 @@
 <?php
 require 'functions.php';
-$id = $_POST['medlist_id'];
-$mdlist = query("SELECT * FROM medlist_details JOIN drugs ON medlist_details.drug_id = drugs.drug_id WHERE medlist_id = $id");
+//$id = $_POST['medlist_id'];
+//$mdlist = query("SELECT * FROM medlist_details JOIN drugs ON medlist_details.drug_id = drugs.drug_id WHERE medlist_id = $id");
 session_start();
    if(empty($_SESSION['level'])) {
       echo "<script>alert('Sorry, you are not allowed to access this page.'); document.location='./../homepage/login.php'</script>";
@@ -31,7 +31,7 @@ session_start();
 
     </style>
     
-    <title>Medlist Details - Drugs.com</title>
+    <title>Reports - Drugs.com</title>
     <link rel="icon" href="img/drugs1.png" type="image/png">
     <link rel="stylesheet" href="css/style1.css">
     <script src="https://kit.fontawesome.com/769f430edb.js" crossorigin="anonymous"></script>
@@ -44,46 +44,14 @@ session_start();
         <table style="width: 90%; border: 1px solid gray;  border-collapse:collapse; margin-top:80px" align="center" >
             <tr>
                 <td style="width: 30%;"><a href="overviewAcc.php" style="color: blue;"> <i class="fa-solid fa-chevron-left"></i> Profiles</a> </td>
-                <td  style="text-align: right;"  ><a href="Add_medlist.php" style="color: blue;">Add Medlist</a></td>
             </tr>
             <tr>
-                <td style="width: 10%;;"><a href="../profile_info/profile.html"><i class="fa-solid fa-user"></i> Profil</a></td>
+                <td style="width: 10%;;"><a href="../profile_info/profile.html"><i class="fa-solid fa-user"></i> Profile</a></td>
                 <td style="border: none;  " rowspan="20"   >
                     <div class="accordion accordion-flush" id="accordionFlushExample">
-                    <?php $i = 1; ?>
-                    <?php foreach( $mdlist as $row ) : ?>
                         <div class="accordion-item">
-                        <h2 class="accordion-header" id="flush-headingOne">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                            <?= $row["drug_name"]; ?>
-                            </button>
-                        </h2>
-                        <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body">
-                            <h3><?= $row["drug_name"]; ?></h3>
-                            <span>Condition :</span>
-                            <p><?= $row["condition"]; ?></p>
-                            <span>Allergies :</span>
-                            <p><?= $row["allergy"]; ?></p>
-
-                            <!--Update delete-->
-                            <a href="updatemedlist.php?id=<?= $row["detail_id"]; ?>"> 
-                                <form action="updatemedlist.php" method="POST">
-                                    <input type="text" hidden value="<?= $row["detail_id"]; ?>">
-                                    <button type="submit" class="btn btn-primary ml-3 mt-2">Update</button>
-                                </form>
-                            </a>
-                            
-                            <a href="deletemedlist.php?id=<?= $row["detail_id"]; ?>"
-                                <button type="submit" class="btn btn-primary ml-3 mt-2"> Delete</button>
-                            </a>
-                            
-
-                            </div>
-                        </div>  
+                            <!--ISI REPORT-->
                         </div>
-                    <?php $i++; ?>
-                    <?php endforeach; ?>
                     </div>
                 </td>
         
@@ -91,7 +59,7 @@ session_start();
             </tr> 
             <tr>
                 <td>
-                    <a href="../Drugs/medlistdetails.php"><i class="fa-solid fa-clipboard-list"></i> Medlist</a>
+                    <a href="medlistdetails.php"><i class="fa-solid fa-clipboard-list"></i> Medlist</a>
                 </td>
             </tr>
 
