@@ -4,12 +4,12 @@
     <div class="container">
         <div class="top-container">
             <div class="row">
-                <div class="col-3">
+                <div class="col">
                     <a class="logo" href="index.php">
-                    <img src="img/drugscom-logo.svg" class="mt-4" alt="">
+                    <img src="img/drugscom-logo.svg" alt="" width="300" height="90">
                     </a> 
                 </div>
-                <div class="col-8 mt-lg-4">
+                <div class="col-7 mt-lg-4">
                     <div class="input-group">
                     <input type="text" class="form-control" aria-label="Text input with segmented dropdown button" placeholder="Search" name="search2" id="search2">
                     
@@ -31,8 +31,8 @@
                       <li><a class="dropdown-item" href="#">Natural Products</a></li>
                     </ul>
                     <button class="btn btn-outline-success" type="submit" style="background-color: rgb(40, 93, 185); color: white;"><i class="fa-solid fa-magnifying-glass"></i></button>
-                  </div>
                     
+                    </div>
                    <div class="cari"> Browse all medications: 
                     <a href="#">A</a>
                     <a href="#">B</a>
@@ -61,6 +61,7 @@
                     <a href="#">Y</a>
                     <a href="#">Z</a>
                     <a href="#">0-9</a>
+                    <a class="adsearch" href="#">Advanced Search</a>
                    </div>
                 </div>
                 <div class="col mt-lg-4">
@@ -101,9 +102,10 @@
                     <div class="navbar-nav mx-auto" >
                       <a class="nav-link" href="./drugsaz1.php" style="color:black;">DRUGS A-Z</a>
                       <a class="nav-link" href="./imprint.php" style="color:black;">PILL IDENTIFIER</a>
-                      <a class="nav-link" href="./treatment.php" style="color:black;">TREATMENT GUIDES</a>
+                      <a class="nav-link" href="#" style="color:black;">INTERACTIONS CHECKER</a>
                       <a class="nav-link" href="./newsandalerts.php" style="color:black;">NEWS & ALERTS</a>
-                      <a class="nav-link" href="./new_drugs.php" style="color:black;">NEW DRUGS</a>
+                      <a class="nav-link" href="#" style="color:black;">PRO EDITION</a>
+                      <a class="nav-link" href="#" style="color:black;">MORE</a>
                     </div>
                   </div>
                 </div>

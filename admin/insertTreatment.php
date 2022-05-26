@@ -84,21 +84,6 @@ require_once './layout/navbar.php';
                                                         <input type="text" id="medication" class="form-control"
                                                             name="medication">
                                                     </div>
-                                                    <div class="col-md-4">
-                                                        <label>Drugs used</label>
-                                                    </div>
-                                                    
-                                                    <div class="col-md-8 form-group">
-                                                        <select name="drug_id" class="form-select" id="basicSelect">
-                                                            <?php
-                                                                include 'includes/koneksi.php';
-                                                                $hasil = mysqli_query($koneksi, "SELECT * FROM treatment JOIN drugs ON treatment.drug_id = drugs.drug_id");
-                                                                foreach($hasil as $row) {
-                                                            ?>
-                                                            <option value="<?=$row['drug_id']?>"><?=$row['drug_name'];?></option>
-                                                            <?php } ?>
-                                                        </select>
-                                                    </div>
                                                     <div class="col-sm-12 d-flex justify-content-end">
                                                         <button type="submit" name="btnAdd"
                                                             class="btn btn-primary me-1 mb-1">Save</button>
@@ -109,19 +94,27 @@ require_once './layout/navbar.php';
                                             </div>
                                             <?php
                                             require_once'../admin/includes/koneksi.php';
-                                                    
+                                            $treatment_name = $_POST['treatment_name'];
                                             if(isset($_POST['btnAdd'])){
-                                                $treatment_name = $_POST['treatment_name'];
                                                 $medication = $_POST['medication'];
-                                                $drug_id = $_POST['drug_id'];
-                                                $sql = "INSERT INTO treatment (treatment_name, medication, drug_id) VALUES ('$treatment_name','$medication', '$drug_id')";			
+                                                $sql = "INSERT INTO treatment (treatment_id, treatment_name, medication) VALUES ('', '$treatment_name','$medication')";			
 			                                    if($koneksi->query($sql)===TRUE){
-                                                    echo "<script>setTimeout(\"location.href = 'treatment.php';\",1500);</script>";
-                                                    echo "<p class='alert alert-success text-center'><b>Data has been successfully added.</b></p>";
+                                                    echo '<p class="alert alert-success text-center"><b>Data has been successfully added.</b></p>';
 			                                    } else {
 				                                    echo "Terjadi kesalahan:".$sql."<br/>".$koneksi->error;
 			                                    }             
                                             }
+                                            ?>
+                                            <?php
+                                                $query = mysqli_query($koneksi, "SELECT treatment_id FROM treatment WHERE treatment_name = '$treatment_name'");
+                                                $query2= mysqli_fetch_assoc($query);
+                                                echo '<form action="editTreatment.php" method="POST">
+                                                            <input hidden type="text" name="treatment_id" value="'.$query2['treatment_id'].'">
+                                                            <button type="submit" name="nt" class="btn btn-success text-start" style="background-color: rgb(40, 93, 185, 0); color: blue; border: none;">  
+                                                                Select Drugs
+                                                            </button>
+                                                        </form>
+                                                    ';
                                             ?>
                                         </form>
                                     </div>

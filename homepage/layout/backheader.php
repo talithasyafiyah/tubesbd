@@ -31,6 +31,8 @@
                       <li><a class="dropdown-item" href="#">Natural Products</a></li>
                     </ul>
                     <button class="btn btn-outline-success" type="submit" style="background-color: rgb(40, 93, 185); color: white;"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <a class="nav-link ms-3 me-1 px-1" href="./register.php" style="color: blue; font-size: 11pt;">Register</a>
+                    <a class="nav-link ms-3 me-1 px-1" href="./login.php" id="nav1" style="background-color: white; border-radius: 5px; width: 80px; text-align: center; border: .5px solid black;">Sign In</a>  
                   </div>
                     
                    <div class="cari"> Browse all medications: 
@@ -61,38 +63,8 @@
                     <a href="#">Y</a>
                     <a href="#">Z</a>
                     <a href="#">0-9</a>
+                    <a class="adsearch" href="#">Advanced Search</a>
                    </div>
-                </div>
-                <div class="col mt-lg-4">
-                    <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-                      <?=$_SESSION['username']; ?>
-                    </button>
-                      <ul class="dropdown-menu dropdown-menu-end">
-                        <li><a class="dropdown-item" href="./overviewAcc.php">Account Settings</a></li>
-
-                        <?php
-                        require_once '../admin/includes/koneksi.php';
-
-                        $id = $_SESSION['user_id'];
-                        $result = mysqli_query($koneksi, "SELECT * FROM medlist WHERE user_id = '$id'");
-                        
-                        if( mysqli_num_rows($result) === 1 ) {
-                            $user_id = $_SESSION['user_id'];
-                            $query = mysqli_query($koneksi, "SELECT medlist.medlist_id FROM medlist WHERE medlist.user_id = '$user_id'");
-                            $query2= mysqli_fetch_array($query); 
-                          
-                           echo "<form action='medlistdetails.php' method='POST'>
-                                <input hidden type='text' name='medlist_id' value=".$query2['medlist_id'].">
-                                <button type='submit' name='nt' class='btn text-start'  style='background-color: rgb(40, 93, 185, 0); border: none;'>  
-                                    My Med List
-                                </button>
-                            </form>";
-                        } else {
-                          echo '<li><a class="dropdown-item" href="1medlist.php">My Med List</a></li>';
-                        }
-                        ?>
-                        <li><a class="dropdown-item" href="./logout.php"><button type="button" class="btn btn-primary">Sign Out</button></a></li>
-                    </ul>
                 </div>
             </div>
                 <nav class="navbar navbar-expand-lg navbar-light">
@@ -101,9 +73,10 @@
                     <div class="navbar-nav mx-auto" >
                       <a class="nav-link" href="./drugsaz1.php" style="color:black;">DRUGS A-Z</a>
                       <a class="nav-link" href="./imprint.php" style="color:black;">PILL IDENTIFIER</a>
-                      <a class="nav-link" href="./treatment.php" style="color:black;">TREATMENT GUIDES</a>
+                      <a class="nav-link" href="#" style="color:black;">INTERACTIONS CHECKER</a>
                       <a class="nav-link" href="./newsandalerts.php" style="color:black;">NEWS & ALERTS</a>
-                      <a class="nav-link" href="./new_drugs.php" style="color:black;">NEW DRUGS</a>
+                      <a class="nav-link" href="#" style="color:black;">PRO EDITION</a>
+                      <a class="nav-link" href="#" style="color:black;">MORE</a>
                     </div>
                   </div>
                 </div>
@@ -114,20 +87,20 @@
     </div>
     <script src="js/jquery-3.6.0.js"></script>
     <script src="js/jquery.autocomplete.min.js"></script>
-    <script>
+       <script>
         
-            $(document).ready(function() {
-                // Selector input yang akan menampilkan autocomplete.
-                $( "#search2" ).autocomplete({
-                    serviceUrl: "source3.php",   // Kode php untuk prosesing data.
-                    dataType: "JSON",           // Tipe data JSON.
-                    onSelect: function (suggestion) {
-                        $( "#search2" ).val("" + suggestion.drugs)     
-                                 
-                    }
+        $(document).ready(function() {
+            // Selector input yang akan menampilkan autocomplete.
+            $( "#search2" ).autocomplete({
+                serviceUrl: "source.php",   // Kode php untuk prosesing data.
+                dataType: "JSON",           // Tipe data JSON.
+                onSelect: function (suggestion) {
+                    $( "#search2" ).val("" + suggestion.drugs)     
+                             
+                }
 
-                });
+            });
 
-            })
-       
-    </script>
+        })
+   
+</script>

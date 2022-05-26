@@ -63,7 +63,6 @@
                     <a href="#">Y</a>
                     <a href="#">Z</a>
                     <a href="#">0-9</a>
-                    <a class="adsearch" href="#">Advanced Search</a>
                    </div>
                 </div>
             </div>
@@ -73,10 +72,9 @@
                     <div class="navbar-nav mx-auto" >
                       <a class="nav-link" href="./drugsaz1.php" style="color:black;">DRUGS A-Z</a>
                       <a class="nav-link" href="./imprint.php" style="color:black;">PILL IDENTIFIER</a>
-                      <a class="nav-link" href="#" style="color:black;">INTERACTIONS CHECKER</a>
+                      <a class="nav-link" href="./treatment.php" style="color:black;">TREATMENT GUIDES</a>
                       <a class="nav-link" href="./newsandalerts.php" style="color:black;">NEWS & ALERTS</a>
-                      <a class="nav-link" href="#" style="color:black;">PRO EDITION</a>
-                      <a class="nav-link" href="#" style="color:black;">MORE</a>
+                      <a class="nav-link" href="./new_drugs.php" style="color:black;">NEW DRUGS</a>
                     </div>
                   </div>
                 </div>
@@ -103,4 +101,4 @@
 
         })
    
-</script>
+  </script>

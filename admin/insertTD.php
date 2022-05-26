@@ -3,6 +3,7 @@ session_start();
    if(empty($_SESSION['level'] == "Admin")) {
       echo "<script>alert('Sorry, you are not allowed to access this page.'); document.location='./../homepage/login.php'</script>";
    }
+$treatment_id = $_POST['treatment_id'];
 require_once 'includes/koneksi.php';
 $page = "Treatment";
 /* $username = $_SESSION['username']; */
@@ -53,7 +54,7 @@ require_once './layout/navbar.php';
                             <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="treatment.php"><?php echo $page; ?></a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Add <?php echo $page; ?></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Select Drugs</li>
                                 </ol>
                             </nav>
                         </div>
@@ -71,23 +72,8 @@ require_once './layout/navbar.php';
                                             <div class="form-body">
                                                 <div class="row">
                                                     <div class="col-md-4">
-                                                        <label>Treatment Name</label>
+                                                        <label>Drug Used</label>
                                                     </div>
-                                                    <div class="col-md-8 form-group">
-                                                        <input type="text" id="treatment_name" class="form-control"
-                                                            name="treatment_name">
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <label>Medication</label>
-                                                    </div>
-                                                    <div class="col-md-8 form-group">
-                                                        <input type="text" id="medication" class="form-control"
-                                                            name="medication">
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <label>Drugs used</label>
-                                                    </div>
-                                                    
                                                     <div class="col-md-8 form-group">
                                                         <select name="drug_id" class="form-select" id="basicSelect">
                                                             <?php
@@ -111,13 +97,18 @@ require_once './layout/navbar.php';
                                             require_once'../admin/includes/koneksi.php';
                                                     
                                             if(isset($_POST['btnAdd'])){
-                                                $treatment_name = $_POST['treatment_name'];
-                                                $medication = $_POST['medication'];
+                                                $data = mysqli_query($koneksi, "SELECT * FROM treatment JOIN manydrugs ON manydrugs.treatment_id = treatment.treatment_id JOIN drugs ON drugs.drug_id = manydrugs.drug_id'");
                                                 $drug_id = $_POST['drug_id'];
-                                                $sql = "INSERT INTO treatment (treatment_name, medication, drug_id) VALUES ('$treatment_name','$medication', '$drug_id')";			
+                                                $sql = "INSERT INTO manydrugs (drug_id, treatment_id) VALUES ('$drug_id','$treatment_id')";			
 			                                    if($koneksi->query($sql)===TRUE){
-                                                    echo "<script>setTimeout(\"location.href = 'treatment.php';\",1500);</script>";
                                                     echo "<p class='alert alert-success text-center'><b>Data has been successfully added.</b></p>";
+                                                    echo '<form action="insertTD.php" method="POST">
+                                                            <input hidden type="text" name="treatment_id" value="'.$row['treatment_id'].'">
+                                                            <button type="submit" name="nt" class="btn btn-success text-start" style="background-color: rgb(40, 93, 185, 0); color: blue; border: none;">  
+                                                                Select Drugs
+                                                            </button>
+                                                        </form>
+                                                    ';
 			                                    } else {
 				                                    echo "Terjadi kesalahan:".$sql."<br/>".$koneksi->error;
 			                                    }             

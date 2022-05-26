@@ -155,45 +155,6 @@ if(empty($_SESSION['level'])) {
                       4. Alternatively. search by <b>drug name</b> or <b>NDR Code</b> using the fields below.
                     </p>
                   </div>
-                  
-                  <br>
-
-                  <!--Searcing bar 1-->
-                  <form>
-                    <div>
-                      <h3>Search by Drug Name</h3>
-                    </div>
-                    <div class="form-row align-items-center">
-                      <div class="col-md-10">
-                        <label class="sr-only" for="inlineFormInput">Drugname</label>
-                        <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Enter a drug name, e.g aspirin">
-                      </div>
-                      <div class="col-auto">
-                        <button type="search" class="btn btn-primary mb-2">Search</button>
-                      </div>
-                    </div>
-                  </form>
-
-                  <!--Searcing bar 2-->
-                  <form>
-                    <div>
-                      <h3>Search by National Drug Codes (NDC)</h3>
-                    </div>
-                    <div class="form-row align-items-center">
-                      <div class="col-md-10">
-                        <label class="sr-only" for="inlineFormInput">Drugname</label>
-                        <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Enter an NDC Code, e.g 0777-3105-02">
-                      </div>
-                      <div class="col-auto">
-                        <button type="search" class="btn btn-primary mb-2">Search</button>
-                      </div>
-                    </div>
-                    <div>
-                      <p class="text-primary" style="font-size: 14px;">What is an NDC Number?</p>
-                    </div>
-                  </form>
-
-                  <br>
 
                   <!--hiasan aja-->
                   <div class="spinner-grow text-primary" role="status">
@@ -221,7 +182,8 @@ if(empty($_SESSION['level'])) {
                     <span class="sr-only">Loading...</span>
                   </div>
 
-
+                  <br>
+                  <br>
                   <!--popular pill imprints-->
                   <div class="">
                       <h2 style="margin-bottom: 25px;">Popular Pill Imprints</h2>
@@ -245,95 +207,11 @@ if(empty($_SESSION['level'])) {
                       </div>                        
                       </div>
                       <br>
-                      
-                      <!--Learn More-->
-                      <div class="">
-                        <h2>Learn More</h2>
-                        <p style="margin-left: 12px;">
-                          <ul>
-                            <li>
-                              <b>What if my pill has no imprint code?</b> All prescription and over-the-counter (OTC) drugs in the U.S. are required by  the FDA to have an imprint code. If your pill has no imprint it could be a vitamin, diet, herbal, or energy pill, or an illicit or foreign drug. It is not possible to accurately identify a pill online without an imprint code.
-                              
-                            </li>
-                            <li>
-                              <b>What if my pill has a logo?</b> If your pill has a logo, you can ignore the logo and type in any other letters or numbers in the imprint code. If you want 
-                              to refine your results further, you can add the word Logo in place of the logo.
-                            </li>
-                            <li>
-                              <b>Historical pill images.</b> The Drugs.com Pill Identifier database includes historical
-                               data for many products that may be discontinued or no longer commercially available.
-                            </li>
-                            <li>
-                              <a href="">Imprint code FAQs</a>
-                            </li>
-                            <li>
-                              <a href="">Identifying manufacturer imprints & logos</a>
-                            </li>
-                            <li>
-                              <a href="">Drugs.com discount card</a>
-                            </li>
-                          </ul>
-                        </p>
-                      </div>
-                      
-                      <!--Further Information-->
-                      <div>
-                        <h2>Further Information</h2>
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum eveniet provident similique ad nisi inventore at minima est, itaque numquam. Obcaecati numquam delectus, corrupti aliquid eligendi suscipit? Ea, hic necessitatibus!
-                          <br><br>
-                          <a href="">Medical Disclaimer</a>
-                        </p>
-                      </div>
+                    
 
                   </div>
             </div>
                                       
-            <!--Grid Kanan-->
-            <div class="col-3 mt-5 pl-4">
-                <img src="img/logo/Situs.png" alt="">
-            
-                <div class="border mt-1" style="border-radius: 11px; background-color:rgb(228, 228, 228);">
-                    <div class="isi">
-                        <h5>Subscribe To Our Newsletter</h5>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                        <label class="form-check-label" for="exampleRadios1">
-                        FDA Safety Alerts
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                        <label class="form-check-label" for="exampleRadios2">
-                        Daily MedNews
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                        <label class="form-check-label" for="exampleRadios2">
-                        Monthly Letters
-                        </label>
-                    </div>
-                    <div class="form-check pb-3">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                        <label class="form-check-label" for="exampleRadios2">
-                            I accept the Terms and Privacy Policy
-                        </label>
-                    </div>
-                    <form>
-                        <div class="form-row align-items-center ml-2">
-                          <div class="col pl-2">
-                            <label class="sr-only" for="inlineFormInput">Email</label>
-                            <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Enter Email">
-                          </div>
-                          <div class="col ">
-                            <button type="submit" class="btn btn-primary mb-2">Submit</button>
-                          </div>
-                        </div>
-                      </form>
-                </div>
-            </div>
         </div> 
     </div>
      
