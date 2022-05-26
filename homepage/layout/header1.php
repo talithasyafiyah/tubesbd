@@ -33,8 +33,7 @@
                       <li><a class="dropdown-item" href="#">Natural Products</a></li>
                     </ul>
                     <button name="submit-search" class="btn btn-outline-success" type="submit" style="background-color: rgb(40, 93, 185); color: white;"><i class="fa-solid fa-magnifying-glass"></i></button>
-                    <a class="nav-link ms-3 me-1 px-1" href="./register.php" style="color: blue; font-size: 11pt;">Register</a>
-                    <a class="nav-link ms-3 me-1 px-1" href="./login.php" id="nav1" style="background-color: white; border-radius: 5px; width: 80px; text-align: center; border: .5px solid black;">Sign In</a>  
+  
                   </div>
                   </form>
                     
