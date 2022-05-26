@@ -10,12 +10,14 @@
                     </a> 
                 </div>
                 <div class="col-8 mt-lg-4">
-                    <div class="input-group">
+                <form action="Result1.php" method="POST">
+                   <div class="input-group">
                     <input type="text" class="form-control" aria-label="Text input with segmented dropdown button" placeholder="Search" name="search2" id="search2">
                     
-                    <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                    <button  class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false" type="button">
                       All<span class="visually-hidden">Toggle Dropdown</span>
                     </button>
+                   
                     <ul class="dropdown-menu dropdown-menu-end">
                       <li><a class="dropdown-item" href="#">All</a></li>
                       <li><a class="dropdown-item" href="#">Consumer</a></li>
@@ -30,8 +32,11 @@
                       <li><a class="dropdown-item" href="#">Care Notes</a></li>
                       <li><a class="dropdown-item" href="#">Natural Products</a></li>
                     </ul>
-                    <button class="btn btn-outline-success" type="submit" style="background-color: rgb(40, 93, 185); color: white;"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <button name="submit-search" class="btn btn-outline-success" type="submit" style="background-color: rgb(40, 93, 185); color: white;"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <a class="nav-link ms-3 me-1 px-1" href="./register.php" style="color: blue; font-size: 11pt;">Register</a>
+                    <a class="nav-link ms-3 me-1 px-1" href="./login.php" id="nav1" style="background-color: white; border-radius: 5px; width: 80px; text-align: center; border: .5px solid black;">Sign In</a>  
                   </div>
+                  </form>
                     
                    <div class="cari"> Browse all medications: 
                     <a href="#">A</a>
