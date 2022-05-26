@@ -77,6 +77,7 @@ function tambah($data) {
     return mysqli_affected_rows($conn);
 }
 
+
 function cari($keyword) {
     $query = "SELECT * FROM drugs 
                 WHERE
@@ -84,4 +85,55 @@ function cari($keyword) {
             ";
     return query($query);
 }
+
+
+function hapus($detail_id) {
+    global $conn;
+    $user_id = $_SESSION['user_id'];
+    $query = mysqli_query($conn, "SELECT medlist.medlist_id FROM medlist WHERE medlist.user_id = '$user_id'");
+    $query2= mysqli_fetch_array($query);
+
+    $condition = $_POST['condition'];
+    $allergy = $_POST['allergy'];
+    $medlist_id = $query2['medlist_id'];
+    $drug_id = $_POST['drug_id'];
+
+    $sql = "DELETE FROM medlist_details WHERE detail_id = $detail_id";
+               
+    if($conn->query($sql)===TRUE){
+        echo "<br><p class='alert alert-success text-center'><b>Data has been successfully Deleted.</b></p>";
+    } else {
+        echo "Terjadi kesalahan:".$sql."<br/>".$conn->error;
+    }             
+    
+
+    return mysqli_affected_rows($conn);
+}
+
+function update($data) {
+    global $conn;
+    $user_id = $_SESSION['user_id'];
+    $detail_id = $data["detail_id"];
+    $query = mysqli_query($conn, "SELECT medlist.medlist_id FROM medlist WHERE medlist.user_id = '$user_id'");
+    $query2= mysqli_fetch_array($query);
+
+    $condition = $_POST['condition'];
+    $allergy = $_POST['allergy'];
+    $medlist_id = $query2['medlist_id'];
+     $drug_id = $_POST['drug_id'];
+
+    $sql = "UPDATE medlist_details SET
+            condition = $condition
+            allergy = $allergy
+            medlist_id = $medlist_id
+            drug_id = $drug_id
+        WHERE detail_id = $detail_id
+    ";
+    if($conn->query($sql)===TRUE){
+                                            echo "<br><p class='alert alert-success text-center'><b>Data has been successfully added.</b></p>";
+                                        } else {
+                                            echo "Terjadi kesalahan:".$sql."<br/>".$conn->error;
+                                        }             
+}
 ?>
+
