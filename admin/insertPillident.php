@@ -78,6 +78,13 @@ require_once './layout/navbar.php';
                                                             name="pill_imprint">
                                                     </div>
                                                     <div class="col-md-4">
+                                                        <label>Strength</label>
+                                                    </div>
+                                                    <div class="col-md-8 form-group">
+                                                        <input type="text" id="strength" class="form-control"
+                                                            name="strength">
+                                                    </div>
+                                                    <div class="col-md-4">
                                                         <label>Color</label>
                                                     </div>
                                                     <div class="col-md-8 form-group">
@@ -106,17 +113,24 @@ require_once './layout/navbar.php';
                                                             name="url">
                                                     </div>
                                                     <div class="col-md-4">
-                                                        <label>Drug ID</label>
+                                                        <label>Drug Name</label>
                                                     </div>
                                                     <div class="col-md-8 form-group">
-                                                        <input type="number" id="drug_id" class="form-control"
-                                                            name="drug_id">
+                                                        <select name="drug_id" class="form-select" id="basicSelect">
+                                                            <?php
+                                                                include 'includes/koneksi.php';
+                                                                $hasil = mysqli_query($koneksi, "SELECT * FROM pill_identifier JOIN drugs ON pill_identifier.drug_id = drugs.drug_id");
+                                                                foreach($hasil as $row) {
+                                                            ?>
+                                                            <option value="<?=$row['drug_id']?>"><?=$row['drug_name'];?></option>
+                                                            <?php } ?>
+                                                        </select>
                                                     </div>
                                                     <div class="col-sm-12 d-flex justify-content-end">
                                                         <button type="submit" name="btnAdd"
                                                             class="btn btn-primary me-1 mb-1">Save</button>
                                                         <button type="reset"
-                                                            class="btn btn-light-secondary me-1 mb-1"><a href="treatment.php">Back</a></button>
+                                                            class="btn btn-light-secondary me-1 mb-1"><a href="pillident.php">Back</a></button>
                                                     </div>
                                                 </div>
                                             </div>

@@ -54,7 +54,7 @@ if(empty($_SESSION['level'])) {
             <div class="container mt-lg-5">
                 <div class="row">
                     <div class="col">
-                        <h1><b>Drugs: 
+                        <h1><b>Treatments: 
                             <?php
                                 if(isset($_POST['A'])){
                                     echo 'A';
@@ -111,7 +111,7 @@ if(empty($_SESSION['level'])) {
                                 }
                             ?>
                         </b></h1>
-                        <p>List of drugs and medications that start with the letter '<?php
+                        <p>List of treatments that start with the letter '<?php
                                 if(isset($_POST['A'])){
                                     echo 'A';
                                 } else if(isset($_POST['B'])){
@@ -221,8 +221,8 @@ if(empty($_SESSION['level'])) {
                                 } else if(isset($_POST['Z'])){
                                     echo 'Z';
                                 }
-                            ?>' Drugs</b></h3>
-                            <p>20 of the most common medications starting with '<?php
+                            ?>' Treatments</b></h3>
+                            <p>Most common treatments starting with '<?php
                                 if(isset($_POST['A'])){
                                     echo 'A';
                                 } else if(isset($_POST['B'])){
@@ -548,40 +548,6 @@ if(empty($_SESSION['level'])) {
                         </div>
                     </div>
                     <div class="col-4">
-                        <div class="card" style="width: 20rem; background-color: #f7f7f7;">
-                            <div class="card-body">
-                                <h6>Subscribe to our newsletters</h6>
-                                  <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        FDA Safety Alerts
-                                    </label>
-                                  </div>
-                                  <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckChecked">
-                                        Daily MedNews
-                                    </label>
-                                  </div>
-                                  <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckChecked">
-                                        Monthly Newsletter
-                                    </label>
-                                  </div>
-                                  <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckChecked">
-                                        I accept the Terms and Privacy Policy
-                                    </label>
-                                  </div>
-                                  <div class="input-group mb-3">
-                                    <input type="text" class="form-control" placeholder="Email address" aria-label="Email address" aria-describedby="button-addon2" style="width:5cm;">
-                                    <button class="btn btn-outline-secondary" type="button" id="button-addon2" style="background-color: rgb(40, 93, 185); color: white;">Subscribe</button>
-                                  </div>
-                                  
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>

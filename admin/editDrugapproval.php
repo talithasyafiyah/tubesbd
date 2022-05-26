@@ -3,6 +3,7 @@ session_start();
    if(empty($_SESSION['level'] == "Admin")) {
       echo "<script>alert('Sorry, you are not allowed to access this page.'); document.location='./../homepage/login.php'</script>";
    }
+$approval_id = $_POST['approval_id'];
 require_once 'includes/koneksi.php';
 $page = "Drug Approval";
 /* $username = $_SESSION['username']; */
@@ -69,24 +70,22 @@ require_once './layout/navbar.php';
                                     <div class="card-body">
                                         <?php
                                         require_once 'includes/koneksi.php';
-                                        $approval_id = $_POST['approval_id'];
-                                        $query = "SELECT * FROM drug_approval JOIN treatment ON drug_approval.approval_id = treatment.treatment_id WHERE approval_id='$approval_id'";
+                                        $query = "SELECT * FROM drug_approval JOIN treatment ON drug_approval.treatment_id = treatment.treatment_id WHERE approval_id='$approval_id'";
                                         $hasil = mysqli_query($koneksi, $query);
                                         foreach ($hasil as $data){
                                         ?>
 
                                         <?php
                                             if(isset($_POST['btnUbah'])) {
-                                                $no = $_POST['approval_id'];
                                                 $drug = $_POST['new_drug'];
                                                 $company = $_POST['company'];
                                                 $date = $_POST['date_approval'];
                                                 $content = $_POST['content'];
-                                                $treatment = $_POST['treatment_id'];
                                                 
                                                 if ($koneksi) {
-                                                    $sql = "UPDATE drug_approval SET new_drug='$drug', company='$company', date_approval='$date', content='$content', treatment_id='$treatment' WHERE approval_id=$no";
+                                                    $sql = "UPDATE drug_approval SET new_drug='$drug', company='$company', date_approval='$date', content='$content' WHERE approval_id='$approval_id'";
                                                     $row = mysqli_query($koneksi,$sql);
+                                                    echo "<script>setTimeout(\"location.href = 'drugApproval.php';\",1500);</script>";
                                                     echo "<br><p class='alert alert-primary text-center'><b>Data has been updated.</p>";
                                                 } else {
                                                     echo "<p class='alert alert-danger text-center'><b>Terjadi kesalahan:$error</b></p>";
@@ -130,7 +129,7 @@ require_once './layout/navbar.php';
                                                     </div>
                                                     <div class="col-md-8 form-group">
                                                         <input value="<?php echo $data['treatment_name']; ?>" type="text" id="content" class="form-control"
-                                                            name="content">
+                                                            name="treatment_name">
                                                     </div>
                                                     <div class="col-sm-12 d-flex justify-content-end">
                                                         <button type="submit" name="btnUbah"

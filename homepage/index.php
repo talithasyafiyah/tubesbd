@@ -81,7 +81,7 @@ $query2= mysqli_fetch_array($query);
     <section>
         <div class="container-fluid shadow p-3 mb-5 bg-body rounded">
             <div class="container">
-                <div class="row mt-2">
+                <div class="row mt-2 mb-2">
                     <div class="owl-carousel owl-theme">
                         <!-- item -->
                         <div class="item">
@@ -102,14 +102,6 @@ $query2= mysqli_fetch_array($query);
                         <!-- item -->
                         <div class="item">
                             <div class="card border-0" style="width: 110px;">
-                                <a href="#"><img src="https://www.drugs.com/img/home/side-effects.png" alt="image" class="card-img-top"></a>
-                                <span style="font-size: 13pt; font-weight: 550;" class="text-center mt-3">Side<br>Effects</span> 
-                            </div>
-                        </div>
-                        <!-- end item -->
-                        <!-- item -->
-                        <div class="item">
-                            <div class="card border-0" style="width: 110px;">
                                 <a href="treatment.php"><img src="https://www.drugs.com/img/home/treatment-guides.png" alt="image" class="card-img-top"></a>
                                 <span style="font-size: 13pt; font-weight: 550;" class="text-center mt-3"><a href="treatment.php" style="color: black; text-decoration: none;">Treatment<br>Guides</span></a>
                             </div>
@@ -120,14 +112,6 @@ $query2= mysqli_fetch_array($query);
                             <div class="card border-0" style="width: 110px;">
                                 <img src="https://www.drugs.com/img/home/my-med-list.png" alt="image" class="card-img-top">
                                 <span style="font-size: 13pt; font-weight: 550;" class="text-center mt-3">My <br>Med List</span> 
-                            </div>
-                        </div>
-                        <!-- end item -->
-                        <!-- item -->
-                        <div class="item">
-                            <div class="card border-0" style="width: 110px;">
-                                <img src="https://www.drugs.com/img/home/discount-card.png" alt="image" class="card-img-top">
-                                    <span style="font-size: 13pt; font-weight: 550;" class="text-center mt-3">Discount<br>Card</span> 
                             </div>
                         </div>
                         <!-- end item -->
@@ -151,7 +135,7 @@ $query2= mysqli_fetch_array($query);
                         </div>
                     </div>
                 </div>
-                <div class="row mt-3">
+                <div class="row mt-3 mb-5">
                     <form action="alpha.php" method="POST">
                         <ul id="alphabet">
                             <li><button type="submit" name="A" class="btn btn-outline-dark">A</button></li>
@@ -191,18 +175,14 @@ $query2= mysqli_fetch_array($query);
                 <button type="button" class="btn btn-dark btn-lg">Browse by Site Section</button>
                 <div class="row mt-4 mb-5">
                     <div class="col">
-                        <p>Drugs A-Z</p>
-                        <p>Side Effects Checker</p>
-                        <p>Dosage Guidelines</p>
-                        <p>Manage your Meds</p>
-                        <p>Mobile Apps</p>
+                        <a href="drugsaz1.php" style="text-decoration: none;"><p>Drugs A-Z</p></a>
+                        <a href="" style="text-decoration: none;"><p>Manage your Meds</p></a>
+                        <a href="" style="text-decoration: none;"><p>Mobile Apps</p></a>
                     </div>
                     <div class="col">
-                        <p>Health Professionals</p>
-                        <p>Medical News</p>
-                        <p>FDA Alerts</p>
-                        <p>New Drugs</p>
-                        <p>More</p>
+                        <a href="" style="text-decoration: none;"><p>Health Professionals</p></a>
+                        <a href="newsandalerts.php" style="text-decoration: none;"><p>Medical News</p></a>
+                        <a href="new_drugs.php" style="text-decoration: none;"><p>New Drugs</p></a>
                     </div>
                 </div>
             </div>
@@ -252,25 +232,14 @@ $query2= mysqli_fetch_array($query);
                <h4><b>Drug Information</b></h3>
                 <div class="row">
                     <div class="col">
-                        <p>A-Z Drug List</p>
-                        <p>Treatment Options</p>
-                        <p>Drugs by Class</p>
-                        <p>Dosage</p>
-                        <p>Side Effects</p>
-                        <p>Medical Q & A</p>
-                        <p>Generic Drugs</p>
-                        <p>Harvard Health GUide</p>
-                        <p>Mayo Clinic Disease Reference</p>
+                        <a href="drugsaz1.php" style="text-decoration: none;"><p>A-Z Drug List</p></a>
+                        <a href="treatment.php" style="text-decoration: none;"><p>Treatment Options</p></a>
+                        <a href="drugsaz1.php" style="text-decoration: none;"><p>Drugs by Class</p></a>
                     </div>
                     <div class="col">
-                        <p>Phoenic Search</p>
-                        <p>Pregnancy Warnings</p>
-                        <p>OTC Database</p>
-                        <p>Inactive Ingredients</p>
-                        <p>Veterinary Drugs</p>
-                        <p>International Drugs</p>
-                        <p>Info en Espanol</p>
-                        <p>Pricing & Coupon Guide</p>
+                        <a href="new_drugs.php" style="text-decoration: none;"><p>New Drugs</p></a>
+                        <a href="newsandalerts.php" style="text-decoration: none;"><p>News</p></a>
+                        <a href="drugsaz1.php" style="text-decoration: none;"><p>Dosage</p></a>
                     </div>
                 </div>
             </div>

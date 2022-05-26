@@ -83,42 +83,6 @@ if(empty($_SESSION['level'])) {
             </div>
         </div>
 
-        <div class="col-md-4 py-5">
-            <div class="alert alert-secondary" role="alert">
-                <h4>Subscribe to our newsletters</h4>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                    FDA Safety Alerts
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                    Daily MedNews
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                    Monthly Newsletter
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                    I accept the Terms and Privacy Policy
-                </label>
-              </div>
-              <div class="form">
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Email Address" aria-label="Email address" aria-describedby="button-addon2">
-                    <button class="btn btn-primary" type="button" id="button-addon2">Subscribe</button>
-                  </div>
-
-              </div>
-            </div>
-        </div>
         </div>
     </div>
 <?php

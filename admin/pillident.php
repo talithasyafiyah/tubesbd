@@ -65,6 +65,7 @@ require_once 'layout/navbar.php';
                                     <tr>
                                         <th>No</th>
                                         <th>Pill Imprint</th>
+                                        <th>Strength</th>
                                         <th>Color</th>
                                         <th>Shape</th>
                                         <th></th>
@@ -79,8 +80,10 @@ require_once 'layout/navbar.php';
                                         echo"<tr>
                                                 <td>$no</td>
                                                 <td>".$row['pill_imprint']."</td>
+                                                <td>".$row['strength']."</td>
                                                 <td>".$row['color']."</td>
                                                 <td>".$row['shape']."</td>
+                                                
                                                 <td>
                                                     <form method='POST' action='editPillidentifier.php'>
                                                         <input hidden type='text' name='identifier_id' value=".$row['identifier_id'].">

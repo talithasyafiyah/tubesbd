@@ -63,23 +63,23 @@ require_once 'layout/navbar.php';
                                     <tr>
                                         <th>No</th>
                                         <th>Profile Name</th>
-                                        <th>Drugs</th>
                                         <th>Condition</th>
                                         <th>Allergy</th>
+                                        <th>Drug Used</th>
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $query = mysqli_query($koneksi, "SELECT medlist_details.drugs, medlist_details.condition, medlist_details.detail_id, medlist_details.allergy, medlist.profile_name FROM medlist_details JOIN medlist on medlist_details.medlist_id = medlist.medlist_id");
+                                    $query = mysqli_query($koneksi, "SELECT medlist_details.condition, medlist_details.detail_id, medlist_details.allergy, medlist.profile_name, drugs.drug_name FROM medlist_details JOIN medlist on medlist_details.medlist_id = medlist.medlist_id JOIN drugs ON medlist_details.drug_id = drugs.drug_id");
                                     $no = 1;
                                     foreach ($query as $row) {
                                         echo"<tr>
                                                 <td>$no</td>
                                                 <td>".$row['profile_name']."</td>
-                                                <td>".$row['drugs']."</td>
                                                 <td>".$row['condition']."</td>
                                                 <td>".$row['allergy']."</td>
+                                                <td>".$row['drug_name']."</td>
 
                                                 <td>
                                                     <form onsubmit=\"return confirm ('Are you sure want to delete ".$row['profile_name']."’s data?');\"method='POST';>

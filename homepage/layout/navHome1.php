@@ -15,10 +15,9 @@
             <div class="navbar-nav ms-auto">
                 <a class="nav-link px-2" href="./drugsaz1.php" id="nav">Drugs A-Z</a>
                 <a class="nav-link ms-3 me-1 px-1" href="./imprint.php" id="nav">Pill Identifier</a>
-                <a class="nav-link ms-3 me-1 px-1" href="#" id="nav">Interactions Checker</a>
+                <a class="nav-link ms-3 me-1 px-1" href="./treatment.php" id="nav">Treatment Guides</a>
                 <a class="nav-link ms-3 me-1 px-1" href="./new_drugs.php" id="nav">New Drugs</a>
-                <a class="nav-link ms-3 me-1 px-1" href="#" id="nav">Pro Edition</a>
-                <a class="nav-link ms-3 me-1 px-1" href="#" id="nav">More</a>
+                <a class="nav-link ms-3 me-1 px-1" href="./newsandalerts.php" id="nav">News & Alerts</a>
                 <div class="dropdown">
                 <a class="btn dropdown-toggle ms-3 me-1 px-2 bg-light" style="border: 0.5px solid black;" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                     <?=$_SESSION['username']; ?>
@@ -58,14 +57,14 @@
             <div class="row mt-3">
                 <form action="ResultDrug.php" method="POST">
                 <div class="box mx-auto shadow-lg">
-                    <input type="text" name="search" id="search"  style="background-color: rgb(40, 93, 185, 0); border: none;" placeholder="Enter a drug name, condition, pill imprint, etc.">
+                    <input type="text" name="search" id="search"  style="background-color: rgb(40, 93, 185, 0); border: none;" placeholder="Enter a drug name.">
                     <button type="submit" name="submit-search" style="background-color: rgb(40, 93, 185, 0); color: rgb(82, 82, 82); border: none;"><i class="fa-solid fa-magnifying-glass"></i></button>
                     </form>
                 </div>
                 </form>
             </div>
             <div class="row">
-                <p class="text-center mt-4" style="font-size: 11pt;">Trending searches: amlodipine, gabapentin, aspirin, lisinopril, prednisone</p>
+                <p class="text-center mt-4" style="font-size: 11pt;">Trending searches: abifily, gabapentin, caplyta, kadcyla, plavix</p>
             </div>
         </div>
     </div>

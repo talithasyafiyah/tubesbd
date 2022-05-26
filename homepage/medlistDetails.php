@@ -90,15 +90,6 @@ session_start();
             <tr>
                 <td style="width: 30%;"><a href="../notes/notes.html"><i class="fa-solid fa-clipboard"></i> Notes</a></td>
             </tr>
-
-        
-        
-
-        
-        
-
-            
-            
         
             </table>
     </div>
